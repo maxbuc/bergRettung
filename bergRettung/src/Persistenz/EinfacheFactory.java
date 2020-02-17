@@ -1,14 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Persistenz;
 
-/**
- *
- * @author z0040sab
- */
+
 public class EinfacheFactory {
     
+    public static IPersonalMapper createPersonalMapper(){
+        return new PersonalJavaDBMapper();
+    }
+    
+        public static IPatientMapper createPatientMapper(){
+        return new PatientJavaDBMapper();
+    }
+    
+            public static IEquipmentMapper createEquipmentMapper(){
+        return new EquipmentJavaDBMapper();
+    }
+            
+//    public static IEinsatzMapper createEinsatzMapper(){
+//        return new EinsatzJavaDBMapper();
+//    }
 }
