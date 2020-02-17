@@ -1,0 +1,31 @@
+Mon Feb 17 11:01:35 CET 2020 : Apache Derby Network Server 10.10.2.0 - (1582446) wurde gestartet und ist bereit, Verbindungen auf Port 1527 zu akzeptieren.
+----------------------------------------------------------------
+Mon Feb 17 11:02:03 CET 2020:
+Booten von Derby-Version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): Instanz a816c00e-0170-5298-91de-00003fea30d6
+für Datenbankverzeichnis D:\eigene_Dateien\git\bergRettung\Database\DataBergrettung mit Class Loader sun.misc.Launcher$AppClassLoader@1d44bcfa
+Geladen aus file:/C:/Program%20Files/glassfish-4.1.1/javadb/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_201-b09
+user.dir=C:\Program Files\glassfish-4.1.1\javadb
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=D:\eigene_Dateien\git\bergRettung\Database
+Datenbank-Class Loader wurde gestartet - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Feb 17 11:02:05 CET 2020:
+Instanz a816c00e-0170-5298-91de-00003fea30d6 im Datenbankverzeichnis D:\eigene_Dateien\git\bergRettung\Database\DataBergrettung mit Class Loader sun.misc.Launcher$AppClassLoader@1d44bcfa wird heruntergefahren
+Mon Feb 17 11:02:05 CET 2020 Thread[DRDAConnThread_2,5,main] (DATABASE = DataBergrettung), (DRDAID = {2}), Datenbank 'DataBergrettung' wird heruntergefahren.
+----------------------------------------------------------------
+Mon Feb 17 11:02:10 CET 2020:
+Booten von Derby-Version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): Instanz 560740aa-0170-5298-91de-00003fea30d6
+für Datenbankverzeichnis D:\eigene_Dateien\git\bergRettung\Database\DataBergrettung mit Class Loader sun.misc.Launcher$AppClassLoader@1d44bcfa
+Geladen aus file:/C:/Program%20Files/glassfish-4.1.1/javadb/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_201-b09
+user.dir=C:\Program Files\glassfish-4.1.1\javadb
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=D:\eigene_Dateien\git\bergRettung\Database
+Datenbank-Class Loader wurde gestartet - derby.database.classpath=''
