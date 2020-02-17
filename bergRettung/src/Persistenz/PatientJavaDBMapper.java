@@ -13,7 +13,7 @@ import bergrettung.Patient;
 
 public class PatientJavaDBMapper implements IPatientMapper{
     private Integer anz;
-    private final int size=4; //Konstante
+    private final int size=4; 
     private final ConnectionPool pool=ConnectionPool.getSinglePool(size);
     
     @Override
@@ -25,7 +25,7 @@ public class PatientJavaDBMapper implements IPatientMapper{
             insert.setInt(1, p.getId());
             insert.setString(2, p.getVorname());
             insert.setString(3,p.getNachname());
-            anz = insert.executeUpdate(); //insert, delete, update in sql             
+            anz = insert.executeUpdate();         
             conn.commit();
         } catch (SQLException ex) {
             Logger.getLogger(PatientJavaDBMapper.class.getName()).log(Level.SEVERE, null, ex);

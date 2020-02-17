@@ -12,6 +12,7 @@ public class PatientVerwaltung {
      public void insertPatient(Patient p){
         mapper.insertPatient(p);
     }   
+     
     public Patient readPatient(int id){
         return mapper.readPatient(id);
     } 
@@ -19,6 +20,7 @@ public class PatientVerwaltung {
     public void deletePatient(int id){
         mapper.deletePatient(id);
     }
+    
     public PatientVerwaltung(){
         this.patient=patient;
     }

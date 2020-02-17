@@ -8,11 +8,11 @@ public class EinfacheFactory {
         return new PersonalJavaDBMapper();
     }
     
-        public static IPatientMapper createPatientMapper(){
+    public static IPatientMapper createPatientMapper(){
         return new PatientJavaDBMapper();
     }
     
-            public static IEquipmentMapper createEquipmentMapper(){
+    public static IEquipmentMapper createEquipmentMapper(){
         return new EquipmentJavaDBMapper();
     }
             
