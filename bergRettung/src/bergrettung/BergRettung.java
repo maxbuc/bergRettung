@@ -7,7 +7,7 @@ package bergrettung;
 
 /**
  *
- * @author Maximilian
+ * @author Maximilian NÖ
  */
 public class BergRettung {
 
