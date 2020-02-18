@@ -15,7 +15,7 @@ public class EquipmentVerwaltung {
     
     private final IEquipmentMapper mapper = EinfacheFactory.createEquipmentMapper();//(Die Klasse (Klasse kann man nur statische Instanzen schicken) EinfacheFactory hat eine Methode createPersonMapper)
     //private EquipmentView view;
-    private Equipment person;
+    private Equipment equipment;
     
     public void insertEquipment(Equipment e){ 
         mapper.insertEquipment(e);

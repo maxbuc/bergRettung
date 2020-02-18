@@ -13,11 +13,8 @@ public class PatientView extends JFrame{
         init();
     }
     
-    
-    
     public void init(){
         this.setLayout(new FlowLayout());
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocation(400,200);
         this.setSize(850,200);
         this.setVisible(true);
