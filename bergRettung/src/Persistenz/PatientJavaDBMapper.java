@@ -45,6 +45,7 @@ public class PatientJavaDBMapper implements IPatientMapper{
             PreparedStatement update = conn.prepareStatement("update patient set vorname=?, nachname=? where id=?");
             update.setString(1, p.getVorname());
             update.setString(2, p.getNachname());
+            update.setInt(3,p.getId());
             anz = update.executeUpdate();
             conn.commit();
         } catch (SQLException ex) {
@@ -72,17 +73,18 @@ public class PatientJavaDBMapper implements IPatientMapper{
         Connection conn = pool.getConn();
         Patient p;
         try {
-            PreparedStatement select = conn.prepareStatement("select vorname, nachname from patient where id =?");
+            PreparedStatement select = conn.prepareStatement("select * from patient where id =?");
             select.setInt(1,id);
             ResultSet rs = select.executeQuery();
-            p = new Patient(rs.getInt(1),rs.getString(2), rs.getString(3));
-            pool.releaseConn(conn);
-            return p;
+            if(rs.next()){
+                p = new Patient(rs.getInt(1),rs.getString(2), rs.getString(3));
+                return p;
+            }            
         } catch (SQLException ex) {
             Logger.getLogger(PatientJavaDBMapper.class.getName()).log(Level.SEVERE, null, ex);
-            pool.releaseConn(conn);
-            return null;
         }
+        pool.releaseConn(conn);
+        return null;
     }
     
     @Override

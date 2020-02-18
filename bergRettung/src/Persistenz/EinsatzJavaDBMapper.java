@@ -47,6 +47,7 @@ public class EinsatzJavaDBMapper implements IEinsatzMapper{
             update.setString(1, e.getDatum());
             update.setString(2, e.getOrt());
             update.setString(3, e.getStichwort());
+            update.setInt(4,e.getId());
             anz = update.executeUpdate();
             conn.commit();
         } catch (SQLException ex) {
@@ -74,17 +75,17 @@ public class EinsatzJavaDBMapper implements IEinsatzMapper{
         Connection conn = pool.getConn();
         Einsatz e;
         try {
-            PreparedStatement select = conn.prepareStatement("select datum,ort,stichwort from einsatz where id =?");
+            PreparedStatement select = conn.prepareStatement("select * from einsatz where id =?");
             select.setInt(1,id);
             ResultSet rs = select.executeQuery();
+            if(rs.next()){
             e = new Einsatz(rs.getInt(1),rs.getString(2), rs.getString(3),rs.getString(4));
-            pool.releaseConn(conn);
-            return e;
+            return e;}
         } catch (SQLException ex) {
             Logger.getLogger(EinsatzJavaDBMapper.class.getName()).log(Level.SEVERE, null, ex);
-            pool.releaseConn(conn);
-            return null;
         }
+        pool.releaseConn(conn);
+        return null;
     }
     
     @Override

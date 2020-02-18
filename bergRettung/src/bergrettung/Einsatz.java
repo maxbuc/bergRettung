@@ -48,7 +48,7 @@ public class Einsatz {
 
     @Override
     public String toString() {
-        return "Einsatz{" + "id=" + id + ", datum=" + datum + ", ort=" + ort + ", stichwort=" + stichwort + '}';
+        return "Einsatz{" + "id=" + id + ", datum=" + datum + ", ort=" + ort + ", stichwort=" + stichwort + '}'+'\n';
     }
     
     
