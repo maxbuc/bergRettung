@@ -109,7 +109,13 @@ public class EinsatzJavaDBMapper implements IEinsatzMapper {
                             + "from einsatz ein, equipment equ, patient pat, personal pers, einsatz_equipment ee, einsatz_patient epat, einsatz_personal epers"
                             + "where ein.id = ee.eid AND equ.id = ee.eqid"
                             + "AND ein.id = epat.eid AND epat.paid = pat.id"
-                            + "AND ein.id = epers.eid AND epers.pid = pers.id");
+                            + "AND ein.id = epers.eid AND epers.pid = pers.id"
+                            + "AND ein.id = ?");
+            select.setInt(1, id);
+            ResultSet result = select.executeQuery();
+            if(result.next()){
+                //erstelle Einsatz aus SQL Abfrage
+            }
             
         } catch (SQLException ex) {
             Logger.getLogger(EinsatzJavaDBMapper.class.getName()).log(Level.SEVERE, null, ex);
