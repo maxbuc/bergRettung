@@ -43,6 +43,8 @@ public class BergRettung {
         
         e1.addPersonal(p1);
         e1.addPersonal(p2);
+        e2.addPersonal(p1);
+        e2.addPersonal(p2);
         
         einVerw.insertEinsatz(e1);
         einVerw.insertEinsatz(e2);
