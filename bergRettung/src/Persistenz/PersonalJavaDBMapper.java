@@ -50,12 +50,12 @@ public class PersonalJavaDBMapper implements IPersonalMapper {
         Connection conn = pool.getConn();
         try {
             PreparedStatement update = conn.prepareStatement("update personal set vorname = ?, nachname = ?, qual = ? where id = ?");
-            
+
             update.setString(1, p.getVorname());
             update.setString(2, p.getNachname());
             update.setString(3, p.getQualifikation());
             update.setInt(4, p.getId());
-            
+
             int anz = update.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(PersonalJavaDBMapper.class.getName()).log(Level.SEVERE, null, ex);
@@ -73,9 +73,7 @@ public class PersonalJavaDBMapper implements IPersonalMapper {
             ResultSet result = readAll.executeQuery();
 
             while (result.next()) {
-
-                //p = personFromDB(result);
-                p = new Personal(result.getInt(1), result.getString(2), result.getString(3));
+                p = newPersonFromDB(result);
                 all.add(p);
 
             }
@@ -89,20 +87,6 @@ public class PersonalJavaDBMapper implements IPersonalMapper {
 
     }
 
-    private Personal personFromDB(ResultSet result) throws SQLException {
-        Personal p;
-        if (result.getString(5) == null) {
-            if (result.getString(4) == null) {
-                p = new Personal(result.getInt(1), result.getString(2), result.getString(3));
-            } else {
-                p = new Personal(result.getInt(1), result.getString(2), result.getString(3), result.getString(4));
-            }
-        } else {
-            p = new Personal(result.getInt(1), result.getString(2), result.getString(3), result.getString(4), result.getString(5));
-        }
-        return p;
-    }
-
     @Override
     public Personal read(int id) {
         Connection conn = pool.getConn();
@@ -111,24 +95,11 @@ public class PersonalJavaDBMapper implements IPersonalMapper {
             PreparedStatement read = conn.prepareStatement("select * from personal where id = ?");
             read.setInt(1, id);
             ResultSet result = read.executeQuery();
-            if(result.next()){
-                 p = new Personal(id, result.getString(2), result.getString(3));
-                 System.out.println(p.toString());
-                 return p;
+            if (result.next()) {
+
+                p = newPersonFromDB(result);
+                return p;
             }
-           
-            
-            
-            
-//            if (result.getString(5) == null) {
-//                if (result.getString(4) == null) {
-//                    return new Personal(result.getInt(1), result.getString(2), result.getString(3));
-//                } else {
-//                    return new Personal(result.getInt(1), result.getString(2), result.getString(3), result.getString(4));
-//                }
-//            } else {
-//                return new Personal(result.getInt(1), result.getString(2), result.getString(3), result.getString(4), result.getString(5));
-//            }
 
         } catch (SQLException ex) {
             Logger.getLogger(PersonalJavaDBMapper.class.getName()).log(Level.SEVERE, null, ex);
@@ -138,7 +109,18 @@ public class PersonalJavaDBMapper implements IPersonalMapper {
         return null;
 
     }
-    
-    
+
+    private Personal newPersonFromDB(ResultSet result) throws SQLException {
+        Personal p;
+        p = new Personal(result.getInt(1), result.getString(2), result.getString(3));
+        if (result.getString(4) != null) {
+            p.setGebdat(result.getString(4));
+        }
+        if (result.getString(5) != null) {
+            p.setQualifikation(result.getString(5));
+        }
+
+        return p;
+    }
 
 }
