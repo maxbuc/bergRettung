@@ -22,18 +22,16 @@ public class EquipmentJavaDBMapper implements IEquipmentMapper {
     private final int size = 4;//Konstante final
     private ConnectionPool pool = ConnectionPool.getSinglePool(size);
     private Integer anz;
-    private List<String>//was hier?? alleHobbies;
+    
     
     public void insertEquipment(Equipment e){
         Connection conn = pool.getConn();
         //alleHobbies = p.getHobbies();
         try {
             conn.setAutoCommit(false);
-            PreparedStatement insert = conn.prepareStatement("insert into equipment (id) values (?,?)");
-            insert.setString(1, e.getEqid());
-            anz = insert.executeUpdate(); //insert, delete, update in sql
-            //PreparedStatement insertH = conn.prepareStatement("insert into hobbies (pid,hobby) values (?,?)");
-            //insertH.setString(1, p.getId());
+            PreparedStatement insert = conn.prepareStatement("insert into equipment (id) values (?)");
+            insert.setInt(1, e.getEqid());
+            anz = insert.executeUpdate();
              
             conn.commit();
         } catch (SQLException ex) {
@@ -52,20 +50,10 @@ public class EquipmentJavaDBMapper implements IEquipmentMapper {
         Connection conn = pool.getConn();
         //alleHobbies = p.getHobbies();
         try {
-            PreparedStatement update = conn.prepareStatement("update personen set name=? where id=?");
+            PreparedStatement update = conn.prepareStatement("update equipment set bezeichnung=? where id=?");
             update.setString(1, e.getBezeichnung());
-            update.setString(2, e.getEqid());
-            anz = update.executeUpdate();
-            PreparedStatement updateH1 = conn.prepareStatement("delete from hobbies where pid=?");
-            updateH1.setString(1,e.getEqid());
-            updateH1.executeUpdate();
-            PreparedStatement updateH2 = conn.prepareStatement("insert into hobbies (pid,hobby) values (?,?)");
-            updateH2.setString(1,e.getId());
-            for(int i=0; i<alleHobbies.size();i++){
-                String h = alleHobbies.get(i);
-                updateH2.setString(2,h);
-                updateH2.executeUpdate();
-            }    
+            update.setInt(2, e.getEqid());
+            anz = update.executeUpdate();   
         } catch (SQLException ex) {
             Logger.getLogger(EquipmentJavaDBMapper.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -75,38 +63,22 @@ public class EquipmentJavaDBMapper implements IEquipmentMapper {
     public void deleteEquipment(int eqid){
         Connection conn = pool.getConn();
         try {
-            PreparedStatement delete = conn.prepareStatement("delete from personen where id=?");
-            delete.setString(1,eqid);
+            PreparedStatement delete = conn.prepareStatement("delete from equipment where id=?");
+            delete.setInt(1,eqid);
             int anz = delete.executeUpdate();
-            PreparedStatement deleteH = conn.prepareStatement("delete from hobbies where pid=?");
-            deleteH.setString(1,eqid);
-            deleteH.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(EquipmentJavaDBMapper.class.getName()).log(Level.SEVERE, null, ex);
         }
         pool.releaseConn(conn);
     }
     
-    public Equipment readEquipment(String id){
+    public Equipment readEquipment(int id){
         Connection conn = pool.getConn();
         Equipment e = null;
         try {
-            alleHobbies = new ArrayList<>();
-            PreparedStatement select = conn.prepareStatement("select name,hobby from personen left outer join hobbies on id=pid where id =?");
-            select.setString(1,id);
+            PreparedStatement select = conn.prepareStatement("select bezeichnung, id from equipment where id =?");
+            select.setInt(1,id);
             ResultSet rs = select.executeQuery();
-            //1. Zeile für Person
-            if(rs.next()){
-                e = new Equipment(rs.getString(1),eqid);
-                alleHobbies.add(rs.getString(2));
-            }
-            //Alle anderen für restliche Hobbies
-            while (rs.next()){
-                alleHobbies.add(rs.getString(2));
-            }
-            if( e!=null){
-                e.setHobbies(alleHobbies);
-            }
             pool.releaseConn(conn);
             return e;
         } catch (SQLException ex) {
@@ -120,10 +92,10 @@ public class EquipmentJavaDBMapper implements IEquipmentMapper {
         Connection conn = pool.getConn();
         List<Equipment> alleEquipment = new ArrayList<>();
         try {
-            PreparedStatement select = conn.prepareStatement("select name,id from personen");
+            PreparedStatement select = conn.prepareStatement("select bezeichnung,id from equipment");
             ResultSet rs = select.executeQuery();
             while (rs.next()){
-                 Equipment e = new Equipment(rs.getString(1),rs.getString(2));
+                 Equipment e = new Equipment(rs.getString(1),rs.getInt(2));
                  alleEquipment.add(e);
             }
             return alleEquipment;
@@ -136,22 +108,20 @@ public class EquipmentJavaDBMapper implements IEquipmentMapper {
     public List<Equipment> readAlles (){
         Connection conn = pool.getConn();
         List<Equipment> alle = new ArrayList();
-        List<String> alleHobbies= null;
         Equipment e =null;
         try {
-            PreparedStatement read=conn.prepareStatement("select name, id, hobby from personen left outer join hobbies on id=pid order by pid");
+            PreparedStatement read=conn.prepareStatement("select bezeichnung, id from equipment order by id");
             ResultSet rs= read.executeQuery();
             String alt="";
             while(rs.next()){
                 if(!alt.equals(rs.getString(1))){
-                    e = new Equipment(rs.getString(1), rs.getString(2));
-                    alleHobbies = new ArrayList<>();
-                    e.setHobbies(alleHobbies);
+                    e = new Equipment(rs.getString(1), rs.getInt(2));
                     alt=rs.getString(1);
                     alle.add(e);
                 }
                 if(rs.getString(3) !=null){
-                    alleHobbies.add(rs.getString(3).trim());
+//                    alleHobbies.add(rs.getString(3).trim());
+                    ;
                 }
         }
             rs.close();
@@ -163,3 +133,4 @@ public class EquipmentJavaDBMapper implements IEquipmentMapper {
             pool.releaseConn(conn);
             return alle;}
     }
+}

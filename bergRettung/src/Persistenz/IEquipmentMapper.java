@@ -11,9 +11,9 @@ import bergrettung.Equipment;
 
 public interface IEquipmentMapper {
     
-    Equipment readEquipment(String id);//statt String -> Integer
+    Equipment readEquipment(int id);//statt String -> Integer
     List<Equipment> readAlles();
     void insertEquipment(Equipment e);
     void updateEquipment(Equipment e);
-    void deleteEquipment(String id);//statt String -> Integer
+    void deleteEquipment(int id);//statt String -> Integer
 }
