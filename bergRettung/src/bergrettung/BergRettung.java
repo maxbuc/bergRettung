@@ -1,21 +1,30 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package bergrettung;
 
-/**
- *
- * @author Maximilian NÖ
- */
 public class BergRettung {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
+        PersonalVerwaltung persVerw = new PersonalVerwaltung();
         
+        setup(persVerw);
+        
+        persVerw.readAll();
+        
+        
+       
+        
+    }
+    
+   
+    
+    //erstellt und fügt alle Objekte in DB
+    public static void setup(PersonalVerwaltung persVerw){
+        
+//       // Personal
+        Personal p1 = new Personal(1, "Fritz", "Huber", "1999-12-20", "Notarzt");
+        Personal p2 = new Personal(2, "Herbert", "Meier");
+        
+        persVerw.insert(p1);
+        persVerw.insert(p2);
     }
     
 }
