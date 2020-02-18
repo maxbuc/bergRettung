@@ -14,7 +14,7 @@ public class BergRettung {
         
 //        System.out.println(persVerw.readAll());
         
-        MainView mainView = new MainView("Programm? - Trivago");
+        MainView mainView = new MainView("Programm? - Trivago", patVerw);
        
         
     }
@@ -25,8 +25,8 @@ public class BergRettung {
     public static void setup(PersonalVerwaltung persVerw, PatientVerwaltung patVerw, EinsatzVerwaltung einVerw, EquipmentVerwaltung equVerw){
         
         //Personal
-//        Personal p1 = new Personal(1, "Fritz", "Huber", "1999-12-20", "Notarzt");
-//        Personal p2 = new Personal(2, "Herbert", "Meier");
+        Personal p1 = new Personal(1, "Fritz", "Huber", "1999-12-20", "Notarzt");
+        Personal p2 = new Personal(2, "Herbert", "Meier");
 //        
 //        persVerw.insert(p1);
 //        persVerw.insert(p2);
@@ -38,10 +38,14 @@ public class BergRettung {
 //        patVerw.insertPatient(pat2);
 
         //Einsätze
-//        Einsatz e1 = new Einsatz(1,"2020-02-18","München","Tod");
-//        Einsatz e2 = new Einsatz(2,"2020-02-09","Bayern","Sabine");
-//        einVerw.insertEinsatz(e1);
-//        einVerw.insertEinsatz(e2);
+        Einsatz e1 = new Einsatz(1,"2020-02-18","München","Tod");
+        Einsatz e2 = new Einsatz(2,"2020-02-09","Bayern","Sabine");
+        
+        e1.addPersonal(p1);
+        e1.addPersonal(p2);
+        
+        einVerw.insertEinsatz(e1);
+        einVerw.insertEinsatz(e2);
 
         //Equipment
 //        Equipment equ1 = new Equipment ("Hubschrauber", 1234);
