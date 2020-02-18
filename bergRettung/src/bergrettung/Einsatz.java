@@ -1,6 +1,7 @@
 
 package bergrettung;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Einsatz {
@@ -17,6 +18,7 @@ public class Einsatz {
         this.datum = datum;
         this.ort = ort;
         this.stichwort = stichwort;
+        this.personal = new ArrayList<>();
     }
 
     public int getId() {
@@ -59,6 +61,7 @@ public class Einsatz {
         this.personal = personal;
     }
     public void addPersonal(Personal p){
+        
         this.personal.add(p);
     }
 

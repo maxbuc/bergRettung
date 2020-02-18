@@ -10,7 +10,7 @@ public class BergRettung {
         EinsatzVerwaltung einVerw = new EinsatzVerwaltung();
         EquipmentVerwaltung equVerw = new EquipmentVerwaltung();
         
-//        setup(persVerw,patVerw, einVerw, equVerw);
+        setup(persVerw,patVerw, einVerw, equVerw);
         
 //        System.out.println(persVerw.readAll());
         

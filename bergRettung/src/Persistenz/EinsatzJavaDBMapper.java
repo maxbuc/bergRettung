@@ -29,6 +29,10 @@ public class EinsatzJavaDBMapper implements IEinsatzMapper {
             insert.setString(4, e.getStichwort());
             anz = insert.executeUpdate();
 
+            if (!e.getPersonal().isEmpty()) {
+                this.addPersonal(e);
+            }
+
             conn.commit();
         } catch (SQLException ex) {
             Logger.getLogger(EinsatzJavaDBMapper.class.getName()).log(Level.SEVERE, null, ex);
@@ -108,13 +112,17 @@ public class EinsatzJavaDBMapper implements IEinsatzMapper {
         }
     }
 
-    public void addPersonal(Einsatz e) {
+    private void addPersonal(Einsatz e) {
         Connection conn = pool.getConn();
         try {
-            PreparedStatement personal = conn.prepareStatement("insert into einsatz");
-            
-            anz = personal.executeUpdate();
-            
+            PreparedStatement personal = conn.prepareStatement("insert into einsatz_personal values(?,?)");
+            for (int i = 0; i < e.getPersonal().size(); i++) {
+                System.out.println("Hallo");
+                personal.setInt(1, e.getPersonal().get(i).getId());
+                personal.setInt(2, e.getId());
+                anz = personal.executeUpdate();
+            }
+
         } catch (SQLException ex) {
             Logger.getLogger(EinsatzJavaDBMapper.class.getName()).log(Level.SEVERE, null, ex);
         }
