@@ -16,15 +16,17 @@ public class MainView extends JFrame{
     private JButton equipment;
     private PatientVerwaltung patVerw;
     
-    public MainView(String titel) {
+    public MainView(String titel, PatientVerwaltung patVerw) {
         super(titel);
+        this.patVerw=patVerw;
         init();
     }
    
     public void init(){
         MyActionListenerPatientView listenerPatientView = new MyActionListenerPatientView(patVerw,this);
         this.setLayout(new FlowLayout());
-        patient = new JButton();
+        patient = new JButton("Patient");
+        patient.addActionListener(listenerPatientView);
         personal = new JButton("Personal");
         einsatz= new JButton("Einsatz");
         equipment = new JButton("Equipment");
