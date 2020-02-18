@@ -111,7 +111,7 @@ public class EinsatzJavaDBMapper implements IEinsatzMapper {
     public void addPersonal(Einsatz e) {
         Connection conn = pool.getConn();
         try {
-            PreparedStatement personal = conn.prepareStatement("delete from einsatz where id=?");
+            PreparedStatement personal = conn.prepareStatement("insert into einsatz");
             
             anz = personal.executeUpdate();
             
