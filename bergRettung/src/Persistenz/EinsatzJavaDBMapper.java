@@ -21,12 +21,24 @@ public class EinsatzJavaDBMapper implements IEinsatzMapper{
         Connection conn = pool.getConn();
         try {
             conn.setAutoCommit(false);
+            
             PreparedStatement insert = conn.prepareStatement("insert into einsatz (id,datum,ort,stichwort) values (?,?,?,?)");
             insert.setInt(1, e.getId());
             insert.setString(2, e.getDatum());
             insert.setString(3,e.getOrt());
             insert.setString(4,e.getStichwort());
-            anz = insert.executeUpdate();         
+            anz = insert.executeUpdate();
+            
+            PreparedStatement personal = conn.prepareStatement("insert into einsatz_personal (pid, eid) values (?,?)");
+            insert.setInt(2, e.getId());
+            for(int i = 0; i < e.getPersonal().size(); i++){
+                personal.setInt(1, e.getPersonal().get(i).getId());
+                anz = personal.executeUpdate();
+            }
+            
+            
+            
+            
             conn.commit();
         } catch (SQLException ex) {
             Logger.getLogger(EinsatzJavaDBMapper.class.getName()).log(Level.SEVERE, null, ex);
