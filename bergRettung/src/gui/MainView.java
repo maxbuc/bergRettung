@@ -23,9 +23,12 @@ public class MainView extends JFrame{
     private PersonalVerwaltung persVerw;
     private EinsatzVerwaltung einVerw;
     
-    public MainView(String titel, PatientVerwaltung patVerw) {
+    public MainView(String titel, EinsatzVerwaltung einVerw, EquipmentVerwaltung equVerw, PatientVerwaltung patVerw, PersonalVerwaltung persVerw) {
         super(titel);
+        this.einVerw=einVerw;
+        this.equVerw=equVerw;
         this.patVerw=patVerw;
+        this.persVerw=persVerw;
         init();
     }
    
