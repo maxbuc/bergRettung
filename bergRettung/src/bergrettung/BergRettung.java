@@ -5,9 +5,9 @@ public class BergRettung {
     public static void main(String[] args) {
         PersonalVerwaltung persVerw = new PersonalVerwaltung();
         
-        setup(persVerw);
+        //setup(persVerw);
         
-        persVerw.readAll();
+        System.out.println(persVerw.readAll());
         
         
        

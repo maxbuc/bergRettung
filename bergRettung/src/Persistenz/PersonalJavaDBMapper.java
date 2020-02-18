@@ -66,7 +66,7 @@ public class PersonalJavaDBMapper implements IPersonalMapper {
     @Override
     public List<Personal> readAll() {
         Connection conn = pool.getConn();
-        List<Personal> all = new ArrayList<Personal>();
+        List<Personal> all = new ArrayList<>();
         Personal p;
         try {
             PreparedStatement readAll = conn.prepareStatement("select * from personal");
@@ -74,15 +74,8 @@ public class PersonalJavaDBMapper implements IPersonalMapper {
 
             while (result.next()) {
 
-                if (result.getString(5) == null) {
-                    if (result.getString(4) == null) {
-                        p = new Personal(result.getInt(1), result.getString(2), result.getString(3));
-                    } else {
-                        p = new Personal(result.getInt(1), result.getString(2), result.getString(3), result.getString(4));
-                    }
-                } else {
-                    p = new Personal(result.getInt(1), result.getString(2), result.getString(3), result.getString(4), result.getString(5));
-                }
+                //p = personFromDB(result);
+                p = new Personal(result.getInt(1), result.getString(2), result.getString(3));
                 all.add(p);
 
             }
@@ -94,6 +87,20 @@ public class PersonalJavaDBMapper implements IPersonalMapper {
 
         return all;
 
+    }
+
+    private Personal personFromDB(ResultSet result) throws SQLException {
+        Personal p;
+        if (result.getString(5) == null) {
+            if (result.getString(4) == null) {
+                p = new Personal(result.getInt(1), result.getString(2), result.getString(3));
+            } else {
+                p = new Personal(result.getInt(1), result.getString(2), result.getString(3), result.getString(4));
+            }
+        } else {
+            p = new Personal(result.getInt(1), result.getString(2), result.getString(3), result.getString(4), result.getString(5));
+        }
+        return p;
     }
 
     @Override
