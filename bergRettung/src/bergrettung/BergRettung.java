@@ -1,5 +1,7 @@
 package bergrettung;
 
+import gui.MainView;
+
 public class BergRettung {
 
     public static void main(String[] args) {
@@ -12,7 +14,7 @@ public class BergRettung {
         
 //        System.out.println(persVerw.readAll());
         
-        
+        MainView mainView = new MainView("Programm? - Trivago");
        
         
     }
