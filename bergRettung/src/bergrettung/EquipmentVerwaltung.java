@@ -17,7 +17,7 @@ public class EquipmentVerwaltung {
     //private EquipmentView view;
     private Equipment person;
     
-    public void einfuegenEquipment(Equipment e){ 
+    public void insertEquipment(Equipment e){ 
         mapper.insertEquipment(e);
     }
     

@@ -28,9 +28,9 @@ public class EquipmentJavaDBMapper implements IEquipmentMapper {
         Connection conn = pool.getConn();
         //alleHobbies = p.getHobbies();
         try {
-            conn.setAutoCommit(false);
-            PreparedStatement insert = conn.prepareStatement("insert into equipment (id) values (?)");
-            insert.setInt(1, e.getEqid());
+            PreparedStatement insert = conn.prepareStatement("insert into equipment (bezeichnung, id) values (?,?)");
+            insert.setString(1, e.getBezeichnung());
+            insert.setInt(2, e.getEqid());
             anz = insert.executeUpdate();
              
             conn.commit();

@@ -6,8 +6,9 @@ public class BergRettung {
         PersonalVerwaltung persVerw = new PersonalVerwaltung();
         PatientVerwaltung patVerw = new PatientVerwaltung();
         EinsatzVerwaltung einVerw = new EinsatzVerwaltung();
+        EquipmentVerwaltung equVerw = new EquipmentVerwaltung();
         
-        setup(persVerw,patVerw, einVerw);
+        setup(persVerw,patVerw, einVerw, equVerw);
         
 //        System.out.println(persVerw.readAll());
         
@@ -19,7 +20,7 @@ public class BergRettung {
    
     
     //erstellt und fügt alle Objekte in DB
-    public static void setup(PersonalVerwaltung persVerw, PatientVerwaltung patVerw, EinsatzVerwaltung einVerw){
+    public static void setup(PersonalVerwaltung persVerw, PatientVerwaltung patVerw, EinsatzVerwaltung einVerw, EquipmentVerwaltung equVerw){
         
         //Personal
 //        Personal p1 = new Personal(1, "Fritz", "Huber", "1999-12-20", "Notarzt");
@@ -39,6 +40,14 @@ public class BergRettung {
 //        Einsatz e2 = new Einsatz(2,"2020-02-09","Bayern","Sabine");
 //        einVerw.insertEinsatz(e1);
 //        einVerw.insertEinsatz(e2);
+
+        //Equipment
+//        Equipment equ1 = new Equipment ("Hubschrauber", 1234);
+//        Equipment equ2 = new Equipment ("Auto", 43645);
+       // equVerw.insertEquipment(equ1);
+        //equVerw.insertEquipment(equ2);
+        
+        
 
     }
     
