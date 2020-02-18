@@ -1,18 +1,15 @@
 
 package gui;
 
+import bergrettung.PatientVerwaltung;
 import java.awt.FlowLayout;
 import javax.swing.JFrame;
-import javax.swing.JButton;
-import java.awt.Color;
-import java.awt.HeadlessException;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
 
 public class PatientView extends JFrame{
-
-    public PatientView(){
-        super();
+    private PatientVerwaltung patVerw;
+    public PatientView(String titel, PatientVerwaltung patVerw){
+        super(titel);
+        this.patVerw=patVerw;
         init();
     }
     

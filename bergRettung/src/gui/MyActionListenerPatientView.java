@@ -9,10 +9,10 @@ import bergrettung.Patient;
 
 public class MyActionListenerPatientView implements ActionListener{
     private final PatientVerwaltung patVerw;
-    private final PatientView view;
+    private final MainView view;
     Patient patient;
 
-    public MyActionListenerPatientView(PatientVerwaltung patVerw, PatientView view) {
+    public MyActionListenerPatientView(PatientVerwaltung patVerw, MainView view) {
         this.patVerw = patVerw;
         this.view = view;
     }
@@ -20,7 +20,6 @@ public class MyActionListenerPatientView implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e){
         System.out.println("Inserted!");
-        patient = new Patient(view.getPatientView());
-        patVerw.insertPatient(patient);
+        new PatientView("Patient",patVerw);
     }
 }
