@@ -5,7 +5,7 @@
  */
 package bergrettung;
 
-import GUI.EquipmentView;
+//import GUI.EquipmentView;
 import Persistenz.EinfacheFactory;
 import Persistenz.IEquipmentMapper;
 import Persistenz.EquipmentJavaDBMapper;
@@ -15,7 +15,7 @@ import java.util.List;
 public class EquipmentVerwaltung {
     
     private IEquipmentMapper mapper = EinfacheFactory.createEquipmentMapper();//(Die Klasse (Klasse kann man nur statische Instanzen schicken) EinfacheFactory hat eine Methode createPersonMapper)
-    private EquipmentView view;
+    //private EquipmentView view;
     private Equipment person;
     
     public void einfuegenEquipment(Equipment e){ 
@@ -39,8 +39,8 @@ public class EquipmentVerwaltung {
         mapper.deleteEquipment(eqid);
     }
 
-    public void setView(EquipmentView view) {
-        this.view = view;
-    }
+//    public void setView(EquipmentView view) {
+//        this.view = view;
+//    }
     
 }
