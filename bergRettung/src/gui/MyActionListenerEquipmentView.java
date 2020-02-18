@@ -19,6 +19,6 @@ public class MyActionListenerEquipmentView implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e){
-        new EquipmentView("Equipment",equVerw);
+        EquipmentView equipmentView = new EquipmentView("Equipment",equVerw);
     }
 }
