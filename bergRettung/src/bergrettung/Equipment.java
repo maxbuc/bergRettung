@@ -34,7 +34,7 @@ public class Equipment {
 
     @Override
     public String toString() {
-        return "Person{" + "bezeichnung=" + bezeichnung + ", eqid=" + eqid + '}';
+        return "Equipment{" + "bezeichnung=" + bezeichnung + ", eqid=" + eqid + '}';
     }
 
 
