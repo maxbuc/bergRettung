@@ -43,7 +43,7 @@ public class EinsatzJavaDBMapper implements IEinsatzMapper{
     public void updateEinsatz(Einsatz e){
         Connection conn = pool.getConn();
         try {
-            PreparedStatement update = conn.prepareStatement("update einsatz set datum=? and ort=? and stichwort=? where id=?");
+            PreparedStatement update = conn.prepareStatement("update einsatz set datum=?, ort=?, stichwort=? where id=?");
             update.setString(1, e.getDatum());
             update.setString(2, e.getOrt());
             update.setString(3, e.getStichwort());

@@ -42,7 +42,7 @@ public class PatientJavaDBMapper implements IPatientMapper{
     public void updatePatient(Patient p){
         Connection conn = pool.getConn();
         try {
-            PreparedStatement update = conn.prepareStatement("update patient set vorname=? and nachname=? where id=?");
+            PreparedStatement update = conn.prepareStatement("update patient set vorname=?, nachname=? where id=?");
             update.setString(1, p.getVorname());
             update.setString(2, p.getNachname());
             anz = update.executeUpdate();
