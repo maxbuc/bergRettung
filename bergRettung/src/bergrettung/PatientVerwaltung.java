@@ -29,7 +29,7 @@ public class PatientVerwaltung {
 //        this.view = view;
 //    }
  
-    public void updatePerson(Patient p){
+    public void updatePatient(Patient p){
         mapper.updatePatient(p);
     }
     

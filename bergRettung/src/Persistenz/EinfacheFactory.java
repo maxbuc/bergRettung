@@ -16,7 +16,7 @@ public class EinfacheFactory {
         return new EquipmentJavaDBMapper();
     }
             
-//    public static IEinsatzMapper createEinsatzMapper(){
-//        return new EinsatzJavaDBMapper();
-//    }
+    public static IEinsatzMapper createEinsatzMapper(){
+        return new EinsatzJavaDBMapper();
+    }
 }
