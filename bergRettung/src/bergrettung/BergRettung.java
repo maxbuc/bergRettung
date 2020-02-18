@@ -10,11 +10,10 @@ public class BergRettung {
         EinsatzVerwaltung einVerw = new EinsatzVerwaltung();
         EquipmentVerwaltung equVerw = new EquipmentVerwaltung();
         
-        setup(persVerw,patVerw, einVerw, equVerw);
+    //    setup(persVerw,patVerw, einVerw, equVerw);
         
-//        System.out.println(persVerw.readAll());
         
-        MainView mainView = new MainView("Programm? - Trivago", patVerw);
+        MainView mainView = new MainView("Programm - Bergrettung", einVerw , equVerw, patVerw, persVerw);
        
         
     }
