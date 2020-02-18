@@ -99,6 +99,25 @@ public class EinsatzJavaDBMapper implements IEinsatzMapper {
         pool.releaseConn(conn);
         return null;
     }
+    
+    public Einsatz read(int id){
+        Connection conn = pool.getConn();
+        Einsatz e;
+        try {
+            PreparedStatement select = conn.prepareStatement(
+                    "select ein.id, datum, ort, stichwort, equ.id, bezeichnung, pat.id, pat.vorname, pat.nachname, pers.id, pers.vorname, pers.nachname, gebdat, qual"
+                            + "from einsatz ein, equipment equ, patient pat, personal pers, einsatz_equipment ee, einsatz_patient epat, einsatz_personal epers"
+                            + "where ein.id = ee.eid AND equ.id = ee.eqid"
+                            + "AND ein.id = epat.eid AND epat.paid = pat.id"
+                            + "AND ein.id = epers.eid AND epers.pid = pers.id");
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(EinsatzJavaDBMapper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        pool.releaseConn(conn);
+        return null;
+    }
+    
 
     @Override
     public List<Einsatz> readAll() {
