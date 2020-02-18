@@ -19,6 +19,8 @@ public class Einsatz {
         this.ort = ort;
         this.stichwort = stichwort;
         this.personal = new ArrayList<>();
+        this.equipment = new ArrayList<>();
+        this.patienten = new ArrayList<>();
     }
 
     public int getId() {
@@ -52,33 +54,38 @@ public class Einsatz {
     public void setStichwort(String stichwort) {
         this.stichwort = stichwort;
     }
+    
 
     public List<Personal> getPersonal() {
         return personal;
     }
-
     public void setPersonal(List<Personal> personal) {
         this.personal = personal;
     }
-    public void addPersonal(Personal p){
-        
+    public void addPersonal(Personal p){        
         this.personal.add(p);
     }
+    
 
     public List<Patient> getPatienten() {
         return patienten;
     }
-
     public void setPatienten(List<Patient> patienten) {
         this.patienten = patienten;
     }
-
+    public void addPatient(Patient p){
+        this.patienten.add(p);
+    }
+    
+    
     public List<Equipment> getEquipment() {
         return equipment;
     }
-
     public void setEquipment(List<Equipment> equipment) {
         this.equipment = equipment;
+    }
+    public void addEquipment(Equipment e){
+        this.equipment.add(e);
     }
     
     

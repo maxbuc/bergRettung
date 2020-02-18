@@ -32,6 +32,12 @@ public class EinsatzJavaDBMapper implements IEinsatzMapper {
             if (!e.getPersonal().isEmpty()) {
                 this.addPersonal(e);
             }
+            if (!e.getPatienten().isEmpty()) {
+                this.addPatient(e);
+            }
+            if (!e.getEquipment().isEmpty()) {
+                this.addEquipment(e);
+            }
 
             conn.commit();
         } catch (SQLException ex) {
@@ -112,15 +118,48 @@ public class EinsatzJavaDBMapper implements IEinsatzMapper {
         }
     }
 
+    
+    
+    // Fügt Daten in Koppeltabellen ein
+    
     private void addPersonal(Einsatz e) {
         Connection conn = pool.getConn();
         try {
             PreparedStatement personal = conn.prepareStatement("insert into einsatz_personal values(?,?)");
             for (int i = 0; i < e.getPersonal().size(); i++) {
-                System.out.println("Hallo");
                 personal.setInt(1, e.getPersonal().get(i).getId());
                 personal.setInt(2, e.getId());
                 anz = personal.executeUpdate();
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(EinsatzJavaDBMapper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        pool.releaseConn(conn);
+    }
+    private void addPatient(Einsatz e) {
+        Connection conn = pool.getConn();
+        try {
+            PreparedStatement patient = conn.prepareStatement("insert into einsatz_patient values(?,?)");
+            for (int i = 0; i < e.getPersonal().size(); i++) {
+                patient.setInt(1, e.getPatienten().get(i).getId());
+                patient.setInt(2, e.getId());
+                anz = patient.executeUpdate();
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(EinsatzJavaDBMapper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        pool.releaseConn(conn);
+    }
+    private void addEquipment(Einsatz e) {
+        Connection conn = pool.getConn();
+        try {
+            PreparedStatement equipment = conn.prepareStatement("insert into einsatz_equipment values(?,?)");
+            for (int i = 0; i < e.getEquipment().size(); i++) {
+                equipment.setInt(1, e.getEquipment().get(i).getEqid());
+                equipment.setInt(2, e.getId());
+                anz = equipment.executeUpdate();
             }
 
         } catch (SQLException ex) {
