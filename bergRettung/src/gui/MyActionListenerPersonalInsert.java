@@ -22,9 +22,15 @@ public class MyActionListenerPersonalInsert implements ActionListener{
         personal=new Personal(persView.getIdText(), persView.getVornameText(),persView.getNachnameText());
         if(persView.getGebdatText() != null | persView.getGebdatText()!= ""){
             personal.setGebdat(persView.getGebdatText());
-    }
+        }
+        if(persView.getGebdatText().isEmpty()){
+            personal.setGebdat(null);
+        }
         if(persView.getQualifikationText() !=null | persView.getQualifikationText() != ""){
             personal.setQualifikation(persView.getQualifikationText());
+        }
+        if(persView.getQualifikationText().isEmpty()){
+            personal.setQualifikation(null);
         }
         persVerw.insert(personal);
     }
