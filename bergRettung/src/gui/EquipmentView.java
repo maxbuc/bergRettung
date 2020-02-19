@@ -25,6 +25,9 @@ public class EquipmentView extends JFrame{
     }
     
     public void init(){
+        MyActionListenerEquipmentInsert listenerInsert = new MyActionListenerEquipmentInsert(equVerw,this);
+        MyActionListenerEquipmentUpdate listenerUpdate = new MyActionListenerEquipmentUpdate(equVerw,this);
+        MyActionListenerEquipmentRead listenerRead = new MyActionListenerEquipmentRead(equVerw,this);
         insert = new JButton ("Insert");
         update = new JButton ("Update");
         read = new JButton ("Read");
@@ -39,9 +42,22 @@ public class EquipmentView extends JFrame{
         add(insert);
         add(update);
         add(read);
+        insert.addActionListener(listenerInsert);
+        update.addActionListener(listenerUpdate);
+        read.addActionListener(listenerRead);
         this.setLayout(new FlowLayout());
         this.setLocation(400,200);
         this.setSize(850,200);
         this.setVisible(true);
+    }
+    
+    public int getIdText() {
+        String text=idText.getText();
+        int result = Integer.parseInt(text);
+        return result;
+    }
+    
+    public String getBezeichnungText(){
+        return bezeichnungText.getText();
     }
 }

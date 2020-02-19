@@ -224,7 +224,7 @@ public class EinsatzJavaDBMapper implements IEinsatzMapper {
         try {
             PreparedStatement equipment = conn.prepareStatement("insert into einsatz_equipment values(?,?)");
             for (int i = 0; i < e.getEquipment().size(); i++) {
-                equipment.setInt(1, e.getEquipment().get(i).getEqid());
+                equipment.setInt(1, e.getEquipment().get(i).getId());
                 equipment.setInt(2, e.getId());
                 anz = equipment.executeUpdate();
             }

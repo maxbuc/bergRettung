@@ -8,12 +8,12 @@ package bergrettung;
 
 public class Equipment {
     private String bezeichnung;
-    private int eqid;
+    private int id;
 
 
-    public Equipment(String bezeichnung, int eqid) {
+    public Equipment(String bezeichnung, int id) {
         this.bezeichnung = bezeichnung;
-        this.eqid = eqid;
+        this.id = id;
     }
 
     public String getBezeichnung() {
@@ -24,17 +24,17 @@ public class Equipment {
         this.bezeichnung = bezeichnung;
     }
 
-    public int getEqid() {
-        return eqid;
+    public int getId() {
+        return id;
     }
 
-    public void setEqid(int eqid) {
-        this.eqid = eqid;
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override
     public String toString() {
-        return "Equipment{" + "bezeichnung=" + bezeichnung + ", eqid=" + eqid + '}'+'\n';
+        return "Equipment{" + "bezeichnung=" + bezeichnung + ", id=" + id + '}'+'\n';
     }
 
 
