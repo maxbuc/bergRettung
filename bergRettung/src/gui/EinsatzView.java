@@ -22,9 +22,11 @@ public class EinsatzView extends JFrame{
     
     private JButton insert;
     private JButton read;
+    private JButton personalChoice;
     
     private MyActionListenerEinsatzInsert listenerInsert;
     private MyActionListenerEinsatzRead listenerRead;
+    private MyActionListenerPersonalChoice listenerPersonalChoice;
     
     public EinsatzView(String titel, EinsatzVerwaltung einVerw){
         super(titel);
@@ -45,9 +47,11 @@ public class EinsatzView extends JFrame{
         textStichwort = new JTextField(ALLBITS);
         insert = new JButton("insert");
         read = new JButton("read");
+        personalChoice = new JButton("Personal auswählen");
         
         listenerInsert = new MyActionListenerEinsatzInsert(this, einVerw);
         listenerRead = new MyActionListenerEinsatzRead(this, einVerw);
+        listenerPersonalChoice = new MyActionListenerPersonalChoice(this, einVerw);
         
         this.add(labelId);
         this.add(textId);
