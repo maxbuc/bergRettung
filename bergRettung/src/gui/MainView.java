@@ -11,15 +11,15 @@ import bergrettung.EquipmentVerwaltung;
 import bergrettung.EinsatzVerwaltung;
         
 
-public class MainView extends JFrame{
+public final class MainView extends JFrame{
     private JButton patient;
     private JButton personal;
     private JButton einsatz;
     private JButton equipment;
-    private PatientVerwaltung patVerw;
-    private EquipmentVerwaltung equVerw;
-    private PersonalVerwaltung persVerw;
-    private EinsatzVerwaltung einVerw;
+    private final PatientVerwaltung patVerw;
+    private final EquipmentVerwaltung equVerw;
+    private final PersonalVerwaltung persVerw;
+    private final EinsatzVerwaltung einVerw;
     
     public MainView(String titel, EinsatzVerwaltung einVerw, EquipmentVerwaltung equVerw, PatientVerwaltung patVerw, PersonalVerwaltung persVerw) {
         super(titel);
