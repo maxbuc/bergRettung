@@ -18,7 +18,7 @@ public class MyActionListenerPersonalChoice implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+        new PersonalCheckBoxView("Personalauswahl");
     }
 
 }

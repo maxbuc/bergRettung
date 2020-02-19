@@ -63,10 +63,11 @@ public class EinsatzView extends JFrame{
         this.add(textStichwort);
         this.add(insert);
         this.add(read);
+        this.add(personalChoice);
         
         insert.addActionListener(listenerInsert);
         read.addActionListener(listenerRead);
-        
+        personalChoice.addActionListener(listenerPersonalChoice);
         
         
         

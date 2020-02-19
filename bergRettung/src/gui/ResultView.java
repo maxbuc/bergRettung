@@ -23,7 +23,7 @@ public class ResultView extends JFrame{
         this.add(ausgabe);
         
         
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       
         this.setLocation(800, 200);
         this.setSize(1200, 200);
         this.setVisible(true);
