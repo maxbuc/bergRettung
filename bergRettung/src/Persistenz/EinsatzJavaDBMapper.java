@@ -9,6 +9,9 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import bergrettung.Einsatz;
+import bergrettung.Equipment;
+import bergrettung.Patient;
+import bergrettung.Personal;
 
 public class EinsatzJavaDBMapper implements IEinsatzMapper {
 
@@ -99,31 +102,71 @@ public class EinsatzJavaDBMapper implements IEinsatzMapper {
         pool.releaseConn(conn);
         return null;
     }
-    
-    public Einsatz read(int id){
+
+    public Einsatz read(int id) {
         Connection conn = pool.getConn();
         Einsatz e;
+        Personal p;
+        Patient pat;
+        Equipment equ;
+
         try {
-            PreparedStatement select = conn.prepareStatement(
-                    "select ein.id, datum, ort, stichwort, equ.id, bezeichnung, pat.id, pat.vorname, pat.nachname, pers.id, pers.vorname, pers.nachname, gebdat, qual"
-                            + "from einsatz ein, equipment equ, patient pat, personal pers, einsatz_equipment ee, einsatz_patient epat, einsatz_personal epers"
-                            + "where ein.id = ee.eid AND equ.id = ee.eqid"
-                            + "AND ein.id = epat.eid AND epat.paid = pat.id"
-                            + "AND ein.id = epers.eid AND epers.pid = pers.id"
-                            + "AND ein.id = ?");
+
+            //Abfrage für bestimmten Einsatz
+            PreparedStatement select = conn.prepareStatement("select * from einsatz where id = ?");
             select.setInt(1, id);
             ResultSet result = select.executeQuery();
-            if(result.next()){
-                //erstelle Einsatz aus SQL Abfrage
+            if (result.next()) {
+                //erstellt Einsatz aus SQL Abfrage
+                e = new Einsatz(result.getInt(1), result.getDate(2).toString(), result.getString(3), result.getString(4));
+            } else {
+                return new Einsatz(0, "Falsche ID übergeben", "", "");
+            }
+
+            //Personal von Einsatz ausgeben und zu Einsatz hinzufügen
+            select = conn.prepareStatement("select personal.* from personal, einsatz_personal where personal.id = EINSATZ_PERSONAL.PID AND EINSATZ_PERSONAL.EID = ?");
+            select.setInt(1, id);
+            result = select.executeQuery();
+            while (result.next()) {
+                //Personal erzeugen
+                p = new Personal(result.getInt(1), result.getString(2), result.getString(3));
+                if (result.getString(4) != null) {
+                    p.setGebdat(result.getString(4));
+                }
+                if (result.getString(5) != null) {
+                    p.setQualifikation(result.getString(5));
+                }
+                e.addPersonal(p);
+            }
+
+            //Patient(en) von Einsatz ausgeben und zu Einsatz hinzufügen
+            select = conn.prepareStatement("select patient.* from patient, einsatz_patient where patient.id = einsatz_patient.paid AND EINSATZ_PATient.EID = ?");
+            select.setInt(1, id);
+            result = select.executeQuery();
+            while (result.next()) {
+                //Patient erzeugen
+                pat = new Patient(result.getInt(1), result.getString(2), result.getString(3));
+                e.addPatient(pat);
+            }
+
+            //Equipment von Einsatz ausgeben und zu Einsatz hinzufügen
+            select = conn.prepareStatement("select equipment.* from equipment, einsatz_equipment where equipment.id = einsatz_equipment.eqid AND EINSATZ_equipment.EID = ?");
+            select.setInt(1, id);
+            result = select.executeQuery();
+            while (result.next()) {
+                //Patient erzeugen
+                equ = new Equipment(result.getString(2), result.getInt(1));
+                e.addEquipment(equ);
             }
             
+            return e;
+
         } catch (SQLException ex) {
             Logger.getLogger(EinsatzJavaDBMapper.class.getName()).log(Level.SEVERE, null, ex);
         }
         pool.releaseConn(conn);
         return null;
     }
-    
 
     @Override
     public List<Einsatz> readAll() {
@@ -143,10 +186,7 @@ public class EinsatzJavaDBMapper implements IEinsatzMapper {
         }
     }
 
-    
-    
     // Fügt Daten in Koppeltabellen ein
-    
     private void addPersonal(Einsatz e) {
         Connection conn = pool.getConn();
         try {
@@ -162,6 +202,7 @@ public class EinsatzJavaDBMapper implements IEinsatzMapper {
         }
         pool.releaseConn(conn);
     }
+
     private void addPatient(Einsatz e) {
         Connection conn = pool.getConn();
         try {
@@ -177,6 +218,7 @@ public class EinsatzJavaDBMapper implements IEinsatzMapper {
         }
         pool.releaseConn(conn);
     }
+
     private void addEquipment(Einsatz e) {
         Connection conn = pool.getConn();
         try {
