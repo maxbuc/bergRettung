@@ -21,8 +21,8 @@ public class EquipmentVerwaltung {
         mapper.insertEquipment(e);
     }
     
-    public Equipment readEquipment(int eqid){
-        return mapper.readEquipment(eqid);
+    public Equipment readEquipment(int id){
+        return mapper.readEquipment(id);
     }
     
     
@@ -34,8 +34,8 @@ public class EquipmentVerwaltung {
         mapper.updateEquipment(e);
     }
     
-    public void deleteEquipment (int eqid){
-        mapper.deleteEquipment(eqid);
+    public void deleteEquipment (int id){
+        mapper.deleteEquipment(id);
     }
 
 //    public void setView(EquipmentView view) {

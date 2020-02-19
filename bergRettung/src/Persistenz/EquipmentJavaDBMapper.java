@@ -60,11 +60,11 @@ public class EquipmentJavaDBMapper implements IEquipmentMapper {
         pool.releaseConn(conn);
     }
     
-    public void deleteEquipment(int eqid){
+    public void deleteEquipment(int id){
         Connection conn = pool.getConn();
         try {
             PreparedStatement delete = conn.prepareStatement("delete from equipment where id=?");
-            delete.setInt(1,eqid);
+            delete.setInt(1,id);
             int anz = delete.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(EquipmentJavaDBMapper.class.getName()).log(Level.SEVERE, null, ex);
@@ -74,18 +74,21 @@ public class EquipmentJavaDBMapper implements IEquipmentMapper {
     
     public Equipment readEquipment(int id){
         Connection conn = pool.getConn();
-        Equipment e = null;
+        Equipment e;
         try {
-            PreparedStatement select = conn.prepareStatement("select bezeichnung, id from equipment where id =?");
+            PreparedStatement select = conn.prepareStatement("select * from equipment where id =?");
             select.setInt(1,id);
             ResultSet rs = select.executeQuery();
             pool.releaseConn(conn);
-            return e;
+            if(rs.next()){
+                e = new Equipment(rs.getString(2),rs.getInt(1));
+                return e;
+            }  
         } catch (SQLException ex) {
             Logger.getLogger(EquipmentJavaDBMapper.class.getName()).log(Level.SEVERE, null, ex);
-            pool.releaseConn(conn);
-            return null;
         }
+        pool.releaseConn(conn);
+        return null;
     }
     
     public List<Equipment> readAll (){
