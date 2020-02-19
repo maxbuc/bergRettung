@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 public class PersonalJavaDBMapper implements IPersonalMapper {
 
     private final int size = 4;
-    private ConnectionPool pool = ConnectionPool.getSinglePool(size);
+    private final ConnectionPool pool = ConnectionPool.getSinglePool(size);
 
     @Override
     public void insert(Personal p) {

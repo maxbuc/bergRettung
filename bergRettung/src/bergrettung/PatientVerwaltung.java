@@ -5,20 +5,25 @@ import Persistenz.EinfacheFactory;
 import Persistenz.IPatientMapper;
 import java.util.List;
 
+<<<<<<< HEAD
 public class PatientVerwaltung implements IVerwaltung{
     private final IPatientMapper mapper = EinfacheFactory.createPatientMapper();
+=======
+public class PatientVerwaltung {
+    private final IPatientMapper wrapper = EinfacheFactory.createPatientMapper();
+>>>>>>> e406356453f55abe8ff889e16dbb893f3d23afc9
     private Patient patient;
     
      public void insertPatient(Patient p){
-        mapper.insertPatient(p);
+        wrapper.insertPatient(p);
     }   
      
     public Patient readPatient(int id){
-        return mapper.readPatient(id);
+        return wrapper.readPatient(id);
     } 
     
     public void deletePatient(int id){
-        mapper.deletePatient(id);
+        wrapper.deletePatient(id);
     }
     
     public PatientVerwaltung(){
@@ -30,10 +35,10 @@ public class PatientVerwaltung implements IVerwaltung{
 //    }
  
     public void updatePatient(Patient p){
-        mapper.updatePatient(p);
+        wrapper.updatePatient(p);
     }
     
         public List<Patient> readAll(){
-        return mapper.readAll();
+        return wrapper.readAll();
     }
 }

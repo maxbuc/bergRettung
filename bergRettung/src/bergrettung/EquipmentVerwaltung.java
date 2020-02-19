@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package bergrettung;
 
 //import GUI.EquipmentView;
@@ -13,29 +9,29 @@ import java.util.List;
 
 public class EquipmentVerwaltung implements IVerwaltung{
     
-    private final IEquipmentMapper mapper = EinfacheFactory.createEquipmentMapper();//(Die Klasse (Klasse kann man nur statische Instanzen schicken) EinfacheFactory hat eine Methode createPersonMapper)
+    private final IEquipmentMapper wrapper = EinfacheFactory.createEquipmentMapper();//(Die Klasse (Klasse kann man nur statische Instanzen schicken) EinfacheFactory hat eine Methode createPersonMapper)
     //private EquipmentView view;
     private Equipment equipment;
     
     public void insertEquipment(Equipment e){ 
-        mapper.insertEquipment(e);
+        wrapper.insertEquipment(e);
     }
     
     public Equipment readEquipment(int id){
-        return mapper.readEquipment(id);
+        return wrapper.readEquipment(id);
     }
     
     
     public List<Equipment> readAll(){
-        return mapper.readAll();
+        return wrapper.readAll();
     }
     
     public void updateEquipment(Equipment e){
-        mapper.updateEquipment(e);
+        wrapper.updateEquipment(e);
     }
     
     public void deleteEquipment (int id){
-        mapper.deleteEquipment(id);
+        wrapper.deleteEquipment(id);
     }
 
 //    public void setView(EquipmentView view) {
