@@ -44,12 +44,12 @@ public class PersonalView extends JFrame{
         idLabel = new JLabel ("ID: ");
         nachnameLabel= new JLabel("Nachname: ");
         vornameLabel = new JLabel ("Vorname: ");
-        gebdatLabel = new JLabel("Alter: ");
+        gebdatLabel = new JLabel("geburtstag: ");
         qualifikationLabel = new JLabel("Qualifikation: ");
         idText = new JTextField ("ID eingeben", ALLBITS);
         nachnameText = new JTextField ("Nachname eingeben",ALLBITS);
         vornameText = new JTextField ("Vorname eingeben", ALLBITS);
-        gebdatText = new JTextField ("Alter eingeben",ALLBITS);
+        gebdatText = new JTextField ("Geburtstag eingeben",ALLBITS);
         qualifikationText = new JTextField ("Qualifikation eingeben", ALLBITS);
         add(nachnameLabel);
         add(nachnameText);
