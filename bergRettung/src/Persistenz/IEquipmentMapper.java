@@ -12,7 +12,7 @@ import bergrettung.Equipment;
 public interface IEquipmentMapper {
     
     Equipment readEquipment(int id);//statt String -> Integer
-    List<Equipment> readAlles();
+    List<Equipment> readAll();
     void insertEquipment(Equipment e);
     void updateEquipment(Equipment e);
     void deleteEquipment(int id);//statt String -> Integer

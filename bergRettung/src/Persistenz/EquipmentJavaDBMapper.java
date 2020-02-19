@@ -30,7 +30,7 @@ public class EquipmentJavaDBMapper implements IEquipmentMapper {
         try {
             PreparedStatement insert = conn.prepareStatement("insert into equipment (bezeichnung, id) values (?,?)");
             insert.setString(1, e.getBezeichnung());
-            insert.setInt(2, e.getEqid());
+            insert.setInt(2, e.getId());
             anz = insert.executeUpdate();
              
             conn.commit();
@@ -52,7 +52,7 @@ public class EquipmentJavaDBMapper implements IEquipmentMapper {
         try {
             PreparedStatement update = conn.prepareStatement("update equipment set bezeichnung=? where id=?");
             update.setString(1, e.getBezeichnung());
-            update.setInt(2, e.getEqid());
+            update.setInt(2, e.getId());
             anz = update.executeUpdate();   
         } catch (SQLException ex) {
             Logger.getLogger(EquipmentJavaDBMapper.class.getName()).log(Level.SEVERE, null, ex);
@@ -88,7 +88,7 @@ public class EquipmentJavaDBMapper implements IEquipmentMapper {
         }
     }
     
-    public List<Equipment> readAlleEquipment (){
+    public List<Equipment> readAll (){
         Connection conn = pool.getConn();
         List<Equipment> alleEquipment = new ArrayList<>();
         try {
@@ -105,32 +105,4 @@ public class EquipmentJavaDBMapper implements IEquipmentMapper {
         }       
     }
     
-    public List<Equipment> readAlles (){
-        Connection conn = pool.getConn();
-        List<Equipment> alle = new ArrayList();
-        Equipment e =null;
-        try {
-            PreparedStatement read=conn.prepareStatement("select bezeichnung, id from equipment order by id");
-            ResultSet rs= read.executeQuery();
-            String alt="";
-            while(rs.next()){
-                if(!alt.equals(rs.getString(1))){
-                    e = new Equipment(rs.getString(1), rs.getInt(2));
-                    alt=rs.getString(1);
-                    alle.add(e);
-                }
-                if(rs.getString(3) !=null){
-//                    alleHobbies.add(rs.getString(3).trim());
-                    ;
-                }
-        }
-            rs.close();
-            pool.releaseConn(conn);
-            return alle;
-        }
-        catch (SQLException ex){
-            Logger.getLogger(EquipmentJavaDBMapper.class.getName()).log(Level.SEVERE,null,ex);
-            pool.releaseConn(conn);
-            return alle;}
-    }
 }

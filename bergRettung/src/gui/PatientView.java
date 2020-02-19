@@ -12,6 +12,7 @@ public class PatientView extends JFrame{
     private PatientVerwaltung patVerw;
     private JButton insert;
     private JButton read;
+    private JButton readAll;
     private JButton update;
     private JLabel nachnameLabel;
     private JLabel vornameLabel;
@@ -30,9 +31,11 @@ public class PatientView extends JFrame{
         MyActionListenerPatientInsert listenerInsert = new MyActionListenerPatientInsert(patVerw,this);
         MyActionListenerPatientUpdate listenerUpdate = new MyActionListenerPatientUpdate(patVerw,this);
         MyActionListenerPatientRead listenerRead = new MyActionListenerPatientRead(patVerw,this);
+        MyActionListenerPatientReadAll listenerReadAll = new MyActionListenerPatientReadAll(patVerw,this);
         insert = new JButton ("Insert");
         update = new JButton ("Update");
         read = new JButton ("Read");
+        readAll = new JButton ("ReadAll");
         idLabel = new JLabel ("ID: ");
         nachnameLabel= new JLabel("Nachname: ");
         vornameLabel = new JLabel ("Vorname: ");
@@ -48,9 +51,11 @@ public class PatientView extends JFrame{
         add(insert);
         add(update);
         add(read);
+        add(readAll);
         insert.addActionListener(listenerInsert);
         update.addActionListener(listenerUpdate);
         read.addActionListener(listenerRead);
+        readAll.addActionListener(listenerReadAll);
         this.setLayout(new FlowLayout());
         this.setLocation(400,200);
         this.setSize(850,200);

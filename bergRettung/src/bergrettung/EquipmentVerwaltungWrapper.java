@@ -20,8 +20,8 @@ public class EquipmentVerwaltungWrapper {
     public Equipment readEquipment(int eqid){
         return mapper.readEquipment(eqid);
     }
-    public List<Equipment> readAlles(){
-        return mapper.readAlles();
+    public List<Equipment> readAll(){
+        return mapper.readAll();
     }
     
 }

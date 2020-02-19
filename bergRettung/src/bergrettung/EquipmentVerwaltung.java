@@ -26,8 +26,8 @@ public class EquipmentVerwaltung {
     }
     
     
-    public List<Equipment> readAlles (){
-        return mapper.readAlles();
+    public List<Equipment> readAll(){
+        return mapper.readAll();
     }
     
     public void updateEquipment(Equipment e){
