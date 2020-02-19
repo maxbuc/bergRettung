@@ -5,8 +5,6 @@ import java.awt.FlowLayout;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.Color;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
 import bergrettung.PatientVerwaltung;
 import bergrettung.PersonalVerwaltung;
 import bergrettung.EquipmentVerwaltung;

@@ -11,14 +11,14 @@ public class EquipmentVerwaltungWrapper {
     public void insertEquipment (Equipment e){
         mapper.insertEquipment(e);
     }
-    public void deleteEquipment (int eqid){
-        mapper.deleteEquipment(eqid);
+    public void deleteEquipment (int id){
+        mapper.deleteEquipment(id);
     }
     public void updateEquipment(Equipment e){
         mapper.updateEquipment(e);
     }
-    public Equipment readEquipment(int eqid){
-        return mapper.readEquipment(eqid);
+    public Equipment readEquipment(int id){
+        return mapper.readEquipment(id);
     }
     public List<Equipment> readAll(){
         return mapper.readAll();
