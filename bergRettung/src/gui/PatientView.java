@@ -2,6 +2,7 @@
 package gui;
 
 import bergrettung.PatientVerwaltung;
+import java.awt.Color;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -52,12 +53,16 @@ public class PatientView extends JFrame{
         add(update);
         add(read);
         add(readAll);
+        insert.setForeground(Color.BLACK);
+        update.setForeground(Color.BLACK);
+        read.setForeground(Color.BLACK);
+        readAll.setForeground(Color.BLACK);
         insert.addActionListener(listenerInsert);
         update.addActionListener(listenerUpdate);
         read.addActionListener(listenerRead);
         readAll.addActionListener(listenerReadAll);
         this.setLayout(new FlowLayout());
-        this.setLocation(400,200);
+        this.setLocation(500,200);
         this.setSize(850,200);
         this.setVisible(true);
     }

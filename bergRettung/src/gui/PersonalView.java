@@ -4,6 +4,7 @@ package gui;
 import java.awt.FlowLayout;
 import javax.swing.JFrame;
 import bergrettung.PersonalVerwaltung;
+import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -12,6 +13,7 @@ public class PersonalView extends JFrame{
     private final PersonalVerwaltung persVerw;
     private JButton insert;
     private JButton read;
+    private JButton readAll;
     private JButton update;
     private JLabel nachnameLabel;
     private JLabel vornameLabel;
@@ -34,9 +36,11 @@ public class PersonalView extends JFrame{
         MyActionListenerPersonalInsert listenerInsert = new MyActionListenerPersonalInsert(persVerw, this);
         MyActionListenerPersonalUpdate listenerUpdate = new MyActionListenerPersonalUpdate(persVerw, this);
         MyActionListenerPersonalRead listenerRead = new MyActionListenerPersonalRead(persVerw,this);
+        MyActionListenerPersonalReadAll listenerReadAll = new MyActionListenerPersonalReadAll(persVerw,this);
         insert = new JButton ("Insert");
         update = new JButton ("Update");
         read = new JButton ("Read");
+        readAll = new JButton ("ReadAll");
         idLabel = new JLabel ("ID: ");
         nachnameLabel= new JLabel("Nachname: ");
         vornameLabel = new JLabel ("Vorname: ");
@@ -60,11 +64,17 @@ public class PersonalView extends JFrame{
         add(insert);
         add(update);
         add(read);
+        add(readAll);
+        insert.setForeground(Color.BLACK);
+        update.setForeground(Color.BLACK);
+        read.setForeground(Color.BLACK);
+        readAll.setForeground(Color.BLACK);
         insert.addActionListener(listenerInsert);
         update.addActionListener(listenerUpdate);
         read.addActionListener(listenerRead);
+        readAll.addActionListener(listenerReadAll);
         this.setLayout(new FlowLayout());
-        this.setLocation(400,200);
+        this.setLocation(500,200);
         this.setSize(850,200);
         this.setVisible(true);
     }

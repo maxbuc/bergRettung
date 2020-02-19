@@ -15,7 +15,7 @@ public class EinsatzView extends JFrame{
     
         public void init(){
         this.setLayout(new FlowLayout());
-        this.setLocation(400,200);
+        this.setLocation(500,200);
         this.setSize(850,200);
         this.setVisible(true);
     }

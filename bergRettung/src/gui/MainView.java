@@ -50,8 +50,12 @@ public class MainView extends JFrame{
         add(equipment);
         add(patient);
         add(personal);
+        einsatz.setForeground(Color.BLACK);
+        equipment.setForeground(Color.BLACK);
+        patient.setForeground(Color.BLACK);
+        personal.setForeground(Color.BLACK);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setLocation(400,200);
+        this.setLocation(500,200);
         this.setSize(850,200);
         this.setVisible(true);
     }
