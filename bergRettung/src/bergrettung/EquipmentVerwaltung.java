@@ -11,7 +11,7 @@ import Persistenz.IEquipmentMapper;
 import java.util.List;
 
 
-public class EquipmentVerwaltung {
+public class EquipmentVerwaltung implements IVerwaltung{
     
     private final IEquipmentMapper mapper = EinfacheFactory.createEquipmentMapper();//(Die Klasse (Klasse kann man nur statische Instanzen schicken) EinfacheFactory hat eine Methode createPersonMapper)
     //private EquipmentView view;

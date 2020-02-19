@@ -2,7 +2,7 @@ package bergrettung;
 
 import java.util.List;
 
-public class PersonalVerwaltung {
+public class PersonalVerwaltung implements IVerwaltung{
     PersonalVerwaltungWrapper wrapper = new PersonalVerwaltungWrapper();
     
     public void insert(Personal p){

@@ -18,6 +18,7 @@ public class EinsatzVerwaltungWrapper {
         mapper.updateEinsatz(e);
     }
     public Einsatz readEinsatz(int id){
+        System.out.println("wrapper");
         return mapper.readEinsatz(id);
     }
     public List<Einsatz> readAll(){

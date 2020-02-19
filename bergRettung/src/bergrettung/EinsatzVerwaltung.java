@@ -3,7 +3,7 @@ package bergrettung;
 
 import java.util.List;
 
-public class EinsatzVerwaltung {
+public class EinsatzVerwaltung implements IVerwaltung{
     private EinsatzVerwaltungWrapper wrapper = new EinsatzVerwaltungWrapper();
     
      public void insertEinsatz(Einsatz e){
@@ -11,6 +11,7 @@ public class EinsatzVerwaltung {
     }   
      
     public Einsatz readEinsatz(int id){
+        System.out.println("verwaltung");
         return wrapper.readEinsatz(id);
     } 
     

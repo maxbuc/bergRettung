@@ -23,6 +23,9 @@ public class EinsatzView extends JFrame{
     private JButton insert;
     private JButton read;
     
+    private MyActionListenerEinsatzInsert listenerInsert = new MyActionListenerEinsatzInsert(this, einVerw);
+    private MyActionListenerEinsatzRead listenerRead = new MyActionListenerEinsatzRead(this, einVerw);
+    
     public EinsatzView(String titel, EinsatzVerwaltung einVerw){
         super(titel);
         this.einVerw=einVerw;
@@ -40,6 +43,8 @@ public class EinsatzView extends JFrame{
         textOrt = new JTextField(ALLBITS);
         labelStichwort = new JLabel("Stichwort");
         textStichwort = new JTextField(ALLBITS);
+        insert = new JButton("insert");
+        read = new JButton("read");
         
         this.add(labelId);
         this.add(textId);
@@ -49,7 +54,11 @@ public class EinsatzView extends JFrame{
         this.add(textOrt);
         this.add(labelStichwort);
         this.add(textStichwort);
+        this.add(insert);
+        this.add(read);
         
+        insert.addActionListener(listenerInsert);
+        read.addActionListener(listenerRead);
         
         
         
@@ -62,4 +71,27 @@ public class EinsatzView extends JFrame{
         this.setSize(850,200);
         this.setVisible(true);
     }
+
+    public int getTextId() {
+        int i= Integer.parseInt(textId.getText());
+        System.out.println(i);
+        return i;
+    }
+
+    public String getTextDatum() {
+        return textDatum.getText();
+    }
+
+    public String getTextOrt() {
+        return textOrt.getText();
+    }
+
+    public String getTextStichwort() {
+        return textStichwort.getText();
+    }
+        
+        
+        
+        
+        
 }

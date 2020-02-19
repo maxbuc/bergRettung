@@ -109,7 +109,9 @@ public class EinsatzJavaDBMapper implements IEinsatzMapper {
         Personal p;
         Patient pat;
         Equipment equ;
-
+        
+        System.out.println("mapper");
+        
         try {
 
             //Abfrage für bestimmten Einsatz
