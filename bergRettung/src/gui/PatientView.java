@@ -27,6 +27,9 @@ public class PatientView extends JFrame{
     }
     
     public void init(){
+        MyActionListenerPatientInsert listenerInsert = new MyActionListenerPatientInsert(patVerw,this);
+        MyActionListenerPatientUpdate listenerUpdate = new MyActionListenerPatientUpdate(patVerw,this);
+        MyActionListenerPatientRead listenerRead = new MyActionListenerPatientRead(patVerw,this);
         insert = new JButton ("Insert");
         update = new JButton ("Update");
         read = new JButton ("Read");
@@ -45,9 +48,26 @@ public class PatientView extends JFrame{
         add(insert);
         add(update);
         add(read);
+        insert.addActionListener(listenerInsert);
+        update.addActionListener(listenerUpdate);
+        read.addActionListener(listenerRead);
         this.setLayout(new FlowLayout());
         this.setLocation(400,200);
         this.setSize(850,200);
         this.setVisible(true);
+    }
+    
+    public String getVornameText() {
+        return vornameText.getText();
+    }
+
+    public String getNachnameText() {
+        return nachnameText.getText();
+    }
+    
+    public int getIdText() {
+        String text=idText.getText();
+        int result = Integer.parseInt(text);
+        return result;
     }
 }
