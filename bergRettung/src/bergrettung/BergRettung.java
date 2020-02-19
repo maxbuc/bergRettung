@@ -10,13 +10,17 @@ public class BergRettung {
         EinsatzVerwaltung einVerw = new EinsatzVerwaltung();
         EquipmentVerwaltung equVerw = new EquipmentVerwaltung();
         
-        //setup(persVerw,patVerw, einVerw, equVerw);
+        Setup set = new Setup();
+        set.deleteTable();
+        set.createTable();
+        
+        setup(persVerw,patVerw, einVerw, equVerw);
         
         System.out.println(einVerw.readEinsatz(1).toString());
         
+        
         MainView mainView = new MainView("Programm - Bergrettung", einVerw , equVerw, patVerw, persVerw);
        
-        
     }
     
    
@@ -27,21 +31,21 @@ public class BergRettung {
         //Personal
         Personal p1 = new Personal(1, "Fritz", "Huber", "1999-12-20", "Notarzt");
         Personal p2 = new Personal(2, "Herbert", "Meier");
-//        persVerw.insert(p1);
-//        persVerw.insert(p2);
+        persVerw.insert(p1);
+        persVerw.insert(p2);
         
         //Patient
         Patient pat1 = new Patient(1,"Max","Mustermann");
         Patient pat2 = new Patient(2, "Hans","Sapei");
-//        patVerw.insertPatient(pat1);
-//        patVerw.insertPatient(pat2);
+        patVerw.insertPatient(pat1);
+        patVerw.insertPatient(pat2);
 
         
         //Equipment
         Equipment equ1 = new Equipment ("Hubschrauber", 1234);
         Equipment equ2 = new Equipment ("Auto", 43645);
-//        equVerw.insertEquipment(equ1);
-//        equVerw.insertEquipment(equ2);
+        equVerw.insertEquipment(equ1);
+        equVerw.insertEquipment(equ2);
         
 
 
