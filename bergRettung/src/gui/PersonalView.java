@@ -46,7 +46,7 @@ public class PersonalView extends JFrame{
         vornameLabel = new JLabel ("Vorname: ");
         gebdatLabel = new JLabel("Geburtstag: ");
         qualifikationLabel = new JLabel("Qualifikation: ");
-        idText = new JTextField ("3", ALLBITS);
+        idText = new JTextField ("ID", ALLBITS);
         nachnameText = new JTextField ("Nachname eingeben",ALLBITS);
         vornameText = new JTextField ("Vorname eingeben", ALLBITS);
         gebdatText = new JTextField ("yyyy-mm-dd",ALLBITS);
