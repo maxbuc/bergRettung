@@ -84,8 +84,7 @@ public class EinsatzJavaDBMapper implements IEinsatzMapper {
         pool.releaseConn(conn);
     }
 
-    @Override
-    public Einsatz readEinsatz(int id) {
+    public Einsatz readEinsatzAlt(int id) {
         Connection conn = pool.getConn();
         Einsatz e;
         try {
@@ -103,7 +102,8 @@ public class EinsatzJavaDBMapper implements IEinsatzMapper {
         return null;
     }
 
-    public Einsatz read(int id) {
+    @Override
+    public Einsatz readEinsatz(int id) {
         Connection conn = pool.getConn();
         Einsatz e;
         Personal p;

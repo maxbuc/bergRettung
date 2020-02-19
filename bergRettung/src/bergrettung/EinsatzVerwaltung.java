@@ -25,4 +25,6 @@ public class EinsatzVerwaltung {
     public List<Einsatz> readAll(){
         return wrapper.readAll();
     }
+    
+    
 }

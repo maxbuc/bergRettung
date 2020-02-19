@@ -10,8 +10,9 @@ public class BergRettung {
         EinsatzVerwaltung einVerw = new EinsatzVerwaltung();
         EquipmentVerwaltung equVerw = new EquipmentVerwaltung();
         
-        setup(persVerw,patVerw, einVerw, equVerw);
+        //setup(persVerw,patVerw, einVerw, equVerw);
         
+        System.out.println(einVerw.readEinsatz(1).toString());
         
         MainView mainView = new MainView("Programm - Bergrettung", einVerw , equVerw, patVerw, persVerw);
        
