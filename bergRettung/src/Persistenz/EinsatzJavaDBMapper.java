@@ -110,7 +110,6 @@ public class EinsatzJavaDBMapper implements IEinsatzMapper {
         Patient pat;
         Equipment equ;
         
-        System.out.println("mapper");
         
         try {
 

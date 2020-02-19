@@ -11,7 +11,6 @@ public class EinsatzVerwaltung implements IVerwaltung{
     }   
      
     public Einsatz readEinsatz(int id){
-        System.out.println("verwaltung");
         return wrapper.readEinsatz(id);
     } 
     

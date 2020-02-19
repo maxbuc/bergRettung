@@ -7,8 +7,8 @@ import bergrettung.EinsatzVerwaltung;
 import bergrettung.Einsatz;
 
 public class MyActionListenerEinsatzView implements ActionListener{
-    private final EinsatzVerwaltung einVerw;
-    private final MainView view;
+    private  EinsatzVerwaltung einVerw;
+    private  MainView view;
     Einsatz einsatz;
 
     public MyActionListenerEinsatzView(EinsatzVerwaltung einVerw, MainView view) {

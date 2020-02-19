@@ -7,17 +7,16 @@ import java.awt.event.ActionListener;
 public class MyActionListenerEinsatzRead implements ActionListener {
 
     private EinsatzView view;
-    private EinsatzVerwaltung verw;
+    private EinsatzVerwaltung einVerw;
 
     public MyActionListenerEinsatzRead(EinsatzView view, EinsatzVerwaltung verw) {
         this.view = view;
-        this.verw = verw;
+        this.einVerw = verw;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        int id = view.getTextId();
-        new ResultView("Ausgabe", verw).setResultView(verw.readEinsatz(id).toString());
+        new ResultView("Ausgabe", einVerw).setResultView(einVerw.readEinsatz(view.getTextId()).toString());
     }
 
 }
