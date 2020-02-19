@@ -5,13 +5,12 @@ import Persistenz.EinfacheFactory;
 import Persistenz.IPatientMapper;
 import java.util.List;
 
-<<<<<<< HEAD
+
+
+
 public class PatientVerwaltung implements IVerwaltung{
-    private final IPatientMapper mapper = EinfacheFactory.createPatientMapper();
-=======
-public class PatientVerwaltung {
     private final IPatientMapper wrapper = EinfacheFactory.createPatientMapper();
->>>>>>> e406356453f55abe8ff889e16dbb893f3d23afc9
+
     private Patient patient;
     
      public void insertPatient(Patient p){
