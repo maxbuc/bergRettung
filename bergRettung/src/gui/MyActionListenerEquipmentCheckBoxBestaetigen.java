@@ -31,6 +31,7 @@ public class MyActionListenerEquipmentCheckBoxBestaetigen implements ActionListe
             }
         }
         einView.setEquipmentList(equipment);
+        einView.deleteEquListener();
         view.dispose();
         
     }

@@ -132,7 +132,14 @@ public class EinsatzView extends JFrame{
         this.equipmentList = equipmentList;
     }
     
-    
+    public void deletePersListener(){
+        personalChoice.removeActionListener(listenerPersonalChoice);
+        personalChoice.setText("Personal ausgewählt");
+    }
+    public void deleteEquListener(){
+        equipmentChoice.removeActionListener(listenerEquipmentChoice);
+        equipmentChoice.setText("Equipment ausgewählt");
+   }
     
         
         

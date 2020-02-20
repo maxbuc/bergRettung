@@ -5,26 +5,28 @@ import gui.MainView;
 public class BergRettung {
 
     public static void main(String[] args) {
-        PersonalVerwaltung persVerw = new PersonalVerwaltung();
-        PatientVerwaltung patVerw = new PatientVerwaltung();
-        EinsatzVerwaltung einVerw = new EinsatzVerwaltung();
-        EquipmentVerwaltung equVerw = new EquipmentVerwaltung();
-        
-        Setup set = new Setup();
-        set.deleteTable();
-        set.createTable();
-        
-        setup(persVerw,patVerw, einVerw, equVerw);
         
         
-        MainView mainView = new MainView("Programm - Bergrettung");
+//        Setup set = new Setup();
+//        set.deleteTable();
+//        set.createTable();
+        
+        setup();
+        
+        
+        new MainView("Programm - Bergrettung");
        
     }
     
    
     
     //erstellt und fügt alle Objekte in DB
-    public static void setup(PersonalVerwaltung persVerw, PatientVerwaltung patVerw, EinsatzVerwaltung einVerw, EquipmentVerwaltung equVerw){
+    public static void setup(){
+        PersonalVerwaltung persVerw = new PersonalVerwaltung();
+        PatientVerwaltung patVerw = new PatientVerwaltung();
+        EinsatzVerwaltung einVerw = new EinsatzVerwaltung();
+        EquipmentVerwaltung equVerw = new EquipmentVerwaltung();
+        
         
         //Personal
         Personal p1 = new Personal(1, "Fritz", "Huber", "1999-12-20", "Notarzt");
