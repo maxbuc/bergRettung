@@ -62,8 +62,8 @@ public class PatientView extends JFrame{
         read.addActionListener(listenerRead);
         readAll.addActionListener(listenerReadAll);
         this.setLayout(new FlowLayout());
-        this.setLocation(500,200);
-        this.setSize(850,200);
+        this.setLocation(685,200);
+        this.setSize(460,220);
         this.setVisible(true);
     }
     

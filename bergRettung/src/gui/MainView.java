@@ -54,7 +54,7 @@ public final class MainView extends JFrame{
         personal.setForeground(Color.BLACK);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocation(500,200);
-        this.setSize(850,200);
+        this.setSize(850,220);
         this.setVisible(true);
     }
 }
