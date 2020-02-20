@@ -20,7 +20,11 @@ public class MyActionListenerEinsatzInsert implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         einsatz = new Einsatz(view.getTextId(), view.getTextDatum(), view.getTextOrt(), view.getTextStichwort());
         einsatz.setPersonal(view.getPersonalList());
+        einsatz.setEquipment(view.getEquipmentList());
+        
         einVerw.insertEinsatz(einsatz);
+        
+        view.dispose();
     }
 
 }

@@ -21,5 +21,6 @@ public class MyActionListenerEquipmentInsert implements ActionListener{
         System.out.println("Inserted!");
         equipment = new Equipment(equView.getBezeichnungText(), equView.getIdText());
         equVerw.insertEquipment(equipment);
+        equView.dispose();
     }
 }

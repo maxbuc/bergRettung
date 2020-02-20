@@ -1,7 +1,7 @@
 package gui;
 
-import bergrettung.Personal;
-import bergrettung.PersonalVerwaltung;
+import bergrettung.Equipment;
+import bergrettung.EquipmentVerwaltung;
 import java.awt.FlowLayout;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,19 +9,19 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 
-public class PersonalCheckBoxView extends JFrame{
-    private PersonalVerwaltung persVerw;
+public class EquipmentCheckBoxView extends JFrame{
+    private EquipmentVerwaltung equVerw;
     private EinsatzView einView;
     
     private List<JCheckBox> boxen;
-    private JCheckBox persBox;
+    private JCheckBox equBox;
     private JButton bestaetigen;
-    private MyActionListenerPersonalCheckBoxBestaetigen listenerBestaetigen;
+    private MyActionListenerEquipmentCheckBoxBestaetigen listenerBestaetigen;
    
     
-    public PersonalCheckBoxView(String titel, EinsatzView view){
+    public EquipmentCheckBoxView(String titel, EinsatzView view){
         super(titel);
-        persVerw = new PersonalVerwaltung();
+        equVerw = new EquipmentVerwaltung();
         this.einView=view;
         
         init();
@@ -31,19 +31,19 @@ public class PersonalCheckBoxView extends JFrame{
         this.setLayout(new FlowLayout());
         
         boxen = new ArrayList<>();
-        List<Personal> personal = persVerw.readAll();
         
+        List<Equipment> equipment = equVerw.readAll();
         
-        for(int i = 0; i < personal.size(); i++){
-            persBox = new JCheckBox(personal.get(i).getNachname() + "; " + personal.get(i).getId());
-            this.add(persBox);
-            boxen.add(persBox);
+        for(int i = 0; i < equipment.size(); i++){
+            equBox = new JCheckBox(equipment.get(i).getBezeichnung() + "; " + equipment.get(i).getId());
+            this.add(equBox);
+            boxen.add(equBox);
         }
         
                 
         
         bestaetigen = new JButton("Bestätigen");
-        listenerBestaetigen = new MyActionListenerPersonalCheckBoxBestaetigen(this, einView);
+        listenerBestaetigen = new MyActionListenerEquipmentCheckBoxBestaetigen(this, einView);
         
         this.add(bestaetigen);
         bestaetigen.addActionListener(listenerBestaetigen);

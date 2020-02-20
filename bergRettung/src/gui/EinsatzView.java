@@ -4,6 +4,7 @@ package gui;
 import java.awt.FlowLayout;
 import javax.swing.JFrame;
 import bergrettung.EinsatzVerwaltung;
+import bergrettung.Equipment;
 import bergrettung.Personal;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -27,17 +28,21 @@ public class EinsatzView extends JFrame{
     private JButton insert;
     private JButton read;
     private JButton personalChoice;
+    private JButton equipmentChoice;
     
     private MyActionListenerEinsatzInsert listenerInsert;
     private MyActionListenerEinsatzRead listenerRead;
     private MyActionListenerPersonalChoice listenerPersonalChoice;
+    private MyActionListenerEquipmentChoice listenerEquipmentChoice;
     
     private List<Personal> personalList;
+    private List<Equipment> equipmentList;
     
     public EinsatzView(String titel, EinsatzVerwaltung einVerw){
         super(titel);
         this.einVerw=einVerw;
         personalList = new ArrayList<>();
+        equipmentList = new ArrayList<>();
         
         init();
     }
@@ -56,10 +61,12 @@ public class EinsatzView extends JFrame{
         insert = new JButton("insert");
         read = new JButton("read");
         personalChoice = new JButton("Personal auswählen");
+        equipmentChoice = new JButton("Equipment auswählen");
         
         listenerInsert = new MyActionListenerEinsatzInsert(this, einVerw);
         listenerRead = new MyActionListenerEinsatzRead(this, einVerw);
         listenerPersonalChoice = new MyActionListenerPersonalChoice(this, einVerw);
+        listenerEquipmentChoice = new MyActionListenerEquipmentChoice(this, einVerw);
         
         this.add(labelId);
         this.add(textId);
@@ -72,17 +79,19 @@ public class EinsatzView extends JFrame{
         this.add(insert);
         this.add(read);
         this.add(personalChoice);
+        this.add(equipmentChoice);
         
         insert.addActionListener(listenerInsert);
         read.addActionListener(listenerRead);
         personalChoice.addActionListener(listenerPersonalChoice);
-        
+        equipmentChoice.addActionListener(listenerEquipmentChoice);
         
         
         
         insert.setForeground(Color.BLACK);
         read.setForeground(Color.BLACK);
         personalChoice.setForeground(Color.BLACK);
+        equipmentChoice.setForeground(Color.BLACK);
         
         this.setLocation(685,200);
         this.setSize(435,220);
@@ -114,8 +123,16 @@ public class EinsatzView extends JFrame{
     public void setPersonalList(List<Personal> personalList) {
         this.personalList = personalList;
     }
+
     
-        
+    public List<Equipment> getEquipmentList() {
+        return equipmentList;
+    }
+    public void setEquipmentList(List<Equipment> equipmentList) {
+        this.equipmentList = equipmentList;
+    }
+    
+    
     
         
         

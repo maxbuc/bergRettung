@@ -33,5 +33,6 @@ public class MyActionListenerPersonalInsert implements ActionListener{
             personal.setQualifikation(null);
         }
         persVerw.insert(personal);
+        persView.dispose();
     }
 }
