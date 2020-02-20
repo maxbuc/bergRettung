@@ -49,23 +49,14 @@ public class PersonalCheckBoxView extends JFrame{
         
         
         
+   
         
         
         
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        this.setLocation(500,200);
-        this.setSize(850,200);
+        this.setLocation(685,200);
+        this.setSize(435,220);
         this.setVisible(true);
     }
 

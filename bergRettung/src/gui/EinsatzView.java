@@ -5,6 +5,7 @@ import java.awt.FlowLayout;
 import javax.swing.JFrame;
 import bergrettung.EinsatzVerwaltung;
 import bergrettung.Personal;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
@@ -44,14 +45,14 @@ public class EinsatzView extends JFrame{
         public void init(){
         this.setLayout(new FlowLayout());
         
-        labelId = new JLabel("ID");
+        labelId = new JLabel("ID: ");
         textId = new JTextField(ALLBITS);
-        labelDatum = new JLabel("Datum");
+        labelDatum = new JLabel("Datum: ");
         textDatum = new JTextField(ALLBITS);
-        labelOrt = new JLabel("Ort");
+        labelOrt = new JLabel("Ort: ");
         textOrt = new JTextField(ALLBITS);
-        labelStichwort = new JLabel("Stichwort");
-        textStichwort = new JTextField(ALLBITS);
+        labelStichwort = new JLabel("Stichwort: ");
+        textStichwort = new JTextField(28);
         insert = new JButton("insert");
         read = new JButton("read");
         personalChoice = new JButton("Personal auswählen");
@@ -79,11 +80,12 @@ public class EinsatzView extends JFrame{
         
         
         
+        insert.setForeground(Color.BLACK);
+        read.setForeground(Color.BLACK);
+        personalChoice.setForeground(Color.BLACK);
         
-        
-        
-        this.setLocation(500,200);
-        this.setSize(850,220);
+        this.setLocation(685,200);
+        this.setSize(435,220);
         this.setVisible(true);
     }
 
