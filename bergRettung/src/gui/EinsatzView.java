@@ -4,6 +4,9 @@ package gui;
 import java.awt.FlowLayout;
 import javax.swing.JFrame;
 import bergrettung.EinsatzVerwaltung;
+import bergrettung.Personal;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -28,9 +31,13 @@ public class EinsatzView extends JFrame{
     private MyActionListenerEinsatzRead listenerRead;
     private MyActionListenerPersonalChoice listenerPersonalChoice;
     
+    private List<Personal> personalList;
+    
     public EinsatzView(String titel, EinsatzVerwaltung einVerw){
         super(titel);
         this.einVerw=einVerw;
+        personalList = new ArrayList<>();
+        
         init();
     }
     
@@ -76,7 +83,7 @@ public class EinsatzView extends JFrame{
         
         
         this.setLocation(500,200);
-        this.setSize(850,200);
+        this.setSize(850,220);
         this.setVisible(true);
     }
 
@@ -97,7 +104,12 @@ public class EinsatzView extends JFrame{
     public String getTextStichwort() {
         return textStichwort.getText();
     }
+
+    public List<Personal> getPersonalList() {
+        return personalList;
+    }
         
+    
         
         
         
