@@ -18,7 +18,6 @@ public class MyActionListenerPatientInsert implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println("Inserted!");
         patient=new Patient(patView.getIdText(), patView.getVornameText(), patView.getNachnameText());
         patVerw.insertPatient(patient);
         patView.dispose();

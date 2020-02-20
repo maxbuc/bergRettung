@@ -18,7 +18,6 @@ public class MyActionListenerPersonalUpdate implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println("Inserted!");
         personal=new Personal(persView.getIdText(), persView.getVornameText(),persView.getNachnameText());
         if(persView.getQualifikationText() !=null | persView.getQualifikationText() != ""){
             personal.setQualifikation(persView.getQualifikationText());

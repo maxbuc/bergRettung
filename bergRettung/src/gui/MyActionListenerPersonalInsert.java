@@ -18,7 +18,6 @@ public class MyActionListenerPersonalInsert implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println("Inserted!");
         personal=new Personal(persView.getIdText(), persView.getVornameText(),persView.getNachnameText());
         if(persView.getGebdatText() != null | persView.getGebdatText()!= ""){
             personal.setGebdat(persView.getGebdatText());

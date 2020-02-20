@@ -18,7 +18,6 @@ public class MyActionListenerPatientUpdate implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println("Updated!");
         patient = new Patient(patView.getIdText(), patView.getVornameText(), patView.getNachnameText());
         patVerw.updatePatient(patient);
     }

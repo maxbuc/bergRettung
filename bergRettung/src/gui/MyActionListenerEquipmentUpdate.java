@@ -18,7 +18,6 @@ public class MyActionListenerEquipmentUpdate implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println("Updated!");
         equipment = new Equipment(equView.getBezeichnungText(),equView.getIdText());
         equVerw.updateEquipment(equipment);
     }

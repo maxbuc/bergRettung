@@ -6,16 +6,16 @@ public class BergRettung {
 
     public static void main(String[] args) {
         
-        Setup set = new Setup();
-        
-        //Löschte bereits vorhandene BergRettungs Tabellen
-        set.deleteTable();
-        
-        //Erstellt alle benötigten Tabellen
-        set.createTable();
-        
-        //Fügt Testdaten ein
-        setup();
+//        Setup set = new Setup();
+//        
+//        //Löschte bereits vorhandene BergRettungs Tabellen
+//        set.deleteTable();
+//        
+//        //Erstellt alle benötigten Tabellen
+//        set.createTable();
+//        
+//        //Fügt Testdaten ein
+//        setup();
         
         
         new MainView("Programm - Bergrettung");

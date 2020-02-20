@@ -109,8 +109,7 @@ public class EinsatzJavaDBMapper implements IEinsatzMapper {
         Personal p;
         Patient pat;
         Equipment equ;
-        
-        
+
         try {
 
             //Abfrage für bestimmten Einsatz
@@ -155,11 +154,11 @@ public class EinsatzJavaDBMapper implements IEinsatzMapper {
             select.setInt(1, id);
             result = select.executeQuery();
             while (result.next()) {
-                //Patient erzeugen
+                //Equipment erzeugen
                 equ = new Equipment(result.getString(2), result.getInt(1));
                 e.addEquipment(equ);
             }
-            
+
             return e;
 
         } catch (SQLException ex) {
@@ -208,10 +207,16 @@ public class EinsatzJavaDBMapper implements IEinsatzMapper {
         Connection conn = pool.getConn();
         try {
             PreparedStatement patient = conn.prepareStatement("insert into einsatz_patient values(?,?)");
-            for (int i = 0; i < e.getPersonal().size(); i++) {
-                patient.setInt(1, e.getPatienten().get(i).getId());
+            if (e.getPatienten().size() == 1) {
+                patient.setInt(1, e.getPatienten().get(0).getId());
                 patient.setInt(2, e.getId());
                 anz = patient.executeUpdate();
+            } else {
+                for (int i = 0; i < e.getPersonal().size(); i++) {
+                    patient.setInt(1, e.getPatienten().get(i).getId());
+                    patient.setInt(2, e.getId());
+                    anz = patient.executeUpdate();
+                }
             }
 
         } catch (SQLException ex) {

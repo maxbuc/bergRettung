@@ -26,7 +26,6 @@ public class MyActionListenerEquipmentCheckBoxBestaetigen implements ActionListe
             if(view.getBoxen().get(i).isSelected()){
                 String[] split = view.getBoxen().get(i).getText().split("; ");
                 equipment.add(equVerw.readEquipment(Integer.parseInt(split[1])));
-                System.out.println(equVerw.readEquipment(Integer.parseInt(split[1])));
                 
             }
         }

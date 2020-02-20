@@ -26,7 +26,6 @@ public class MyActionListenerPersonalCheckBoxBestaetigen implements ActionListen
             if(view.getBoxen().get(i).isSelected()){
                 String[] split = view.getBoxen().get(i).getText().split("; ");
                 personal.add(persVerw.read(Integer.parseInt(split[1])));
-                //System.out.println(persVerw.read(Integer.parseInt(split[1])));
                 
             }
         }

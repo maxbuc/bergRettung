@@ -22,7 +22,6 @@ public class MyActionListenerEinsatzInsert implements ActionListener {
         einsatz.setPersonal(view.getPersonalList());
         einsatz.setEquipment(view.getEquipmentList());
         einsatz.setPatienten(view.getPatientList());
-        
         einVerw.insertEinsatz(einsatz);
         
         view.dispose();
