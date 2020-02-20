@@ -17,7 +17,7 @@ public class BergRettung {
         setup(persVerw,patVerw, einVerw, equVerw);
         
         
-        MainView mainView = new MainView("Programm - Bergrettung", einVerw , equVerw, patVerw, persVerw);
+        MainView mainView = new MainView("Programm - Bergrettung");
        
     }
     
