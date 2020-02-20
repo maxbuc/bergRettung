@@ -1,19 +1,21 @@
 package gui;
 
 import bergrettung.IVerwaltung;
+import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JTextArea;
 
 
 public class ResultView extends JFrame{
     
-    private JLabel ausgabe;
+    private JTextArea ausgabe;
     
     private IVerwaltung verwaltung;
     
     public ResultView(String title){
         super(title);
-        ausgabe = new JLabel("");
+        ausgabe = new JTextArea("");
         init();
     }
     
@@ -21,10 +23,10 @@ public class ResultView extends JFrame{
         
         this.add(ausgabe);
         
-        
-       
-        this.setLocation(800, 200);
-        this.setSize(1200, 200);
+        ausgabe.setEditable(false);
+        ausgabe.setForeground(Color.BLACK);
+        this.setLocation(600, 200);
+        this.setSize(650, 220);
         this.setVisible(true);
     }
     

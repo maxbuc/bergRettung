@@ -1,4 +1,4 @@
-
+ 
 package gui;
 
 import java.awt.FlowLayout;
@@ -46,11 +46,13 @@ public class PersonalView extends JFrame{
         vornameLabel = new JLabel ("Vorname: ");
         gebdatLabel = new JLabel("Geburtstag: ");
         qualifikationLabel = new JLabel("Qualifikation: ");
-        idText = new JTextField ("ID", ALLBITS);
-        nachnameText = new JTextField ("Nachname eingeben",ALLBITS);
-        vornameText = new JTextField ("Vorname eingeben", ALLBITS);
-        gebdatText = new JTextField ("yyyy-mm-dd",ALLBITS);
-        qualifikationText = new JTextField ("Qualifikation", ALLBITS);
+        idText = new JTextField (ALLBITS);
+        nachnameText = new JTextField (ALLBITS);
+        vornameText = new JTextField (ALLBITS);
+        gebdatText = new JTextField (ALLBITS);
+        qualifikationText = new JTextField (ALLBITS);
+        add(idLabel);
+        add(idText);
         add(nachnameLabel);
         add(nachnameText);
         add(vornameLabel);
@@ -59,8 +61,6 @@ public class PersonalView extends JFrame{
         add(gebdatText);
         add(qualifikationLabel);
         add(qualifikationText);
-        add(idLabel);
-        add(idText);
         add(insert);
         add(update);
         add(read);

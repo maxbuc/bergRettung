@@ -34,7 +34,7 @@ public class Equipment {
 
     @Override
     public String toString() {
-        return "Equipment{" + "bezeichnung=" + bezeichnung + ", id=" + id + '}'+'\n';
+        return  "Id " + id + ": " + bezeichnung +'\n';
     }
 
 

@@ -37,12 +37,12 @@ public class EquipmentView extends JFrame{
         readAll = new JButton("ReadAll");
         idLabel = new JLabel ("ID: ");
         bezeichnungLabel = new JLabel("Bezeichnung: ");
-        idText = new JTextField ("ID eingeben",ALLBITS);
-        bezeichnungText = new JTextField ("Bezeichnung eingeben",ALLBITS);
-        add(bezeichnungLabel);
-        add(bezeichnungText);
+        idText = new JTextField (ALLBITS);
+        bezeichnungText = new JTextField (ALLBITS);
         add(idLabel);
         add(idText);
+        add(bezeichnungLabel);
+        add(bezeichnungText);
         add(insert);
         add(update);
         add(read);
