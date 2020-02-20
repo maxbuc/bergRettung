@@ -31,7 +31,7 @@ public class MyActionListenerPersonalCheckBoxBestaetigen implements ActionListen
             }
         }
         einView.setPersonalList(personal);
-        
+        view.dispose();
         
     }
 
