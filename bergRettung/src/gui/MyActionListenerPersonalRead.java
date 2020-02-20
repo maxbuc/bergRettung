@@ -18,6 +18,6 @@ public class MyActionListenerPersonalRead implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println(persVerw.read(persView.getIdText()));
+        new ResultView("Ausgabe").setResultView(persVerw.read(persView.getIdText()).toString());
     }
 }

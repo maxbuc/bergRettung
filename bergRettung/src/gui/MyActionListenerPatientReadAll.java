@@ -16,7 +16,7 @@ public class MyActionListenerPatientReadAll implements ActionListener{
         
     @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println(patVerw.readAll().toString());
+        new ResultView("Ausgabe").setResultView(patVerw.readAll().toString());
     }
     
     

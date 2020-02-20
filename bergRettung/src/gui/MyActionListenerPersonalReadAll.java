@@ -18,6 +18,6 @@ public class MyActionListenerPersonalReadAll implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println(persVerw.readAll().toString());
+        new ResultView("Ausgabe").setResultView(persVerw.readAll().toString());
     }
 }

@@ -16,7 +16,7 @@ public class MyActionListenerEinsatzRead implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        new ResultView("Ausgabe", einVerw).setResultView(einVerw.readEinsatz(view.getTextId()).toString());
+        new ResultView("Ausgabe").setResultView(einVerw.readEinsatz(view.getTextId()).toString());
     }
 
 }

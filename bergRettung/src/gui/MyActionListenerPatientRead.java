@@ -16,6 +16,6 @@ public class MyActionListenerPatientRead implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e){
-        System.out.print(patVerw.readPatient(patView.getIdText()));
+        new ResultView("Ausgabe").setResultView(patVerw.readPatient(patView.getIdText()).toString());
     }
 }

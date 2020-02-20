@@ -16,6 +16,6 @@ public class MyActionListenerEquipmentRead implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e){
-        System.out.println(equVerw.readEquipment(equView.getIdText()));
+        new ResultView("Ausgabe").setResultView(equVerw.readEquipment(equView.getIdText()).toString());
     }
 }

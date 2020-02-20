@@ -11,9 +11,8 @@ public class ResultView extends JFrame{
     
     private IVerwaltung verwaltung;
     
-    public ResultView(String title, IVerwaltung verwaltung){
+    public ResultView(String title){
         super(title);
-        this.verwaltung = verwaltung;
         ausgabe = new JLabel("");
         init();
     }
