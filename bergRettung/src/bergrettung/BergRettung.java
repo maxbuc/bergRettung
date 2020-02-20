@@ -9,13 +9,13 @@ public class BergRettung {
         Setup set = new Setup();
         
         //Löschte bereits vorhandene BergRettungs Tabellen
-//        set.deleteTable();
+        set.deleteTable();
         
         //Erstellt alle benötigten Tabellen
-//        set.createTable();
+        set.createTable();
         
         //Fügt Testdaten ein
-//        setup();
+        setup();
         
         
         new MainView("Programm - Bergrettung");
