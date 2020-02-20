@@ -21,6 +21,7 @@ public class MyActionListenerEinsatzInsert implements ActionListener {
         einsatz = new Einsatz(view.getTextId(), view.getTextDatum(), view.getTextOrt(), view.getTextStichwort());
         einsatz.setPersonal(view.getPersonalList());
         einsatz.setEquipment(view.getEquipmentList());
+        einsatz.setPatienten(view.getPatientList());
         
         einVerw.insertEinsatz(einsatz);
         

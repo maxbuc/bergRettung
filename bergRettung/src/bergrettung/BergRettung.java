@@ -6,11 +6,15 @@ public class BergRettung {
 
     public static void main(String[] args) {
         
+        Setup set = new Setup();
         
-//        Setup set = new Setup();
+        //Löschte bereits vorhandene BergRettungs Tabellen
 //        set.deleteTable();
+        
+        //Erstellt alle benötigten Tabellen
 //        set.createTable();
         
+        //Fügt Testdaten ein
 //        setup();
         
         
@@ -42,8 +46,8 @@ public class BergRettung {
 
         
         //Equipment
-        Equipment equ1 = new Equipment ("Hubschrauber", 1234);
-        Equipment equ2 = new Equipment ("Auto", 43645);
+        Equipment equ1 = new Equipment ("Hubschrauber", 1);
+        Equipment equ2 = new Equipment ("Auto", 2);
         equVerw.insertEquipment(equ1);
         equVerw.insertEquipment(equ2);
         
