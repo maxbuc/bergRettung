@@ -11,7 +11,7 @@ public class BergRettung {
 //        set.deleteTable();
 //        set.createTable();
         
-        setup();
+//        setup();
         
         
         new MainView("Programm - Bergrettung");
