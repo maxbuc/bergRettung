@@ -121,7 +121,7 @@ public class EinsatzJavaDBMapper implements IEinsatzMapper {
                 //erstellt Einsatz aus SQL Abfrage
                 e = new Einsatz(result.getInt(1), result.getDate(2).toString(), result.getString(3), result.getString(4));
             } else {
-                return new Einsatz(0, "Falsche ID übergeben", "", "");
+                return null;
             }
 
             //Personal von Einsatz ausgeben und zu Einsatz hinzufügen

@@ -10,11 +10,11 @@ public class BergRettung {
         EinsatzVerwaltung einVerw = new EinsatzVerwaltung();
         EquipmentVerwaltung equVerw = new EquipmentVerwaltung();
         
-//        Setup set = new Setup();
-//        set.deleteTable();
-//        set.createTable();
+        Setup set = new Setup();
+        set.deleteTable();
+        set.createTable();
         
-//        setup(persVerw,patVerw, einVerw, equVerw);
+        setup(persVerw,patVerw, einVerw, equVerw);
         
         
         MainView mainView = new MainView("Programm - Bergrettung", einVerw , equVerw, patVerw, persVerw);

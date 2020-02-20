@@ -107,9 +107,14 @@ public class EinsatzView extends JFrame{
         return textStichwort.getText();
     }
 
+    
     public List<Personal> getPersonalList() {
         return personalList;
     }
+    public void setPersonalList(List<Personal> personalList) {
+        this.personalList = personalList;
+    }
+    
         
     
         
