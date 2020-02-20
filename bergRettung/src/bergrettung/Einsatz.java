@@ -92,7 +92,7 @@ public class Einsatz {
 
     @Override
     public String toString() {
-        return "Einsatz" + " " + id + ": " + datum + " in " + ort + ", Stichwort: " + stichwort +'\n' + "Personal: " + personal.toString()+'\n' +"Patient: " + patienten.toString()+'\n' + "Equipment: " + equipment.toString();
+        return "Einsatz" + " " + id + ": " + datum + " in " + ort + ", Stichwort: " + stichwort +'\n' +'\n' + "Personal: " + personal.toString()+'\n' +"Patient: " + patienten.toString()+'\n' + "Equipment: " + equipment.toString();
     }
     
     

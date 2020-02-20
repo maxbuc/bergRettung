@@ -26,7 +26,7 @@ public class ResultView extends JFrame{
         ausgabe.setEditable(false);
         ausgabe.setForeground(Color.BLACK);
         this.setLocation(600, 200);
-        this.setSize(650, 220);
+        this.setSize(650, 300);
         this.setVisible(true);
     }
     
