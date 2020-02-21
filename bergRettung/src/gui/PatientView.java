@@ -40,7 +40,7 @@ public final class PatientView extends JFrame{
         idLabel = new JLabel ("ID: ");
         nachnameLabel= new JLabel("Nachname: ");
         vornameLabel = new JLabel ("Vorname: ");
-        idText = new JTextField (ALLBITS);
+        idText = new JTextField (Integer.toString(patVerw.getNextFree()), ALLBITS);
         nachnameText = new JTextField (ALLBITS);
         vornameText = new JTextField (ALLBITS);
         add(idLabel);

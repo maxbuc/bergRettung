@@ -9,4 +9,5 @@ public interface IPersonalMapper {
     void update(Personal p);
     List<Personal> readAll();
     Personal read(int id);
+    int getNextFree();
 }

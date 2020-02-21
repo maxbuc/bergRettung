@@ -104,4 +104,18 @@ public class PatientJavaDBMapper implements IPatientMapper{
             return allePatienten;
         }       
     }
+    
+    public int getNextFree(){
+        Connection conn = pool.getConn();
+        try {
+            PreparedStatement max = conn.prepareStatement("select max(id) from patient");
+            ResultSet result = max.executeQuery();
+            if(result.next()){
+                return result.getInt(1)+1;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(EquipmentJavaDBMapper.class.getName()).log(Level.SEVERE, null, ex);
+        }      
+        return 0;
+    }
 }

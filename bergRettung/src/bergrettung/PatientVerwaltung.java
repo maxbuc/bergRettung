@@ -32,4 +32,8 @@ public class PatientVerwaltung{
         public List<Patient> readAll(){
         return wrapper.readAll();
     }
+        
+        public int getNextFree(){
+            return wrapper.getNextFree();
+        }
 }

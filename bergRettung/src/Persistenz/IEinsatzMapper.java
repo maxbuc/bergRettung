@@ -10,4 +10,5 @@ public interface IEinsatzMapper {
     void updateEinsatz(Einsatz e);
     void insertEinsatz(Einsatz e);
     void deleteEinsatz(int id); 
+    int getNextFree();
 }

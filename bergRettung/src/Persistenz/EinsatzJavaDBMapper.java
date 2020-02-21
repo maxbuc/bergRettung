@@ -241,4 +241,22 @@ public class EinsatzJavaDBMapper implements IEinsatzMapper {
         pool.releaseConn(conn);
     }
 
+    public int getNextFree() {
+        Connection conn = pool.getConn();
+        try {
+            PreparedStatement max = conn.prepareStatement("select max(id) from einsatz");
+            ResultSet result = max.executeQuery();
+            if(result.next()){
+                System.out.println(result.getInt(1));
+                return result.getInt(1)+1;
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(EinsatzJavaDBMapper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        pool.releaseConn(conn);
+
+        return 0;
+    }
+
 }

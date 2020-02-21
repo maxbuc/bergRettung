@@ -56,7 +56,8 @@ public final class EinsatzView extends JFrame {
         this.setLayout(new FlowLayout());
 
         labelId = new JLabel("ID: ");
-        textId = new JTextField(ALLBITS);
+        textId = new JTextField(Integer.toString(einVerw.getNextFree()), ALLBITS);
+        textId.setEditable(false);
         labelDatum = new JLabel("Datum: ");
         textDatum = new JTextField(ALLBITS);
         labelOrt = new JLabel("Ort: ");

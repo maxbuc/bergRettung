@@ -120,5 +120,21 @@ public class PersonalJavaDBMapper implements IPersonalMapper {
 
         return p;
     }
+    
+    public int getNextFree(){
+        Connection conn = pool.getConn();
+        try {
+            PreparedStatement max = conn.prepareStatement("select max(id) from personal");
+            ResultSet result = max.executeQuery();
+            if(result.next()){
+                return result.getInt(1)+1;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PersonalJavaDBMapper.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        pool.releaseConn(conn);
+
+        return 0;
+    }
 
 }

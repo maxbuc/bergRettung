@@ -1,6 +1,7 @@
 
 package gui;
 
+import bergrettung.PatientVerwaltung;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
@@ -9,7 +10,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public final class PatientInsertView extends JFrame{
-    private final EinsatzView einView;
+    private EinsatzView einView;
+    private PatientVerwaltung patVerw;
     private JButton insert;
     private JLabel nachnameLabel;
     private JLabel vornameLabel;
@@ -21,16 +23,17 @@ public final class PatientInsertView extends JFrame{
     public PatientInsertView(String titel, EinsatzView einView){
         super(titel);
         this.einView=einView;
+        this.patVerw=new PatientVerwaltung();
         init();
     }
     
     public void init(){
-        MyActionListenerPatientCreate listenerInsert = new MyActionListenerPatientCreate(einView,this);
+        MyActionListenerPatientCreate listenerInsert = new MyActionListenerPatientCreate(einView,this, patVerw);
         insert = new JButton ("Insert");
         idLabel = new JLabel ("ID: ");
         nachnameLabel= new JLabel("Nachname: ");
         vornameLabel = new JLabel ("Vorname: ");
-        idText = new JTextField (ALLBITS);
+        idText = new JTextField (Integer.toString(patVerw.getNextFree()), ALLBITS);
         nachnameText = new JTextField (ALLBITS);
         vornameText = new JTextField (ALLBITS);
         add(idLabel);

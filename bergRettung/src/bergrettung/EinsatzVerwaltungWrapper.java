@@ -23,4 +23,7 @@ public class EinsatzVerwaltungWrapper {
     public List<Einsatz> readAll(){
         return mapper.readAll();
     }
+    public int getNextFree(){
+        return mapper.getNextFree();
+    }
 }

@@ -10,4 +10,5 @@ public interface IPatientMapper {
     void updatePatient(Patient p);
     void insertPatient(Patient p);
     void deletePatient(int id); 
+    int getNextFree();
 }

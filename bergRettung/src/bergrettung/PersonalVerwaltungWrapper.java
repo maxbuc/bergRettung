@@ -22,4 +22,7 @@ public class PersonalVerwaltungWrapper {
     public List<Personal> readAll(){
         return mapper.readAll();
     }
+    public int getNextFree(){
+        return mapper.getNextFree();
+    }
 }

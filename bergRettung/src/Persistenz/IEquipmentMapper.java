@@ -16,4 +16,5 @@ public interface IEquipmentMapper {
     void insertEquipment(Equipment e);
     void updateEquipment(Equipment e);
     void deleteEquipment(int id);//statt String -> Integer
+    int getNextFree();
 }

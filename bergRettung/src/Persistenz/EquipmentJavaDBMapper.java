@@ -111,4 +111,18 @@ public class EquipmentJavaDBMapper implements IEquipmentMapper {
         }       
     }
     
+    public int getNextFree(){
+        Connection conn = pool.getConn();
+        try {
+            PreparedStatement max = conn.prepareStatement("select max(id) from equipment");
+            ResultSet result = max.executeQuery();
+            if(result.next()){
+                return result.getInt(1)+1;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(EquipmentJavaDBMapper.class.getName()).log(Level.SEVERE, null, ex);
+        }      
+        return 0;
+    }
+    
 }

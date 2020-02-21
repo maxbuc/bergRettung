@@ -12,8 +12,8 @@ public class MyActionListenerPatientCreate implements ActionListener{
     private final EinsatzView einView;
     Patient patient;
     
-    public MyActionListenerPatientCreate(EinsatzView einView, PatientInsertView patView){
-        this.patVerw=new PatientVerwaltung();
+    public MyActionListenerPatientCreate(EinsatzView einView, PatientInsertView patView, PatientVerwaltung patVerw){
+        this.patVerw=patVerw;
         this.patView=patView;
         this.einView=einView;
     }

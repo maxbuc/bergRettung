@@ -23,4 +23,8 @@ public class PatientVerwaltungWrapper {
     public List<Patient> readAll(){
         return mapper.readAll();
     }
+    
+    public int getNextFree(){
+        return mapper.getNextFree();
+    }
 }

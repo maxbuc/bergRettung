@@ -20,4 +20,7 @@ public class PersonalVerwaltung{
     public List<Personal> readAll(){
         return wrapper.readAll();
     }
+    public int getNextFree(){
+        return wrapper.getNextFree();
+    }
 }

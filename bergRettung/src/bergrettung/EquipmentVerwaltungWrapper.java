@@ -24,4 +24,8 @@ public class EquipmentVerwaltungWrapper {
         return mapper.readAll();
     }
     
+    public int getNextFree(){
+        return mapper.getNextFree();
+    }
+    
 }

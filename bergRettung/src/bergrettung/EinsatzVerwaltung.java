@@ -26,5 +26,9 @@ public class EinsatzVerwaltung{
         return wrapper.readAll();
     }
     
+    public int getNextFree(){
+        return wrapper.getNextFree();
+    }
+    
     
 }
