@@ -7,8 +7,8 @@ import bergrettung.EinsatzVerwaltung;
 import bergrettung.Einsatz;
 
 public class MyActionListenerEinsatzView implements ActionListener{
-    private  EinsatzVerwaltung einVerw;
-    private  MainView view;
+    private final  EinsatzVerwaltung einVerw;
+    private final  MainView view;
     Einsatz einsatz;
 
     public MyActionListenerEinsatzView(EinsatzVerwaltung einVerw, MainView view) {
@@ -18,6 +18,6 @@ public class MyActionListenerEinsatzView implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e){
-        new EinsatzView("Einsatz",einVerw);
+        EinsatzView einsatzView = new EinsatzView("Einsatz",einVerw);
     }
 }

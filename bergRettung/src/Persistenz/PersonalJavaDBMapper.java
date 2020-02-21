@@ -11,7 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class PersonalJavaDBMapper implements IPersonalMapper {
-
+    private Integer anz;
     private final int size = 4;
     private final ConnectionPool pool = ConnectionPool.getSinglePool(size);
 
@@ -25,7 +25,7 @@ public class PersonalJavaDBMapper implements IPersonalMapper {
             insert.setString(3, p.getNachname());
             insert.setString(4, p.getGebdat());
             insert.setString(5, p.getQualifikation());
-            int anz = insert.executeUpdate();
+            anz = insert.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(PersonalJavaDBMapper.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -38,7 +38,7 @@ public class PersonalJavaDBMapper implements IPersonalMapper {
         try {
             PreparedStatement insert = conn.prepareStatement("delete from personal where id = ?");
             insert.setInt(1, id);
-            int anz = insert.executeUpdate();
+            anz = insert.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(PersonalJavaDBMapper.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -56,7 +56,7 @@ public class PersonalJavaDBMapper implements IPersonalMapper {
             update.setString(3, p.getQualifikation());
             update.setInt(4, p.getId());
 
-            int anz = update.executeUpdate();
+            anz = update.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(PersonalJavaDBMapper.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -75,9 +75,7 @@ public class PersonalJavaDBMapper implements IPersonalMapper {
             while (result.next()) {
                 p = newPersonFromDB(result);
                 all.add(p);
-
             }
-
         } catch (SQLException ex) {
             Logger.getLogger(PersonalJavaDBMapper.class.getName()).log(Level.SEVERE, null, ex);
         }

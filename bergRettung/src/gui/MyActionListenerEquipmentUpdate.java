@@ -20,5 +20,6 @@ public class MyActionListenerEquipmentUpdate implements ActionListener{
     public void actionPerformed(ActionEvent e){
         equipment = new Equipment(equView.getBezeichnungText(),equView.getIdText());
         equVerw.updateEquipment(equipment);
+        equView.dispose();
     }
 }

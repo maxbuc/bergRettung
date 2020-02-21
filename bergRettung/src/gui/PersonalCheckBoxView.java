@@ -10,8 +10,8 @@ import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 
 public class PersonalCheckBoxView extends JFrame{
-    private PersonalVerwaltung persVerw;
-    private EinsatzView einView;
+    private final PersonalVerwaltung persVerw;
+    private final EinsatzView einView;
     
     private List<JCheckBox> boxen;
     private JCheckBox persBox;
@@ -33,30 +33,17 @@ public class PersonalCheckBoxView extends JFrame{
         boxen = new ArrayList<>();
         List<Personal> personal = persVerw.readAll();
         
-        
         for(int i = 0; i < personal.size(); i++){
             persBox = new JCheckBox(personal.get(i).getNachname() + "; " + personal.get(i).getId());
             this.add(persBox);
             boxen.add(persBox);
         }
         
-                
-        
         bestaetigen = new JButton("Bestätigen");
         listenerBestaetigen = new MyActionListenerPersonalCheckBoxBestaetigen(this, einView);
         
         this.add(bestaetigen);
         bestaetigen.addActionListener(listenerBestaetigen);
-        
-        
-        
-        
-   
-        
-        
-        
-        
-        
         this.setLocation(685,200);
         this.setSize(435,220);
         this.setVisible(true);
@@ -65,7 +52,5 @@ public class PersonalCheckBoxView extends JFrame{
     public List<JCheckBox> getBoxen() {
         return boxen;
     }
-    
-    
     
 }

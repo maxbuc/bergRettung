@@ -7,9 +7,9 @@ import bergrettung.Patient;
 import bergrettung.PatientVerwaltung;
 
 public class MyActionListenerPatientCreate implements ActionListener{
-    private PatientVerwaltung patVerw;
-    private PatientInsertView patView;
-    private EinsatzView einView;
+    private final PatientVerwaltung patVerw;
+    private final PatientInsertView patView;
+    private final EinsatzView einView;
     Patient patient;
     
     public MyActionListenerPatientCreate(EinsatzView einView, PatientInsertView patView){

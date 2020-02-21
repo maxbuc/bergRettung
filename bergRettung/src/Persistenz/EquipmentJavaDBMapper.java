@@ -6,7 +6,6 @@
 package Persistenz;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,10 +19,11 @@ import bergrettung.Equipment;
 public class EquipmentJavaDBMapper implements IEquipmentMapper {
     
     private final int size = 4;//Konstante final
-    private ConnectionPool pool = ConnectionPool.getSinglePool(size);
+    private final ConnectionPool pool = ConnectionPool.getSinglePool(size);
     private Integer anz;
     
     
+    @Override
     public void insertEquipment(Equipment e){
         Connection conn = pool.getConn();
         //alleHobbies = p.getHobbies();
@@ -32,7 +32,6 @@ public class EquipmentJavaDBMapper implements IEquipmentMapper {
             insert.setString(1, e.getBezeichnung());
             insert.setInt(2, e.getId());
             anz = insert.executeUpdate();
-             
             conn.commit();
         } catch (SQLException ex) {
             Logger.getLogger(EquipmentJavaDBMapper.class.getName()).log(Level.SEVERE, null, ex);
@@ -46,6 +45,7 @@ public class EquipmentJavaDBMapper implements IEquipmentMapper {
     }
     
     
+    @Override
     public void updateEquipment(Equipment e){
         Connection conn = pool.getConn();
         //alleHobbies = p.getHobbies();
@@ -60,18 +60,20 @@ public class EquipmentJavaDBMapper implements IEquipmentMapper {
         pool.releaseConn(conn);
     }
     
+    @Override
     public void deleteEquipment(int id){
         Connection conn = pool.getConn();
         try {
             PreparedStatement delete = conn.prepareStatement("delete from equipment where id=?");
             delete.setInt(1,id);
-            int anz = delete.executeUpdate();
+            anz = delete.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(EquipmentJavaDBMapper.class.getName()).log(Level.SEVERE, null, ex);
         }
         pool.releaseConn(conn);
     }
     
+    @Override
     public Equipment readEquipment(int id){
         Connection conn = pool.getConn();
         Equipment e;
@@ -91,6 +93,7 @@ public class EquipmentJavaDBMapper implements IEquipmentMapper {
         return null;
     }
     
+    @Override
     public List<Equipment> readAll (){
         Connection conn = pool.getConn();
         List<Equipment> alleEquipment = new ArrayList<>();

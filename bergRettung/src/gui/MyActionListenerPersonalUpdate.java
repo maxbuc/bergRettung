@@ -19,9 +19,10 @@ public class MyActionListenerPersonalUpdate implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e){
         personal=new Personal(persView.getIdText(), persView.getVornameText(),persView.getNachnameText());
-        if(persView.getQualifikationText() !=null | persView.getQualifikationText() != ""){
+        if(persView.getQualifikationText() !=null | !"".equals(persView.getQualifikationText())){
             personal.setQualifikation(persView.getQualifikationText());
         }
         persVerw.update(personal);
+        persView.dispose();
     }
 }

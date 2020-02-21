@@ -7,16 +7,16 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class SetupJavaDBMapper implements ISetupMapper {
-
+    private Integer anz;
     private final int size = 4;
-    private ConnectionPool pool = ConnectionPool.getSinglePool(size);
+    private final ConnectionPool pool = ConnectionPool.getSinglePool(size);
 
     @Override
     public void deleteTable() {
         Connection conn = pool.getConn();
         try {
             PreparedStatement drop = conn.prepareStatement("drop table einsatz_equipment");
-            int anz = drop.executeUpdate();
+            anz = drop.executeUpdate();
             
             drop = conn.prepareStatement("drop table einsatz_patient");
             anz = drop.executeUpdate();
@@ -47,7 +47,7 @@ public class SetupJavaDBMapper implements ISetupMapper {
         Connection conn = pool.getConn();
         try {
             PreparedStatement insert = conn.prepareStatement("create table einsatz(id int primary key, datum date, ort varchar(20), stichwort varchar(40))");
-            int anz = insert.executeUpdate();
+            anz = insert.executeUpdate();
             
             insert = conn.prepareStatement("create table equipment(id int primary key, bezeichnung varchar(40))");
             anz = insert.executeUpdate();

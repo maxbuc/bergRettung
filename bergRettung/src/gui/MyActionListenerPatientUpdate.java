@@ -20,5 +20,6 @@ public class MyActionListenerPatientUpdate implements ActionListener{
     public void actionPerformed(ActionEvent e){
         patient = new Patient(patView.getIdText(), patView.getVornameText(), patView.getNachnameText());
         patVerw.updatePatient(patient);
+        patView.dispose();
     }
 }

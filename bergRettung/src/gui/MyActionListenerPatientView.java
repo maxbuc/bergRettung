@@ -19,6 +19,6 @@ public class MyActionListenerPatientView implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e){
-        new PatientView("Patient",patVerw);
+        PatientView patientView = new PatientView("Patient",patVerw);
     }
 }

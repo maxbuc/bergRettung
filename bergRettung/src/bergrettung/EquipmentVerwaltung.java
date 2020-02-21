@@ -7,7 +7,7 @@ import Persistenz.IEquipmentMapper;
 import java.util.List;
 
 
-public class EquipmentVerwaltung implements IVerwaltung{
+public class EquipmentVerwaltung{
     
     private final IEquipmentMapper wrapper = EinfacheFactory.createEquipmentMapper();//(Die Klasse (Klasse kann man nur statische Instanzen schicken) EinfacheFactory hat eine Methode createPersonMapper)
     //private EquipmentView view;
@@ -34,8 +34,4 @@ public class EquipmentVerwaltung implements IVerwaltung{
         wrapper.deleteEquipment(id);
     }
 
-//    public void setView(EquipmentView view) {
-//        this.view = view;
-//    }
-    
 }

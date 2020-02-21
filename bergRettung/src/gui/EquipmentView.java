@@ -9,8 +9,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class EquipmentView extends JFrame{
-    private EquipmentVerwaltung equVerw;
+public final class EquipmentView extends JFrame{
+    private final EquipmentVerwaltung equVerw;
     private JButton insert;
     private JButton read;
     private JButton readAll;

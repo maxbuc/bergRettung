@@ -1,8 +1,6 @@
 
 package gui;
 
-import bergrettung.EinsatzVerwaltung;
-import bergrettung.PatientVerwaltung;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
@@ -10,8 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class PatientInsertView extends JFrame{
-    private EinsatzView einView;
+public final class PatientInsertView extends JFrame{
+    private final EinsatzView einView;
     private JButton insert;
     private JLabel nachnameLabel;
     private JLabel vornameLabel;

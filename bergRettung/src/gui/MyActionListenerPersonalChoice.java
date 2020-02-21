@@ -6,8 +6,8 @@ import java.awt.event.ActionListener;
 
 public class MyActionListenerPersonalChoice implements ActionListener {
 
-    private EinsatzView view;
-    private EinsatzVerwaltung einVerw;
+    private final EinsatzView view;
+    private final EinsatzVerwaltung einVerw;
 
     public MyActionListenerPersonalChoice(EinsatzView view, EinsatzVerwaltung verw) {
         this.view = view;
@@ -16,7 +16,7 @@ public class MyActionListenerPersonalChoice implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        new PersonalCheckBoxView("Personalauswahl", view);
+        PersonalCheckBoxView personalCheckBoxView = new PersonalCheckBoxView("Personalauswahl", view);
     }
 
 }

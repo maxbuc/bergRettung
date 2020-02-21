@@ -53,8 +53,7 @@ public class Einsatz {
 
     public void setStichwort(String stichwort) {
         this.stichwort = stichwort;
-    }
-    
+    }  
 
     public List<Personal> getPersonal() {
         return personal;
@@ -66,7 +65,6 @@ public class Einsatz {
         this.personal.add(p);
     }
     
-
     public List<Patient> getPatienten() {
         return patienten;
     }

@@ -19,6 +19,6 @@ public class MyActionListenerPersonalView implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e){
-        new PersonalView("Personal",persVerw);
+        PersonalView personalView = new PersonalView("Personal",persVerw);
     }
 }

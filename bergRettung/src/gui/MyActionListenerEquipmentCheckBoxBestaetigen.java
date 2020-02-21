@@ -9,9 +9,9 @@ import java.util.List;
 
 public class MyActionListenerEquipmentCheckBoxBestaetigen implements ActionListener {
 
-    private EquipmentCheckBoxView view;
-    private EinsatzView einView;
-    private EquipmentVerwaltung equVerw;
+    private final EquipmentCheckBoxView view;
+    private final EinsatzView einView;
+    private final EquipmentVerwaltung equVerw;
 
     public MyActionListenerEquipmentCheckBoxBestaetigen(EquipmentCheckBoxView view, EinsatzView einView) {
         this.view = view;

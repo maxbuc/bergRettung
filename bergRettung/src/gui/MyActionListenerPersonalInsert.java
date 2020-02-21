@@ -19,13 +19,13 @@ public class MyActionListenerPersonalInsert implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e){
         personal=new Personal(persView.getIdText(), persView.getVornameText(),persView.getNachnameText());
-        if(persView.getGebdatText() != null | persView.getGebdatText()!= ""){
+        if(persView.getGebdatText() != null | !"".equals(persView.getGebdatText())){
             personal.setGebdat(persView.getGebdatText());
         }
         if(persView.getGebdatText().isEmpty()){
             personal.setGebdat(null);
         }
-        if(persView.getQualifikationText() !=null | persView.getQualifikationText() != ""){
+        if(persView.getQualifikationText() !=null | !"".equals(persView.getQualifikationText())){
             personal.setQualifikation(persView.getQualifikationText());
         }
         if(persView.getQualifikationText().isEmpty()){

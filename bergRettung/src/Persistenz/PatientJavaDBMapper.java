@@ -60,7 +60,7 @@ public class PatientJavaDBMapper implements IPatientMapper{
         try {
             PreparedStatement delete = conn.prepareStatement("delete from patient where id=?");
             delete.setInt(1,id);
-            int anz = delete.executeUpdate();
+            anz = delete.executeUpdate();
             delete.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(PatientJavaDBMapper.class.getName()).log(Level.SEVERE, null, ex);

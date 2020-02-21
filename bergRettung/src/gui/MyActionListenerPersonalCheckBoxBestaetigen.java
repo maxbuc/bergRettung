@@ -9,9 +9,9 @@ import java.util.List;
 
 public class MyActionListenerPersonalCheckBoxBestaetigen implements ActionListener {
 
-    private PersonalCheckBoxView view;
-    private EinsatzView einView;
-    private PersonalVerwaltung persVerw;
+    private final PersonalCheckBoxView view;
+    private final EinsatzView einView;
+    private final PersonalVerwaltung persVerw;
 
     public MyActionListenerPersonalCheckBoxBestaetigen(PersonalCheckBoxView view, EinsatzView einView) {
         this.view = view;

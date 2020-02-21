@@ -1,17 +1,13 @@
 package gui;
 
-import bergrettung.IVerwaltung;
 import java.awt.Color;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
 
-public class ResultView extends JFrame{
+public final class ResultView extends JFrame{
     
-    private JTextArea ausgabe;
-    
-    private IVerwaltung verwaltung;
+    private final JTextArea ausgabe;
     
     public ResultView(String title){
         super(title);

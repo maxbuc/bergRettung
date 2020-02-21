@@ -10,8 +10,8 @@ import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 
 public class EquipmentCheckBoxView extends JFrame{
-    private EquipmentVerwaltung equVerw;
-    private EinsatzView einView;
+    private final EquipmentVerwaltung equVerw;
+    private final EinsatzView einView;
     
     private List<JCheckBox> boxen;
     private JCheckBox equBox;
@@ -39,23 +39,12 @@ public class EquipmentCheckBoxView extends JFrame{
             this.add(equBox);
             boxen.add(equBox);
         }
-        
-                
-        
+
         bestaetigen = new JButton("Bestätigen");
         listenerBestaetigen = new MyActionListenerEquipmentCheckBoxBestaetigen(this, einView);
         
         this.add(bestaetigen);
         bestaetigen.addActionListener(listenerBestaetigen);
-        
-        
-        
-        
-   
-        
-        
-        
-        
         
         this.setLocation(685,200);
         this.setSize(435,220);

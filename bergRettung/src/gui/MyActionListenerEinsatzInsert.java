@@ -7,8 +7,8 @@ import java.awt.event.ActionListener;
 
 public class MyActionListenerEinsatzInsert implements ActionListener {
 
-    private EinsatzView view;
-    private EinsatzVerwaltung einVerw;
+    private final EinsatzView view;
+    private final EinsatzVerwaltung einVerw;
     private Einsatz einsatz;
 
     public MyActionListenerEinsatzInsert(EinsatzView view, EinsatzVerwaltung verw) {

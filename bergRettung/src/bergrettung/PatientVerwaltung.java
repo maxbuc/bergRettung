@@ -8,7 +8,7 @@ import java.util.List;
 
 
 
-public class PatientVerwaltung implements IVerwaltung{
+public class PatientVerwaltung{
     private final IPatientMapper wrapper = EinfacheFactory.createPatientMapper();
 
     private Patient patient;
@@ -24,14 +24,6 @@ public class PatientVerwaltung implements IVerwaltung{
     public void deletePatient(int id){
         wrapper.deletePatient(id);
     }
-    
-    public PatientVerwaltung(){
-        this.patient=patient;
-    }
-    
-//    public void setView(PersonenView view) {
-//        this.view = view;
-//    }
  
     public void updatePatient(Patient p){
         wrapper.updatePatient(p);

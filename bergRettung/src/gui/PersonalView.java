@@ -9,7 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class PersonalView extends JFrame{
+public final class PersonalView extends JFrame{
     private final PersonalVerwaltung persVerw;
     private JButton insert;
     private JButton read;

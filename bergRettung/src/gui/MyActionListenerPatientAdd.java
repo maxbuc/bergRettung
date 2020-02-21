@@ -7,8 +7,8 @@ import bergrettung.Patient;
 import bergrettung.PatientVerwaltung;
 
 public class MyActionListenerPatientAdd implements ActionListener{
-    private PatientVerwaltung patVerw;
-    private EinsatzView einView;
+    private final PatientVerwaltung patVerw;
+    private final EinsatzView einView;
     Patient patient;
     
     public MyActionListenerPatientAdd(EinsatzView einView){
@@ -18,6 +18,6 @@ public class MyActionListenerPatientAdd implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e){
-        new PatientInsertView("Patient einfügen", einView);
+        PatientInsertView patientInsertView = new PatientInsertView("Patient einfügen", einView);
     }
 }

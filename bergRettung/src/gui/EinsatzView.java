@@ -13,9 +13,9 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class EinsatzView extends JFrame {
+public final class EinsatzView extends JFrame {
 
-    private EinsatzVerwaltung einVerw;
+    private final EinsatzVerwaltung einVerw;
     private JLabel labelId;
     private JLabel labelDatum;
     private JLabel labelOrt;
@@ -152,8 +152,6 @@ public class EinsatzView extends JFrame {
         this.patientList.add(p);
     }
     
-    
-
     public void deletePersListener() {
         personalChoice.removeActionListener(listenerPersonalChoice);
         personalChoice.setText("Personal ausgewählt");

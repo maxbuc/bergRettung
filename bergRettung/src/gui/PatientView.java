@@ -9,8 +9,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class PatientView extends JFrame{
-    private PatientVerwaltung patVerw;
+public final class PatientView extends JFrame{
+    private final PatientVerwaltung patVerw;
     private JButton insert;
     private JButton read;
     private JButton readAll;
