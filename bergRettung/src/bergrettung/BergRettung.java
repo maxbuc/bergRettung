@@ -35,8 +35,13 @@ public class BergRettung {
         //Personal
         Personal p1 = new Personal(1, "Fritz", "Huber", "1999-12-20", "Notarzt");
         Personal p2 = new Personal(2, "Herbert", "Meier");
+        Personal p3 = new Personal(3, "Max", "Schmidt", "1989-02-06", "Pilot");
+        Personal p4 = new Personal(4, "Patrick", "Steinbauer", "1999-06-13", "Azubi");
         persVerw.insert(p1);
         persVerw.insert(p2);
+        persVerw.insert(p3);
+        persVerw.insert(p4);
+        
         
         //Patient
         Patient pat1 = new Patient(1,"Max","Mustermann");
@@ -48,24 +53,32 @@ public class BergRettung {
         //Equipment
         Equipment equ1 = new Equipment ("Hubschrauber", 1);
         Equipment equ2 = new Equipment ("Auto", 2);
+        Equipment equ3 = new Equipment ("Klettergurt", 3);
+        Equipment equ4 = new Equipment ("Rettungsrucksack", 4);
+        Equipment equ5 = new Equipment ("Skidoo", 5);
+        
         equVerw.insertEquipment(equ1);
         equVerw.insertEquipment(equ2);
+        equVerw.insertEquipment(equ3);
+        equVerw.insertEquipment(equ4);
+        equVerw.insertEquipment(equ5);
         
 
 
         //Einsätze
-        Einsatz e1 = new Einsatz(1,"2020-02-18","München","Tod");
-        Einsatz e2 = new Einsatz(2,"2020-02-09","Bayern","Sabine");
+        Einsatz e1 = new Einsatz(1,"2020-02-18","Zugspitze", "Bergsteiger verunfallt");
         
-        e1.addPersonal(p1);
-        e1.addPersonal(p2);
-        e1.addEquipment(equ1);
-        e1.addEquipment(equ2);
         e1.addPatient(pat1);
-        e1.addPatient(pat2);
+        // e1.addPatient(pat2);
+        e1.addPersonal(p1);
+        e1.addPersonal(p3);
+        e1.addPersonal(p4);
+        e1.addEquipment(equ1);
+        e1.addEquipment(equ3);
+        e1.addEquipment(equ4);
+        
         
         einVerw.insertEinsatz(e1);
-        einVerw.insertEinsatz(e2);
 
     }
     

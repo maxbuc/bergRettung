@@ -31,13 +31,15 @@ public class EinsatzJavaDBMapper implements IEinsatzMapper {
             insert.setString(3, e.getOrt());
             insert.setString(4, e.getStichwort());
             anz = insert.executeUpdate();
-
-            if (!e.getPersonal().isEmpty()) {
-                this.addPersonal(e);
-            }
+            
             if (!e.getPatienten().isEmpty()) {
                 this.addPatient(e);
             }
+            
+            if (!e.getPersonal().isEmpty()) {
+                this.addPersonal(e);
+            }
+            
             if (!e.getEquipment().isEmpty()) {
                 this.addEquipment(e);
             }
@@ -206,15 +208,14 @@ public class EinsatzJavaDBMapper implements IEinsatzMapper {
     private void addPatient(Einsatz e) {
         Connection conn = pool.getConn();
         try {
-            PreparedStatement patient = conn.prepareStatement("insert into einsatz_patient values(?,?)");
+            PreparedStatement patient = conn.prepareStatement("insert into einsatz_patient (paid, eid) values(?,?)");
+            patient.setInt(2, e.getId());
             if (e.getPatienten().size() == 1) {
                 patient.setInt(1, e.getPatienten().get(0).getId());
-                patient.setInt(2, e.getId());
                 anz = patient.executeUpdate();
             } else {
-                for (int i = 0; i < e.getPersonal().size(); i++) {
+                for (int i =0; i<e.getPersonal().size(); i++) {
                     patient.setInt(1, e.getPatienten().get(i).getId());
-                    patient.setInt(2, e.getId());
                     anz = patient.executeUpdate();
                 }
             }
