@@ -4,6 +4,8 @@ package gui;
 import bergrettung.PatientVerwaltung;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.net.URL;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -22,6 +24,11 @@ public final class PatientInsertView extends JFrame{
     
     public PatientInsertView(String titel, EinsatzView einView){
         super(titel);
+        
+        URL iconURL = getClass().getResource("/images/teddy.png");
+        ImageIcon icon = new ImageIcon(iconURL);        
+        this.setIconImage(icon.getImage());
+        
         this.einView=einView;
         this.patVerw=new PatientVerwaltung();
         init();

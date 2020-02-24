@@ -3,8 +3,10 @@ package gui;
 import bergrettung.Personal;
 import bergrettung.PersonalVerwaltung;
 import java.awt.FlowLayout;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
@@ -21,6 +23,11 @@ public class PersonalCheckBoxView extends JFrame{
     
     public PersonalCheckBoxView(String titel, EinsatzView view){
         super(titel);
+        
+        URL iconURL = getClass().getResource("/images/personal.png");
+        ImageIcon icon = new ImageIcon(iconURL);        
+        this.setIconImage(icon.getImage());
+        
         persVerw = new PersonalVerwaltung();
         this.einView=view;
         

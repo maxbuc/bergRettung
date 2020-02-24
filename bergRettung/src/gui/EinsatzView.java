@@ -7,8 +7,10 @@ import bergrettung.Equipment;
 import bergrettung.Patient;
 import bergrettung.Personal;
 import java.awt.Color;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -44,6 +46,11 @@ public final class EinsatzView extends JFrame {
 
     public EinsatzView(String titel, EinsatzVerwaltung einVerw) {
         super(titel);
+        
+        URL iconURL = getClass().getResource("/images/einsatz.png");
+        ImageIcon icon = new ImageIcon(iconURL);        
+        this.setIconImage(icon.getImage());
+        
         this.einVerw = einVerw;
         personalList = new ArrayList<>();
         equipmentList = new ArrayList<>();

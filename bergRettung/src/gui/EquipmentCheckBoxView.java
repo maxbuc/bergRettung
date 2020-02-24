@@ -3,8 +3,10 @@ package gui;
 import bergrettung.Equipment;
 import bergrettung.EquipmentVerwaltung;
 import java.awt.FlowLayout;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
@@ -21,6 +23,11 @@ public class EquipmentCheckBoxView extends JFrame{
     
     public EquipmentCheckBoxView(String titel, EinsatzView view){
         super(titel);
+        
+        URL iconURL = getClass().getResource("/images/werkzeug.png");
+        ImageIcon icon = new ImageIcon(iconURL);        
+        this.setIconImage(icon.getImage());
+        
         equVerw = new EquipmentVerwaltung();
         this.einView=view;
         

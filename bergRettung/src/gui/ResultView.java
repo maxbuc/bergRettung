@@ -1,6 +1,8 @@
 package gui;
 
 import java.awt.Color;
+import java.net.URL;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
 
@@ -11,6 +13,11 @@ public final class ResultView extends JFrame{
     
     public ResultView(String title){
         super(title);
+        
+        URL iconURL = getClass().getResource("/images/ergebnis.png");
+        ImageIcon icon = new ImageIcon(iconURL);        
+        this.setIconImage(icon.getImage());
+        
         ausgabe = new JTextArea("");
         init();
     }
