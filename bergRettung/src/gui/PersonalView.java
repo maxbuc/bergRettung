@@ -95,6 +95,9 @@ public final class PersonalView extends JFrame{
     }
     
     public int getIdText() {
+        if(idText.getText().isEmpty()){
+            return 0;
+        }
         String text=idText.getText();
         int result = Integer.parseInt(text);
         return result;
@@ -106,5 +109,15 @@ public final class PersonalView extends JFrame{
     
     public String getQualifikationText(){
         return qualifikationText.getText();
+    }
+    
+    public JTextField getNachnameField(){
+        return nachnameText;
+    }
+    public JTextField getVornameField(){
+        return vornameText;
+    }
+    public JTextField getIdField(){
+        return idText;
     }
 }
