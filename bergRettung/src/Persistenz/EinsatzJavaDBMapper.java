@@ -31,15 +31,15 @@ public class EinsatzJavaDBMapper implements IEinsatzMapper {
             insert.setString(3, e.getOrt());
             insert.setString(4, e.getStichwort());
             anz = insert.executeUpdate();
-            
+
             if (!e.getPatienten().isEmpty()) {
                 this.addPatient(e);
             }
-            
+
             if (!e.getPersonal().isEmpty()) {
                 this.addPersonal(e);
             }
-            
+
             if (!e.getEquipment().isEmpty()) {
                 this.addEquipment(e);
             }
@@ -210,14 +210,10 @@ public class EinsatzJavaDBMapper implements IEinsatzMapper {
         try {
             PreparedStatement patient = conn.prepareStatement("insert into einsatz_patient (paid, eid) values(?,?)");
             patient.setInt(2, e.getId());
-            if (e.getPatienten().size() == 1) {
-                patient.setInt(1, e.getPatienten().get(0).getId());
+
+            for (int i = 0; i < e.getPatienten().size(); i++) {
+                patient.setInt(1, e.getPatienten().get(i).getId());
                 anz = patient.executeUpdate();
-            } else {
-                for (int i =0; i<e.getPersonal().size(); i++) {
-                    patient.setInt(1, e.getPatienten().get(i).getId());
-                    anz = patient.executeUpdate();
-                }
             }
 
         } catch (SQLException ex) {
@@ -247,9 +243,9 @@ public class EinsatzJavaDBMapper implements IEinsatzMapper {
         try {
             PreparedStatement max = conn.prepareStatement("select max(id) from einsatz");
             ResultSet result = max.executeQuery();
-            if(result.next()){
+            if (result.next()) {
                 System.out.println(result.getInt(1));
-                return result.getInt(1)+1;
+                return result.getInt(1) + 1;
             }
 
         } catch (SQLException ex) {

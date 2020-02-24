@@ -69,14 +69,13 @@ public class BergRettung {
         Einsatz e1 = new Einsatz(1,"2020-02-18","Zugspitze", "Bergsteiger verunfallt");
         
         e1.addPatient(pat1);
-        // e1.addPatient(pat2);
+        e1.addPatient(pat2);
         e1.addPersonal(p1);
         e1.addPersonal(p3);
         e1.addPersonal(p4);
         e1.addEquipment(equ1);
         e1.addEquipment(equ3);
         e1.addEquipment(equ4);
-        
         
         einVerw.insertEinsatz(e1);
 
