@@ -5,6 +5,8 @@ import java.awt.FlowLayout;
 import javax.swing.JFrame;
 import bergrettung.PersonalVerwaltung;
 import java.awt.Color;
+import java.net.URL;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -28,6 +30,11 @@ public final class PersonalView extends JFrame{
     
     public PersonalView(String titel, PersonalVerwaltung persVerw){
         super(titel);
+        
+        URL iconURL = getClass().getResource("/images/personal.png");
+        ImageIcon icon = new ImageIcon(iconURL);        
+        this.setIconImage(icon.getImage());
+        
         this.persVerw=persVerw;
         init();
     }

@@ -244,7 +244,6 @@ public class EinsatzJavaDBMapper implements IEinsatzMapper {
             PreparedStatement max = conn.prepareStatement("select max(id) from einsatz");
             ResultSet result = max.executeQuery();
             if (result.next()) {
-                System.out.println(result.getInt(1));
                 return result.getInt(1) + 1;
             }
 

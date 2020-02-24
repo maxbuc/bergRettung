@@ -1,4 +1,3 @@
-
 package gui;
 
 import javax.swing.JFrame;
@@ -9,9 +8,11 @@ import bergrettung.PersonalVerwaltung;
 import bergrettung.EquipmentVerwaltung;
 import bergrettung.EinsatzVerwaltung;
 import java.awt.FlowLayout;
-        
+import java.net.URL;
+import javax.swing.ImageIcon;
 
-public final class MainView extends JFrame{
+public final class MainView extends JFrame {
+
     private JButton patient;
     private JButton personal;
     private JButton einsatz;
@@ -20,27 +21,32 @@ public final class MainView extends JFrame{
     private final EquipmentVerwaltung equVerw;
     private final PersonalVerwaltung persVerw;
     private final EinsatzVerwaltung einVerw;
-    
+
     public MainView(String titel) {
         super(titel);
-        this.einVerw=new EinsatzVerwaltung();
-        this.equVerw=new EquipmentVerwaltung();
-        this.patVerw=new PatientVerwaltung();
-        this.persVerw=new PersonalVerwaltung();
+
+        URL iconURL = getClass().getResource("/images/kreuz.png");
+        ImageIcon icon = new ImageIcon(iconURL);        
+        this.setIconImage(icon.getImage());
+
+        this.einVerw = new EinsatzVerwaltung();
+        this.equVerw = new EquipmentVerwaltung();
+        this.patVerw = new PatientVerwaltung();
+        this.persVerw = new PersonalVerwaltung();
         init();
     }
-   
-    public void init(){
-        MyActionListenerPatientView listenerPatientView = new MyActionListenerPatientView(patVerw,this);
-        MyActionListenerEquipmentView listenerEquipmentView = new MyActionListenerEquipmentView(equVerw,this);
-        MyActionListenerPersonalView listenerPersonalView = new MyActionListenerPersonalView(persVerw,this);
-        MyActionListenerEinsatzView listenerEinsatzView = new MyActionListenerEinsatzView(einVerw,this);
+
+    public void init() {
+        MyActionListenerPatientView listenerPatientView = new MyActionListenerPatientView(patVerw, this);
+        MyActionListenerEquipmentView listenerEquipmentView = new MyActionListenerEquipmentView(equVerw, this);
+        MyActionListenerPersonalView listenerPersonalView = new MyActionListenerPersonalView(persVerw, this);
+        MyActionListenerEinsatzView listenerEinsatzView = new MyActionListenerEinsatzView(einVerw, this);
         this.setLayout(new FlowLayout());
         patient = new JButton("Patient");
         patient.addActionListener(listenerPatientView);
         personal = new JButton("Personal");
         personal.addActionListener(listenerPersonalView);
-        einsatz= new JButton("Einsatz");
+        einsatz = new JButton("Einsatz");
         einsatz.addActionListener(listenerEinsatzView);
         equipment = new JButton("Equipment");
         equipment.addActionListener(listenerEquipmentView);
@@ -53,8 +59,8 @@ public final class MainView extends JFrame{
         patient.setForeground(Color.BLACK);
         personal.setForeground(Color.BLACK);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setLocation(500,200);
-        this.setSize(850,220);
+        this.setLocation(500, 200);
+        this.setSize(850, 220);
         this.setVisible(true);
     }
 }

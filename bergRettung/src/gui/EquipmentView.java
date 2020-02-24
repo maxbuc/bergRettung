@@ -5,6 +5,8 @@ import java.awt.FlowLayout;
 import javax.swing.JFrame;
 import bergrettung.EquipmentVerwaltung;
 import java.awt.Color;
+import java.net.URL;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -22,6 +24,11 @@ public final class EquipmentView extends JFrame{
     
     public EquipmentView(String titel, EquipmentVerwaltung equVerw){
         super(titel);
+        
+        URL iconURL = getClass().getResource("/images/werkzeug.png");
+        ImageIcon icon = new ImageIcon(iconURL);        
+        this.setIconImage(icon.getImage());
+        
         this.equVerw=equVerw;
         init();
     }
