@@ -36,7 +36,7 @@ public class BergRettung {
         Personal p1 = new Personal(1, "Fritz", "Huber", "1999-12-20", "Notarzt");
         Personal p2 = new Personal(2, "Herbert", "Meier");
         Personal p3 = new Personal(3, "Max", "Schmidt", "1989-02-06", "Pilot");
-        Personal p4 = new Personal(4, "Patrick", "Steinbauer", "1999-06-13", "Azubi");
+        Personal p4 = new Personal(4, "Waldtraud", "Steinbauer", "1999-06-13", "Azubi");
         persVerw.insert(p1);
         persVerw.insert(p2);
         persVerw.insert(p3);

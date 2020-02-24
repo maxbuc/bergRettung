@@ -1,7 +1,6 @@
 
 package gui;
 
-import java.awt.FlowLayout;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.Color;
@@ -9,6 +8,7 @@ import bergrettung.PatientVerwaltung;
 import bergrettung.PersonalVerwaltung;
 import bergrettung.EquipmentVerwaltung;
 import bergrettung.EinsatzVerwaltung;
+import java.awt.FlowLayout;
         
 
 public final class MainView extends JFrame{
