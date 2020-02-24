@@ -33,12 +33,18 @@ public class MyActionListenerPersonalInsert implements ActionListener {
         }else{
             if(persView.getVornameText().isEmpty()){
                 persView.getVornameField().setBackground(Color.red);
+            }else{
+                persView.getVornameField().setBackground(Color.WHITE);
             }
             if(persView.getNachnameText().isEmpty()){
                 persView.getNachnameField().setBackground(Color.red);
+            }else{
+                persView.getNachnameField().setBackground(Color.WHITE);
             }
             if(persView.getIdText()<1){
                 persView.getIdField().setBackground(Color.red);
+            }else{
+                persView.getIdField().setBackground(Color.WHITE);
             }
         }
     }
