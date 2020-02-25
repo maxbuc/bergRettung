@@ -18,7 +18,7 @@ public class MyActionListenerPersonalInsert implements ActionListener {
     public MyActionListenerPersonalInsert(PersonalVerwaltung persVerw, PersonalView persView) {
         this.persVerw = persVerw;
         this.persView = persView;
-        pattern = new SimpleDateFormat("yyyy-MM-dd");
+        
 
     }
 
@@ -30,8 +30,9 @@ public class MyActionListenerPersonalInsert implements ActionListener {
             personal = new Personal(persView.getIdText(), persView.getVornameText(), persView.getNachnameText());
 
             if (!persView.getGebdatText().isEmpty()) {
-                if (pattern.equals(persView.getGebdatText())) {
+                if (isDate(persView.getGebdatText())) {
                     personal.setGebdat(persView.getGebdatText());
+                    persView.getGebdatField().setBackground(Color.WHITE);
                 }else{
                     throw new IllegalArgumentException();
                 }
@@ -59,7 +60,30 @@ public class MyActionListenerPersonalInsert implements ActionListener {
             }
         }
         }catch(IllegalArgumentException ex){
-            System.out.println("datum falsch");
+            persView.getGebdatField().setBackground(Color.red);
         }
+    }
+    
+    public boolean isDate(String date) {
+
+        String[] year = date.split("-");
+
+        try {
+            for (int i = 0; i < year.length; i++) {
+                int j = Integer.parseInt(year[i]);
+            }
+        }catch(NumberFormatException ex){
+            return false;
+        }
+        
+        if(year[0].length()==4){
+            if(year[1].length()==2){
+                if(year[2].length()==2){
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 }

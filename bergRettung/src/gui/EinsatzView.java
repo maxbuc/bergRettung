@@ -168,5 +168,18 @@ public final class EinsatzView extends JFrame {
         equipmentChoice.removeActionListener(listenerEquipmentChoice);
         equipmentChoice.setText("Equipment ausgewählt");
     }
+    
+    public JTextField getDatumField(){
+        return textDatum;
+    }
+    public JTextField getOrtField(){
+        return textOrt;
+    }
+    public JTextField getIdField(){
+        return textId;
+    }
+    public JTextField getStichwortField(){
+        return textStichwort;
+    }
 
 }

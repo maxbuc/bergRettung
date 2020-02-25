@@ -1,6 +1,7 @@
 package gui;
 
 import bergrettung.EinsatzVerwaltung;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,7 +17,12 @@ public class MyActionListenerEinsatzRead implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        new ResultView("Ausgabe").setResultView(einVerw.readEinsatz(view.getTextId()).toString());
+        if (view.getTextId() > 1 && einVerw.readEinsatz(view.getTextId()) != null) {
+            new ResultView("Ausgabe").setResultView(einVerw.readEinsatz(view.getTextId()).toString());
+            view.getIdField().setBackground(Color.WHITE);
+        }else{
+            view.getIdField().setBackground(Color.red);
+        }
     }
 
 }
