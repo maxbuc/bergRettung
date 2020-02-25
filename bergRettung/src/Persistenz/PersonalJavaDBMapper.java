@@ -27,8 +27,8 @@ public class PersonalJavaDBMapper implements IPersonalMapper {
             insert.setString(5, p.getQualifikation());
             anz = insert.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(PersonalJavaDBMapper.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            
+        } 
         pool.releaseConn(conn);
     }
 

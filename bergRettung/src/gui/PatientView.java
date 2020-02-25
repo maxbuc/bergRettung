@@ -87,4 +87,14 @@ public final class PatientView extends JFrame{
         int result = Integer.parseInt(text);
         return result;
     }
+    
+    public JTextField getIdField(){
+        return idText;
+    }
+    public JTextField getVornameField(){
+        return vornameText;
+    }
+    public JTextField getNachnameField(){
+        return nachnameText;
+    }
 }

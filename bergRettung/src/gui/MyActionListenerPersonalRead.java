@@ -20,10 +20,11 @@ public class MyActionListenerPersonalRead implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         ResultView r = null;
-        if (persView.getIdText() != 0) {
+        if (persView.getIdText() > 0 ) {
             try {
                 r = new ResultView("Ausgabe");
                 r.setResultView(persVerw.read(persView.getIdText()).toString());
+                persView.getIdField().setBackground(Color.WHITE);
             } catch (NullPointerException ex) {
                 r.dispose();
                 persView.getIdField().setBackground(Color.red);
@@ -31,5 +32,8 @@ public class MyActionListenerPersonalRead implements ActionListener {
         } else {
             persView.getIdField().setBackground(Color.red);
         }
+        
+            
+        
     }
 }
