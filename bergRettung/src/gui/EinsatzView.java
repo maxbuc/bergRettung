@@ -65,7 +65,7 @@ public final class EinsatzView extends JFrame {
         labelId = new JLabel("ID: ");
         textId = new JTextField(Integer.toString(einVerw.getNextFree()), ALLBITS);
         labelDatum = new JLabel("Datum: ");
-        textDatum = new JTextField(ALLBITS);
+        textDatum = new JTextField("yyyy-mm-dd",ALLBITS);
         labelOrt = new JLabel("Ort: ");
         textOrt = new JTextField(ALLBITS);
         labelStichwort = new JLabel("Stichwort: ");

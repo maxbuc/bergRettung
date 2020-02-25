@@ -24,7 +24,7 @@ public class MyActionListenerPatientUpdate implements ActionListener {
             patVerw.updatePatient(patient);
             patView.dispose();
         }else{
-            if (patView.getIdText() < 1 || patVerw.readPatient(patView.getIdText())!=null) {
+            if (patView.getIdText() < 1 || patVerw.readPatient(patView.getIdText())==null) {
                 patView.getIdField().setBackground(Color.red);
             } else {
                 patView.getIdField().setBackground(Color.WHITE);
