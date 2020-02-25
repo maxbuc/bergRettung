@@ -14,13 +14,14 @@ import javax.swing.ImageIcon;
 public final class MainView extends JFrame {
 
     private JButton patient;
-    private JButton personal;
+    private JButton personal;   
     private JButton einsatz;
     private JButton equipment;
     private final PatientVerwaltung patVerw;
     private final EquipmentVerwaltung equVerw;
     private final PersonalVerwaltung persVerw;
     private final EinsatzVerwaltung einVerw;
+    
 
     public MainView(String titel) {
         super(titel);
@@ -63,4 +64,6 @@ public final class MainView extends JFrame {
         this.setSize(850, 220);
         this.setVisible(true);
     }
+    
+    
 }
