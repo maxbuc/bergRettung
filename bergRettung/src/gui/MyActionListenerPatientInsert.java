@@ -19,7 +19,7 @@ public class MyActionListenerPatientInsert implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (patView.getIdText() > 0 && !patView.getVornameText().isEmpty() && !patView.getNachnameText().isEmpty()) {
+        if (patView.getIdText() > 0 && !patView.getVornameText().isEmpty() && !patView.getNachnameText().isEmpty() && patVerw.readPatient(patView.getIdText())== null) {
             patient = new Patient(patView.getIdText(), patView.getVornameText(), patView.getNachnameText());
             patVerw.insertPatient(patient);
             patView.dispose();
@@ -38,6 +38,11 @@ public class MyActionListenerPatientInsert implements ActionListener {
                 patView.getNachnameField().setBackground(Color.red);
             } else {
                 patView.getNachnameField().setBackground(Color.WHITE);
+            }
+            if (patVerw.readPatient(patView.getIdText())!= null) {
+                patView.getIdField().setBackground(Color.red);
+            } else {
+                patView.getIdField().setBackground(Color.WHITE);
             }
         }
     }

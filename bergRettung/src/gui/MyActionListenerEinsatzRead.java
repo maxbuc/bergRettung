@@ -17,7 +17,7 @@ public class MyActionListenerEinsatzRead implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (view.getTextId() > 1 && einVerw.readEinsatz(view.getTextId()) != null) {
+        if (view.getTextId() > 0 && einVerw.readEinsatz(view.getTextId()) != null) {
             new ResultView("Ausgabe").setResultView(einVerw.readEinsatz(view.getTextId()).toString());
             view.getIdField().setBackground(Color.WHITE);
         }else{

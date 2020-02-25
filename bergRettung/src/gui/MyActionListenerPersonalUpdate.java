@@ -19,7 +19,7 @@ public class MyActionListenerPersonalUpdate implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (persView.getIdText() > 0 && !persView.getVornameText().isEmpty() && !persView.getNachnameText().isEmpty()) {
+        if (persView.getIdText() > 0 && !persView.getVornameText().isEmpty() && !persView.getNachnameText().isEmpty() && persVerw.read(persView.getIdText())!=null) {
             personal = new Personal(persView.getIdText(), persView.getVornameText(), persView.getNachnameText());
             if (!persView.getQualifikationText().isEmpty()) {
                 personal.setQualifikation(persView.getQualifikationText());
@@ -38,7 +38,7 @@ public class MyActionListenerPersonalUpdate implements ActionListener {
         }else{
             persView.getNachnameField().setBackground(Color.WHITE);
         }
-        if (persView.getIdText() < 1 ) {
+        if (persView.getIdText() < 1 || persVerw.read(persView.getIdText())==null) {
             persView.getIdField().setBackground(Color.red);
         }else{
             persView.getIdField().setBackground(Color.WHITE);
