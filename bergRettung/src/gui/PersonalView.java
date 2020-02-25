@@ -4,6 +4,8 @@ import java.awt.FlowLayout;
 import javax.swing.JFrame;
 import bergrettung.PersonalVerwaltung;
 import java.awt.Color;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -44,6 +46,19 @@ public final class PersonalView extends JFrame {
         MyActionListenerPersonalUpdate listenerUpdate = new MyActionListenerPersonalUpdate(persVerw, this);
         MyActionListenerPersonalRead listenerRead = new MyActionListenerPersonalRead(persVerw, this);
         MyActionListenerPersonalReadAll listenerReadAll = new MyActionListenerPersonalReadAll(persVerw, this);
+        
+        FocusListener focusListener = new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                gebdatText.setText("");
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+               
+            }
+        };
+        
         insert = new JButton("Insert");
         update = new JButton("Update");
         read = new JButton("Read");
@@ -80,6 +95,7 @@ public final class PersonalView extends JFrame {
         update.addActionListener(listenerUpdate);
         read.addActionListener(listenerRead);
         readAll.addActionListener(listenerReadAll);
+        gebdatText.addFocusListener(focusListener);
         this.setLayout(new FlowLayout());
         this.setLocation(685, 200);
         this.setSize(470, 220);

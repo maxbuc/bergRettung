@@ -25,20 +25,27 @@ public class MyActionListenerPersonalInsert implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
-            if (!persView.getVornameText().isEmpty() && persView.getIdText() > 0 && !persView.getNachnameText().isEmpty() && persVerw.read(persView.getIdText())== null) {
+            if (!persView.getVornameText().isEmpty() && persView.getIdText() > 0 && !persView.getNachnameText().isEmpty() && persVerw.read(persView.getIdText()) == null) {
 
                 personal = new Personal(persView.getIdText(), persView.getVornameText(), persView.getNachnameText());
 
                 if (!persView.getGebdatText().isEmpty()) {
                     if (isDate(persView.getGebdatText())) {
-                        personal.setGebdat(persView.getGebdatText());
-                        persView.getGebdatField().setBackground(Color.WHITE);
+                        if (!persView.getGebdatText().equals("yyyy-mm-dd")) {
+                            personal.setGebdat(persView.getGebdatText());
+                            persView.getGebdatField().setBackground(Color.WHITE);
+                        }
                     } else {
-                        throw new IllegalArgumentException();
+                        if (persView.getGebdatText().equals("yyyy-mm-dd")) {
+
+                        } else {
+                            throw new IllegalArgumentException();
+                        }
                     }
                 }
-
-                personal.setQualifikation(persView.getQualifikationText());
+                if (!persView.getQualifikationText().isEmpty()) {
+                    personal.setQualifikation(persView.getQualifikationText());
+                }
 
                 persVerw.insert(personal);
                 persView.dispose();
@@ -53,7 +60,7 @@ public class MyActionListenerPersonalInsert implements ActionListener {
                 } else {
                     persView.getNachnameField().setBackground(Color.WHITE);
                 }
-                if (persView.getIdText() < 1 || persVerw.read(persView.getIdText())!= null) {
+                if (persView.getIdText() < 1 || persVerw.read(persView.getIdText()) != null) {
                     persView.getIdField().setBackground(Color.red);
                 } else {
                     persView.getIdField().setBackground(Color.WHITE);
@@ -67,6 +74,10 @@ public class MyActionListenerPersonalInsert implements ActionListener {
     public boolean isDate(String date) {
 
         String formatString = "yyyy-MM-dd";
+
+        if (date.equals(formatString)) {
+            return true;
+        }
 
         try {
             SimpleDateFormat format = new SimpleDateFormat(formatString);
