@@ -83,8 +83,16 @@ public final class PatientView extends JFrame{
     }
     
     public int getIdText() {
-        String text=idText.getText();
-        int result = Integer.parseInt(text);
+        int result = 0;
+        if (idText.getText().isEmpty()) {
+            return result;
+        }
+        String text = idText.getText();
+        try {
+            result = Integer.parseInt(text);
+        } catch (NumberFormatException ex) {
+            return 0;
+        }
         return result;
     }
     
