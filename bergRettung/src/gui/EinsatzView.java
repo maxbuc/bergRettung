@@ -7,6 +7,8 @@ import bergrettung.Equipment;
 import bergrettung.Patient;
 import bergrettung.Personal;
 import java.awt.Color;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +42,8 @@ public final class EinsatzView extends JFrame {
     private MyActionListenerEquipmentChoice listenerEquipmentChoice;
     private MyActionListenerPatientAdd listenerPatientAdd;
 
+    private FocusListener focusListener;
+    
     private List<Personal> personalList;
     private List<Equipment> equipmentList;
     private List<Patient> patientList;
@@ -82,6 +86,18 @@ public final class EinsatzView extends JFrame {
         listenerEquipmentChoice = new MyActionListenerEquipmentChoice(this, einVerw);
         listenerPatientAdd = new MyActionListenerPatientAdd(this);
 
+        focusListener = new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                textDatum.setText("");
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                
+            }
+        };
+        
         this.add(labelId);
         this.add(textId);
         this.add(labelDatum);
@@ -102,6 +118,8 @@ public final class EinsatzView extends JFrame {
         equipmentChoice.addActionListener(listenerEquipmentChoice);
         patientAdd.addActionListener(listenerPatientAdd);
 
+        textDatum.addFocusListener(focusListener);
+        
         insert.setForeground(Color.BLACK);
         read.setForeground(Color.BLACK);
         personalChoice.setForeground(Color.BLACK);

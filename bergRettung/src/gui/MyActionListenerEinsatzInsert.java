@@ -58,7 +58,9 @@ public class MyActionListenerEinsatzInsert implements ActionListener {
     public boolean isDate(String date) {
 
         String formatString = "yyyy-MM-dd";
-
+            
+        
+        
         try {
             SimpleDateFormat format = new SimpleDateFormat(formatString);
             format.setLenient(false);
