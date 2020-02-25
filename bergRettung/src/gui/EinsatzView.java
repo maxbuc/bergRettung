@@ -46,11 +46,11 @@ public final class EinsatzView extends JFrame {
 
     public EinsatzView(String titel, EinsatzVerwaltung einVerw) {
         super(titel);
-        
+
         URL iconURL = getClass().getResource("/images/einsatz.png");
-        ImageIcon icon = new ImageIcon(iconURL);        
+        ImageIcon icon = new ImageIcon(iconURL);
         this.setIconImage(icon.getImage());
-        
+
         this.einVerw = einVerw;
         personalList = new ArrayList<>();
         equipmentList = new ArrayList<>();
@@ -114,9 +114,17 @@ public final class EinsatzView extends JFrame {
     }
 
     public int getTextId() {
-        int i = Integer.parseInt(textId.getText());
-        System.out.println(i);
-        return i;
+        int result = 0;
+        if (textId.getText().isEmpty()) {
+            return result;
+        }
+        String text = textId.getText();
+        try {
+            result = Integer.parseInt(text);
+        } catch (NumberFormatException ex) {
+            return 0;
+        }
+        return result;
     }
 
     public String getTextDatum() {
@@ -154,11 +162,11 @@ public final class EinsatzView extends JFrame {
     public void setPatientList(List<Patient> patientList) {
         this.patientList = patientList;
     }
-    
-    public void addPatientList(Patient p){
+
+    public void addPatientList(Patient p) {
         this.patientList.add(p);
     }
-    
+
     public void deletePersListener() {
         personalChoice.removeActionListener(listenerPersonalChoice);
         personalChoice.setText("Personal ausgewählt");
@@ -168,17 +176,20 @@ public final class EinsatzView extends JFrame {
         equipmentChoice.removeActionListener(listenerEquipmentChoice);
         equipmentChoice.setText("Equipment ausgewählt");
     }
-    
-    public JTextField getDatumField(){
+
+    public JTextField getDatumField() {
         return textDatum;
     }
-    public JTextField getOrtField(){
+
+    public JTextField getOrtField() {
         return textOrt;
     }
-    public JTextField getIdField(){
+
+    public JTextField getIdField() {
         return textId;
     }
-    public JTextField getStichwortField(){
+
+    public JTextField getStichwortField() {
         return textStichwort;
     }
 

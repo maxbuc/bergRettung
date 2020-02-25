@@ -24,12 +24,7 @@ public class MyActionListenerEquipmentInsert implements ActionListener{
         equVerw.insertEquipment(equipment);
         equView.dispose();
         }else{
-            if(equView.getIdText()<1 ){
-                equView.getIdField().setBackground(Color.red);
-            }else{
-                equView.getIdField().setBackground(Color.WHITE);
-            }
-            if(equVerw.readEquipment(equView.getIdText())!=null){
+            if(equView.getIdText()<1 || equVerw.readEquipment(equView.getIdText())!=null){
                 equView.getIdField().setBackground(Color.red);
             }else{
                 equView.getIdField().setBackground(Color.WHITE);

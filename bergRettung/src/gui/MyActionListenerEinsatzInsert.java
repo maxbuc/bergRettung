@@ -5,6 +5,9 @@ import bergrettung.EinsatzVerwaltung;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.GregorianCalendar;
 
 public class MyActionListenerEinsatzInsert implements ActionListener {
 
@@ -54,25 +57,18 @@ public class MyActionListenerEinsatzInsert implements ActionListener {
     
     public boolean isDate(String date) {
 
-        String[] year = date.split("-");
+        String formatString = "yyyy-MM-dd";
 
         try {
-            for (int i = 0; i < year.length; i++) {
-                int j = Integer.parseInt(year[i]);
-            }
-        }catch(NumberFormatException ex){
+            SimpleDateFormat format = new SimpleDateFormat(formatString);
+            format.setLenient(false);
+            format.parse(date);
+        } catch (ParseException e) {
+            return false;
+        } catch (IllegalArgumentException e) {
             return false;
         }
-        
-        if(year[0].length()==4){
-            if(year[1].length()==2){
-                if(year[2].length()==2){
-                    return true;
-                }
-            }
-        }
 
-        return false;
+        return true;
     }
-
 }
