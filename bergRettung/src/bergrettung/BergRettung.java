@@ -5,6 +5,7 @@ import Persistenz.persistenzTest.EinsatzJavaDBMapperTest;
 import Persistenz.persistenzTest.EquipmentJavaDBMapperTest;
 import Persistenz.persistenzTest.PatientJavaDBMapperTest;
 import Persistenz.persistenzTest.PersonalJavaDBMapperTest;
+import gui.MainView;
 
 public class BergRettung {
 

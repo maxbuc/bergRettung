@@ -10,9 +10,17 @@ public class Setup {
     ISetupMapper mapper = EinfacheFactory.createSetupMapper();
     
     public void deleteTable(){
+        try {
             mapper.deleteTable();
+        } catch (SQLSyntaxErrorException ex) {
+            Logger.getLogger(Setup.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     public void createTable(){
-        mapper.createTable();
+        try {
+            mapper.createTable();
+        } catch (SQLSyntaxErrorException ex) {
+            Logger.getLogger(Setup.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
