@@ -27,6 +27,8 @@ public class PersonalJavaDBMapperTest {
         mapper.insert(p);
         if (mapper.read(id).toString().equals(p.toString())) {
             System.out.println("insertPersonal Test erfolgreich");
+        }else{
+            System.err.println("insertPersonal");
         }
     }
 
@@ -35,6 +37,8 @@ public class PersonalJavaDBMapperTest {
         mapper.update(p);
         if(mapper.read(id).toString().equals(p.toString())){
             System.out.println("updatePersonal Test erfolgreich");
+        }else{
+            System.err.println("updatePersonal");
         }
 
     }
@@ -42,18 +46,24 @@ public class PersonalJavaDBMapperTest {
     public void readAll() {
         if (mapper.readAll().get(mapper.readAll().size() - 1).toString().equals(p.toString())) {
             System.out.println("readAll Test erfolgreich");
+        }else{
+            System.err.println("readAll");
         }
     }
 
     public void read() {
         if (mapper.read(id).toString().equals(p.toString())) {
             System.out.println("readPersonal Test erfolgreich");
+        }else{
+            System.err.println("readPersonal");
         }
     }
 
     public void getNextFree() {
         if (mapper.getNextFree() == id + 1) {
             System.out.println("getNextFree Test erfolgreich");
+        }else{
+            System.err.println("getNextFree");
         }
     }
 

@@ -33,6 +33,8 @@ public class EquipmentJavaDBMapperTest{
         mapper.insertEquipment(e);
         if(mapper.readEquipment(id).toString().equals(e.toString())){
             System.out.println("insertEquipment Test erfolgreich");
+        }else{
+            System.err.println("insertEuipment");
         }
     }
     
@@ -42,6 +44,8 @@ public class EquipmentJavaDBMapperTest{
         mapper.updateEquipment(e);
         if(mapper.readEquipment(id).toString().equals(e.toString())){
             System.out.println("updateEquipment Test erfolgreich");
+        }else{
+            System.err.println("updateEquipment");
         }
     }
     
@@ -49,18 +53,24 @@ public class EquipmentJavaDBMapperTest{
     public void readEquipment(){
         if(mapper.readEquipment(id).toString().equals(e.toString())){
             System.out.println("readEquipment Test erfolgreich");
+        }else{
+            System.err.println("readEquipment");
         }
     }
     
     public void readAll (){
         if(mapper.readAll().get(mapper.readAll().size()-1).toString().equals(e.toString())){
             System.out.println("readAll Test erfolgreich");
+        }else{
+            System.err.println("readAll");
         }
     }
     
     public void getNextFree(){
         if(mapper.getNextFree() == id+1){
             System.out.println("getNextFree Test erfolgreich");
+        }else{
+            System.err.println("getNextFree");
         }
     }
     

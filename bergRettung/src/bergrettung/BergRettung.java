@@ -5,6 +5,7 @@ import Persistenz.persistenzTest.EinsatzJavaDBMapperTest;
 import Persistenz.persistenzTest.EquipmentJavaDBMapperTest;
 import Persistenz.persistenzTest.PatientJavaDBMapperTest;
 import Persistenz.persistenzTest.PersonalJavaDBMapperTest;
+import bergrettung.bergrettungTest.PersonalTest;
 import gui.MainView;
 
 public class BergRettung {
@@ -30,6 +31,8 @@ public class BergRettung {
     }
     
     public static void test(){
+        System.out.println("==========PERSISTENZ=======================");
+        System.out.println("");
         System.out.println("----------EinsatzJavaDBMapper--------------");
         EinsatzJavaDBMapperTest einsatzMapperTest = new EinsatzJavaDBMapperTest();
         System.out.println("----------EquipmentJavaDBMapper------------");
@@ -40,6 +43,15 @@ public class BergRettung {
         PersonalJavaDBMapperTest personalmapperTest = new PersonalJavaDBMapperTest();
         System.out.println("----------EinfacheFactory------------------");
         EinfacheFactoryTest einfachefactoryTest = new EinfacheFactoryTest();
+        System.out.println("");
+        System.out.println("==========APPLICATION======================");
+        System.out.println("");
+        System.out.println("----------PersonalTest---------------------");
+        PersonalTest personalTest = new PersonalTest();
+        System.out.println("");
+        System.out.println("==========GUI==============================");
+        System.out.println("");
+        System.out.println("----------PersonalViewTest-----------------");
     }
    
     

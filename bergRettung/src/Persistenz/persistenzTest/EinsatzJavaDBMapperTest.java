@@ -56,6 +56,9 @@ public class EinsatzJavaDBMapperTest {
         if(mapper.readEinsatz(id).toString().equals(e.toString())){
             System.out.println("readEinsatz Test erfolgreich");
             System.out.println("insertEinsatz Test erfolgreich");
+        }else{
+            System.err.println("readEinsatz");
+            System.err.println("insertEinsatz");
         }
     }
 
@@ -76,6 +79,8 @@ public class EinsatzJavaDBMapperTest {
     public void getNextFree() {
         if(mapper.getNextFree()==id+1){
             System.out.println("getNextFree Test erfolgreich");
+        }else{
+            System.err.println("getNextFree");
         }
     }
 
