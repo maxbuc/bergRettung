@@ -1,6 +1,10 @@
 package bergrettung;
 
-import gui.MainView;
+import Persistenz.persistenzTest.EinfacheFactoryTest;
+import Persistenz.persistenzTest.EinsatzJavaDBMapperTest;
+import Persistenz.persistenzTest.EquipmentJavaDBMapperTest;
+import Persistenz.persistenzTest.PatientJavaDBMapperTest;
+import Persistenz.persistenzTest.PersonalJavaDBMapperTest;
 
 public class BergRettung {
 
@@ -15,13 +19,27 @@ public class BergRettung {
         set.createTable();
         
         //Fügt Testdaten ein
-//        setup();
+        setup();
         
         
-        new MainView("Programm - Bergrettung");
-       
+        //new MainView("Programm - Bergrettung");
+        
+        test();
+        
     }
     
+    public static void test(){
+        System.out.println("----------EinsatzJavaDBMapper--------------");
+        EinsatzJavaDBMapperTest einsatzMapperTest = new EinsatzJavaDBMapperTest();
+        System.out.println("----------EquipmentJavaDBMapper------------");
+        EquipmentJavaDBMapperTest equipmentMapperTest = new EquipmentJavaDBMapperTest();
+        System.out.println("----------PatientJavaDBMapper--------------");
+        PatientJavaDBMapperTest patientMapperTest = new PatientJavaDBMapperTest();
+        System.out.println("----------PersonalJavaDBMapper-------------");
+        PersonalJavaDBMapperTest personalmapperTest = new PersonalJavaDBMapperTest();
+        System.out.println("----------EinfacheFactory------------------");
+        EinfacheFactoryTest einfachefactoryTest = new EinfacheFactoryTest();
+    }
    
     
     //erstellt und fügt alle Objekte in DB

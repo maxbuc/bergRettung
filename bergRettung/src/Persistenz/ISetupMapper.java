@@ -1,6 +1,8 @@
 package Persistenz;
 
-public interface ISetupMapper {
-    void deleteTable();
-    void createTable();
+import java.sql.SQLSyntaxErrorException;
+
+public interface ISetupMapper{
+    void deleteTable() throws SQLSyntaxErrorException;
+    void createTable() throws SQLSyntaxErrorException;
 }

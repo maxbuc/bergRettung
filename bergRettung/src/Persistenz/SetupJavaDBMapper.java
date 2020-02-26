@@ -3,6 +3,7 @@ package Persistenz;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.SQLSyntaxErrorException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -12,9 +13,10 @@ public class SetupJavaDBMapper implements ISetupMapper {
     private final ConnectionPool pool = ConnectionPool.getSinglePool(size);
 
     @Override
-    public void deleteTable() {
-        Connection conn = pool.getConn();
+    public void deleteTable() throws SQLSyntaxErrorException{
         try {
+            Connection conn = pool.getConn();
+            
             PreparedStatement drop = conn.prepareStatement("drop table einsatz_equipment");
             anz = drop.executeUpdate();
             
@@ -36,14 +38,15 @@ public class SetupJavaDBMapper implements ISetupMapper {
             drop = conn.prepareStatement("drop table personal");
             anz = drop.executeUpdate();
             
+            
+            pool.releaseConn(conn);
         } catch (SQLException ex) {
-            Logger.getLogger(PersonalJavaDBMapper.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SetupJavaDBMapper.class.getName()).log(Level.SEVERE, null, ex);
         }
-        pool.releaseConn(conn);
     }
 
     @Override
-    public void createTable() {
+    public void createTable() throws SQLSyntaxErrorException{
         Connection conn = pool.getConn();
         try {
             PreparedStatement insert = conn.prepareStatement("create table einsatz(id int primary key, datum date, ort varchar(20), stichwort varchar(40))");
