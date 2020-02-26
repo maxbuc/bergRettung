@@ -1,0 +1,6 @@
+BlackBoxTest
+Grundlegendes:
+Bei dem BlackBoxTest wird versucht, nicht funktionierende Methoden / Klassen zu finden. Dazu werden Testklassen erstellt, welche die Methoden der zu testenden Klasse aufruft und mit dem Sollwert vergleicht.
+So werden Methoden gefunden, die Daten nicht korrekt speichern, auslesen oder bearbeiten. 
+In dem Projekt sind deshalb exemplarisch für jede Schicht ein paar Testklassen erstellt worden, die beispielsweise überprüfen, ob ein Objekt der Klasse Personal seine Attribute korrekt ausgibt und ändert.
+Desweiteren ist auf Grund der Fehleranfälligkeit der Persistenzschicht für jede Mapperklasse ein Test vorhanden, die alle Datenbankzugriffe testet.
