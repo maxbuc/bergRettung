@@ -75,7 +75,7 @@ public class MyActionListenerPersonalInsert implements ActionListener {
 
         String formatString = "yyyy-MM-dd";
 
-        if (date.equals(formatString)) {
+        if (date.equals("yyyy-mm-dd")) {
             return true;
         }
 

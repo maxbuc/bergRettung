@@ -15,7 +15,7 @@ public class BergRettung {
         set.createTable();
         
         //Fügt Testdaten ein
-        setup();
+//        setup();
         
         
         new MainView("Programm - Bergrettung");
