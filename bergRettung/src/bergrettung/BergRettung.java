@@ -23,7 +23,7 @@ public class BergRettung {
         setup();
         
         
-        //new MainView("Programm - Bergrettung");
+        new MainView("Programm - Bergrettung");
         
         test();
         
