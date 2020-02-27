@@ -36,7 +36,7 @@ public final class PatientInsertView extends JFrame{
     
     public void init(){
         MyActionListenerPatientCreate listenerInsert = new MyActionListenerPatientCreate(einView,this, patVerw);
-        insert = new JButton ("Insert");
+        insert = new JButton ("Einfügen");
         idLabel = new JLabel ("ID: ");
         nachnameLabel= new JLabel("Nachname: ");
         vornameLabel = new JLabel ("Vorname: ");

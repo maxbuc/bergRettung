@@ -40,10 +40,10 @@ public final class PatientView extends JFrame{
         MyActionListenerPatientUpdate listenerUpdate = new MyActionListenerPatientUpdate(patVerw,this);
         MyActionListenerPatientRead listenerRead = new MyActionListenerPatientRead(patVerw,this);
         MyActionListenerPatientReadAll listenerReadAll = new MyActionListenerPatientReadAll(patVerw,this);
-        insert = new JButton ("Insert");
-        update = new JButton ("Update");
-        read = new JButton ("Read");
-        readAll = new JButton ("ReadAll");
+        insert = new JButton ("Einfügen");
+        update = new JButton ("Aktualisieren");
+        read = new JButton ("Ausgeben");
+        readAll = new JButton ("Alle Ausgeben");
         idLabel = new JLabel ("ID: ");
         nachnameLabel= new JLabel("Nachname: ");
         vornameLabel = new JLabel ("Vorname: ");

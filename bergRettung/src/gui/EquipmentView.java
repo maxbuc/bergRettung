@@ -38,10 +38,10 @@ public final class EquipmentView extends JFrame{
         MyActionListenerEquipmentUpdate listenerUpdate = new MyActionListenerEquipmentUpdate(equVerw,this);
         MyActionListenerEquipmentRead listenerRead = new MyActionListenerEquipmentRead(equVerw,this);
         MyActionListenerEquipmentReadAll listenerReadAll = new MyActionListenerEquipmentReadAll(equVerw,this);
-        insert = new JButton ("Insert");
-        update = new JButton ("Update");
-        read = new JButton ("Read");
-        readAll = new JButton("ReadAll");
+        insert = new JButton ("Einfügen");
+        update = new JButton ("Aktualisieren");
+        read = new JButton ("Ausgeben");
+        readAll = new JButton("Alle Ausgeben");
         idLabel = new JLabel ("ID: ");
         bezeichnungLabel = new JLabel("Bezeichnung: ");
         idText = new JTextField (Integer.toString(equVerw.getNextFree()) ,ALLBITS);

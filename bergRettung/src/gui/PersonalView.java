@@ -59,10 +59,10 @@ public final class PersonalView extends JFrame {
             }
         };
         
-        insert = new JButton("Insert");
-        update = new JButton("Update");
-        read = new JButton("Read");
-        readAll = new JButton("ReadAll");
+        insert = new JButton("Einfügen");
+        update = new JButton("Aktualisieren");
+        read = new JButton("Ausgeben");
+        readAll = new JButton("Alle Ausgeben");
         idLabel = new JLabel("ID: ");
         nachnameLabel = new JLabel("Nachname: ");
         vornameLabel = new JLabel("Vorname: ");
@@ -91,6 +91,8 @@ public final class PersonalView extends JFrame {
         update.setForeground(Color.BLACK);
         read.setForeground(Color.BLACK);
         readAll.setForeground(Color.BLACK);
+        gebdatText.setBackground(Color.LIGHT_GRAY);
+        qualifikationText.setBackground(Color.LIGHT_GRAY);
         insert.addActionListener(listenerInsert);
         update.addActionListener(listenerUpdate);
         read.addActionListener(listenerRead);
