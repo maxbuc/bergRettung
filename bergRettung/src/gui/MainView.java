@@ -34,6 +34,12 @@ public final class MainView extends JFrame {
         this.equVerw = new EquipmentVerwaltung();
         this.patVerw = new PatientVerwaltung();
         this.persVerw = new PersonalVerwaltung();
+        
+        
+        
+        
+        
+        
         init();
     }
 

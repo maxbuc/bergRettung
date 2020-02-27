@@ -41,7 +41,7 @@ public class PersonalCheckBoxView extends JFrame{
         List<Personal> personal = persVerw.readAll();
         
         for(int i = 0; i < personal.size(); i++){
-            persBox = new JCheckBox(personal.get(i).getNachname() + "; " + personal.get(i).getId());
+            persBox = new JCheckBox(personal.get(i).getNachname() + ", " + personal.get(i).getQualifikation() + " ; " + personal.get(i).getId());
             this.add(persBox);
             boxen.add(persBox);
         }
