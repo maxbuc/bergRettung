@@ -75,7 +75,7 @@ public final class EinsatzView extends JFrame {
         labelStichwort = new JLabel("Stichwort: ");
         textStichwort = new JTextField(28);
         insert = new JButton("Einfügen");
-        read = new JButton("Auslesen");
+        read = new JButton("Ausgeben");
         personalChoice = new JButton("Personal auswählen");
         equipmentChoice = new JButton("Equipment auswählen");
         patientAdd = new JButton("Patient hinzufügen");
