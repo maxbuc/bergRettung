@@ -20,6 +20,7 @@ public class MyActionListenerEquipmentRead implements ActionListener {
         if (equView.getIdText() > 0 && equVerw.readEquipment(equView.getIdText()) != null) {
             new ResultView("Ausgabe").setResultView(equVerw.readEquipment(equView.getIdText()).toString());
             equView.getIdField().setBackground(Color.WHITE);
+            equView.getBezeichnungField().setBackground(Color.white);
         }else{
             equView.getIdField().setBackground(Color.red);
         }

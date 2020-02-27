@@ -25,6 +25,9 @@ public class MyActionListenerPersonalRead implements ActionListener {
                 r = new ResultView("Ausgabe");
                 r.setResultView(persVerw.read(persView.getIdText()).toString());
                 persView.getIdField().setBackground(Color.WHITE);
+                persView.getNachnameField().setBackground(Color.WHITE);
+                persView.getVornameField().setBackground(Color.WHITE);
+                persView.getGebdatField().setBackground(Color.LIGHT_GRAY);
             } catch (NullPointerException ex) {
                 r.dispose();
                 persView.getIdField().setBackground(Color.red);
