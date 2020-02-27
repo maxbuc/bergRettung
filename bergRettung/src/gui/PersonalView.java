@@ -3,6 +3,7 @@ package gui;
 import java.awt.FlowLayout;
 import javax.swing.JFrame;
 import bergrettung.PersonalVerwaltung;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
