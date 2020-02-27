@@ -45,7 +45,7 @@ public final class PersonalView extends JFrame {
     public void init() {
         
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(8,2));
+        panel.setLayout(new GridLayout(7,2));
         
         MyActionListenerPersonalInsert listenerInsert = new MyActionListenerPersonalInsert(persVerw, this);
         MyActionListenerPersonalUpdate listenerUpdate = new MyActionListenerPersonalUpdate(persVerw, this);

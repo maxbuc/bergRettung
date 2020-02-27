@@ -64,7 +64,7 @@ public final class EinsatzView extends JFrame {
     }
 
     public void init() {
-        this.setLayout(new GridLayout(10,2));
+        this.setLayout(new GridLayout(7,2));
 
         labelId = new JLabel("ID: ");
         textId = new JTextField(Integer.toString(einVerw.getNextFree()), ALLBITS);
