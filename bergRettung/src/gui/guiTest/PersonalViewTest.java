@@ -14,7 +14,13 @@ public final class PersonalViewTest extends JFrame {
         
         getVornameText();
         getNachnameText();
+        getIdText();
         getGebdatText();
+        getQualifikationText();
+        getVornameField();
+        getNachnameField();
+        getGebdatField();
+        getIdField();
         
         
         view.dispose();
@@ -48,7 +54,9 @@ public final class PersonalViewTest extends JFrame {
                     System.out.println("getIdText Test erfolgreich");
                 }
             }
-        }System.err.println("getIdText");
+        }else{
+            System.err.println("getIdText");
+        }
     }
 
     public void getGebdatText() {
@@ -59,23 +67,43 @@ public final class PersonalViewTest extends JFrame {
         }
     }
 
-//    public String getQualifikationText() {
-//        return qualifikationText.getText();
-//    }
-//
-//    public JTextField getNachnameField() {
-//        return nachnameText;
-//    }
-//
-//    public JTextField getVornameField() {
-//        return vornameText;
-//    }
-//
-//    public JTextField getIdField() {
-//        return idText;
-//    }
-//    
-//    public JTextField getGebdatField(){
-//        return gebdatText;
-//    }
+    public void getQualifikationText() {
+        if(view.getQualifikationText().isEmpty() && view.getQualifikationText().getClass()== "Das ist eindeutig ein String!!!".getClass()){
+            System.out.println("getQualifikationTest Test erfolgreich");
+        }else{
+            System.err.println("getQualifikationTest");
+        }
+    }
+
+    public void getNachnameField() {
+        if(view.getNachnameField().getClass() == new JTextField().getClass()){
+            System.out.println("getNachnameField Test erfolgreich");
+        }else{
+            System.err.println("getNachnameField");
+        }
+    }
+
+    public void getVornameField() {
+        if(view.getVornameField().getClass() == new JTextField().getClass()){
+            System.out.println("getVornameField Test erfolgreich");
+        }else{
+            System.err.println("getVornameField");
+        }
+    }
+
+    public void getIdField() {
+        if(view.getIdField().getClass() == new JTextField().getClass()){
+            System.out.println("getIdField Test erfolgreich");
+        }else{
+            System.err.println("getIdField");
+        }
+    }
+    
+    public void getGebdatField(){
+        if(view.getGebdatField().getClass() == new JTextField().getClass()){
+            System.out.println("getGebdatField Test erfolgreich");
+        }else{
+            System.err.println("getGebdatField");
+        }
+    }
 }
