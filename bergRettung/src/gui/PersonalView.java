@@ -147,4 +147,7 @@ public final class PersonalView extends JFrame {
     public JTextField getGebdatField(){
         return gebdatText;
     }
+    public void setIdText(String zahl){
+        idText.setText(zahl);
+    }
 }

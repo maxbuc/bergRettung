@@ -7,6 +7,7 @@ import Persistenz.persistenzTest.PatientJavaDBMapperTest;
 import Persistenz.persistenzTest.PersonalJavaDBMapperTest;
 import bergrettung.bergrettungTest.PersonalTest;
 import gui.MainView;
+import gui.guiTest.PersonalViewTest;
 
 public class BergRettung {
 
@@ -52,6 +53,7 @@ public class BergRettung {
         System.out.println("==========GUI==============================");
         System.out.println("");
         System.out.println("----------PersonalViewTest-----------------");
+        PersonalViewTest personalViewTest = new PersonalViewTest();
     }
    
     
