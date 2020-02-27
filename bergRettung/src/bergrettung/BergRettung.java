@@ -54,6 +54,11 @@ public class BergRettung {
         System.out.println("");
         System.out.println("----------PersonalViewTest-----------------");
         PersonalViewTest personalViewTest = new PersonalViewTest();
+        
+        Setup setup = new Setup();
+        setup.deleteTable();
+        setup.createTable();
+        setup();
     }
    
     

@@ -19,7 +19,9 @@ public class MyActionListenerPatientRead implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (patView.getIdText() > 0 && patVerw.readPatient(patView.getIdText()) != null) {
             new ResultView("Ausgabe").setResultView(patVerw.readPatient(patView.getIdText()).toString());
-            patView.setBackground(Color.white);
+            patView.getIdField().setBackground(Color.white);
+            patView.getNachnameField().setBackground(Color.white);
+            patView.getVornameField().setBackground(Color.white);
         } else {
             patView.getIdField().setBackground(Color.red);
         }

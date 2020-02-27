@@ -21,13 +21,13 @@ public class MyActionListenerPatientCreate implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (patView.getIdText() > 0 && !patView.getVornameText().isEmpty() && !patView.getNachnameText().isEmpty()) {
+        if (patView.getIdText() > 0 && !patView.getVornameText().isEmpty() && !patView.getNachnameText().isEmpty()&& patVerw.readPatient(patView.getIdText())== null) {
             patient = new Patient(patView.getIdText(), patView.getVornameText(), patView.getNachnameText());
             patVerw.insertPatient(patient);
             einView.addPatientList(patient);
             patView.dispose();
         }else{
-            if(patView.getIdText()<1){
+            if(patView.getIdText()<1 || patVerw.readPatient(patView.getIdText())!= null){
                 patView.getIdField().setBackground(Color.red);
             }else{
                 patView.getIdField().setBackground(Color.WHITE);
