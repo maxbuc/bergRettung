@@ -2,7 +2,7 @@ package gui;
 
 import bergrettung.Equipment;
 import bergrettung.EquipmentVerwaltung;
-import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +35,7 @@ public class EquipmentCheckBoxView extends JFrame{
     }
 
     private void init() {
-        this.setLayout(new FlowLayout());
+        this.setLayout(new GridLayout(equVerw.readAll().size()+1,1));
         
         boxen = new ArrayList<>();
         
@@ -54,7 +54,7 @@ public class EquipmentCheckBoxView extends JFrame{
         bestaetigen.addActionListener(listenerBestaetigen);
         
         this.setLocation(685,200);
-        this.setSize(435,220);
+        this.setSize(435,40*equVerw.readAll().size());
         this.setVisible(true);
     }
 

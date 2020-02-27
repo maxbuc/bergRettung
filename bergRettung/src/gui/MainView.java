@@ -7,7 +7,7 @@ import bergrettung.PatientVerwaltung;
 import bergrettung.PersonalVerwaltung;
 import bergrettung.EquipmentVerwaltung;
 import bergrettung.EinsatzVerwaltung;
-import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.net.URL;
 import javax.swing.ImageIcon;
 
@@ -42,7 +42,7 @@ public final class MainView extends JFrame {
         MyActionListenerEquipmentView listenerEquipmentView = new MyActionListenerEquipmentView(equVerw, this);
         MyActionListenerPersonalView listenerPersonalView = new MyActionListenerPersonalView(persVerw, this);
         MyActionListenerEinsatzView listenerEinsatzView = new MyActionListenerEinsatzView(einVerw, this);
-        this.setLayout(new FlowLayout());
+        this.setLayout(new GridLayout());
         patient = new JButton("Patient");
         patient.addActionListener(listenerPatientView);
         personal = new JButton("Personal");

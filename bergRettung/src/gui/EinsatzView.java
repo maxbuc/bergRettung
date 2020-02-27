@@ -1,12 +1,12 @@
 package gui;
 
-import java.awt.FlowLayout;
 import javax.swing.JFrame;
 import bergrettung.EinsatzVerwaltung;
 import bergrettung.Equipment;
 import bergrettung.Patient;
 import bergrettung.Personal;
 import java.awt.Color;
+import java.awt.GridLayout;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.net.URL;
@@ -64,7 +64,7 @@ public final class EinsatzView extends JFrame {
     }
 
     public void init() {
-        this.setLayout(new FlowLayout());
+        this.setLayout(new GridLayout(10,2));
 
         labelId = new JLabel("ID: ");
         textId = new JTextField(Integer.toString(einVerw.getNextFree()), ALLBITS);

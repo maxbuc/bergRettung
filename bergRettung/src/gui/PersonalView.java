@@ -1,15 +1,16 @@
 package gui;
 
-import java.awt.FlowLayout;
 import javax.swing.JFrame;
 import bergrettung.PersonalVerwaltung;
 import java.awt.Color;
+import java.awt.GridLayout;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public final class PersonalView extends JFrame {
@@ -42,6 +43,10 @@ public final class PersonalView extends JFrame {
     }
 
     public void init() {
+        
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(8,2));
+        
         MyActionListenerPersonalInsert listenerInsert = new MyActionListenerPersonalInsert(persVerw, this);
         MyActionListenerPersonalUpdate listenerUpdate = new MyActionListenerPersonalUpdate(persVerw, this);
         MyActionListenerPersonalRead listenerRead = new MyActionListenerPersonalRead(persVerw, this);
@@ -73,20 +78,20 @@ public final class PersonalView extends JFrame {
         vornameText = new JTextField(ALLBITS);
         gebdatText = new JTextField("yyyy-mm-dd",ALLBITS);
         qualifikationText = new JTextField(ALLBITS);
-        add(idLabel);
-        add(idText);
-        add(nachnameLabel);
-        add(nachnameText);
-        add(vornameLabel);
-        add(vornameText);
-        add(gebdatLabel);
-        add(gebdatText);
-        add(qualifikationLabel);
-        add(qualifikationText);
-        add(insert);
-        add(update);
-        add(read);
-        add(readAll);
+        panel.add(idLabel);
+        panel.add(idText);
+        panel.add(nachnameLabel);
+        panel.add(nachnameText);
+        panel.add(vornameLabel);
+        panel.add(vornameText);
+        panel.add(gebdatLabel);
+        panel.add(gebdatText);
+        panel.add(qualifikationLabel);
+        panel.add(qualifikationText);
+        panel.add(insert);
+        panel.add(update);
+        panel.add(read);
+        panel.add(readAll);
         insert.setForeground(Color.BLACK);
         update.setForeground(Color.BLACK);
         read.setForeground(Color.BLACK);
@@ -98,7 +103,12 @@ public final class PersonalView extends JFrame {
         read.addActionListener(listenerRead);
         readAll.addActionListener(listenerReadAll);
         gebdatText.addFocusListener(focusListener);
-        this.setLayout(new FlowLayout());
+        
+        this.add(panel);
+        this.pack();
+        this.setVisible(true);
+        
+        //this.setLayout(new FlowLayout());
         this.setLocation(685, 200);
         this.setSize(470, 220);
         this.setVisible(true);
