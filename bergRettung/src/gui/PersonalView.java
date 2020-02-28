@@ -160,6 +160,11 @@ public final class PersonalView extends JFrame {
     public JTextField getGebdatField(){
         return gebdatText;
     }
+    
+    public JTextField getQualifikationField(){
+        return qualifikationText;
+    }
+    
     public void setIdText(String zahl){
         idText.setText(zahl);
     }

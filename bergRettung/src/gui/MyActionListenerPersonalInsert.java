@@ -25,7 +25,8 @@ public class MyActionListenerPersonalInsert implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
-            if (!persView.getVornameText().isEmpty() && persView.getIdText() > 0 && !persView.getNachnameText().isEmpty() && persVerw.read(persView.getIdText()) == null) {
+            if (!persView.getVornameText().isEmpty() && persView.getIdText() > 0 && !persView.getNachnameText().isEmpty() && persVerw.read(persView.getIdText()) == null
+                    && persView.getVornameText().length() < 20 && persView.getNachnameText().length() < 20 && persView.getQualifikationText().length() < 40) {
 
                 personal = new Personal(persView.getIdText(), persView.getVornameText(), persView.getNachnameText());
 
@@ -43,19 +44,24 @@ public class MyActionListenerPersonalInsert implements ActionListener {
                         }
                     }
                 }
-                if (!persView.getQualifikationText().isEmpty()) {
-                    personal.setQualifikation(persView.getQualifikationText());
+                if (persView.getQualifikationText().length() < 40) {
+                    if (!persView.getQualifikationText().isEmpty()) {
+                        personal.setQualifikation(persView.getQualifikationText());                        
+                    }
+                    persView.getQualifikationField().setBackground(Color.WHITE);
+                }else{
+                    persView.getQualifikationField().setBackground(Color.red);
                 }
 
                 persVerw.insert(personal);
                 persView.dispose();
             } else {
-                if (persView.getVornameText().isEmpty()) {
+                if (persView.getVornameText().isEmpty() || persView.getVornameText().length() > 20) {
                     persView.getVornameField().setBackground(Color.red);
                 } else {
                     persView.getVornameField().setBackground(Color.WHITE);
                 }
-                if (persView.getNachnameText().isEmpty()) {
+                if (persView.getNachnameText().isEmpty() || persView.getNachnameText().length() > 20) {
                     persView.getNachnameField().setBackground(Color.red);
                 } else {
                     persView.getNachnameField().setBackground(Color.WHITE);

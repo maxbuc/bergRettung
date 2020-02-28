@@ -19,7 +19,8 @@ public class MyActionListenerPatientInsert implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (patView.getIdText() > 0 && !patView.getVornameText().isEmpty() && !patView.getNachnameText().isEmpty() && patVerw.readPatient(patView.getIdText())== null) {
+        if (patView.getIdText() > 0 && !patView.getVornameText().isEmpty() && !patView.getNachnameText().isEmpty() && patVerw.readPatient(patView.getIdText())== null &&
+                patView.getVornameText().length()<20 && patView.getNachnameText().length()<20) {
             patient = new Patient(patView.getIdText(), patView.getVornameText(), patView.getNachnameText());
             patVerw.insertPatient(patient);
             patView.dispose();
@@ -29,12 +30,12 @@ public class MyActionListenerPatientInsert implements ActionListener {
             } else {
                 patView.getIdField().setBackground(Color.WHITE);
             }
-            if (patView.getVornameText().isEmpty()) {
+            if (patView.getVornameText().isEmpty() || patView.getVornameText().length()>20) {
                 patView.getVornameField().setBackground(Color.red);
             } else {
                 patView.getVornameField().setBackground(Color.WHITE);
             }
-            if (patView.getNachnameText().isEmpty()) {
+            if (patView.getNachnameText().isEmpty() || patView.getNachnameText().length()>20) {
                 patView.getNachnameField().setBackground(Color.red);
             } else {
                 patView.getNachnameField().setBackground(Color.WHITE);
