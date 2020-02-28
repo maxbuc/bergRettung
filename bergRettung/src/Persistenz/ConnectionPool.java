@@ -12,12 +12,12 @@ import java.util.logging.Logger;
 
 public class ConnectionPool {
     private static ConnectionPool singlePool;
-    private final Stack<Connection> pool; 
-    private final int size;
-    private final String driver = "org.apache.derby.jdbc.ClientDriver";
-    private final String url = "jdbc:derby://localhost:1527/Bergrettung";
-    private final String user = "SPE";
-    private final String pwd = "123";
+    private  Stack<Connection> pool; 
+    private  int size;
+    private final String DRIVER = "org.apache.derby.jdbc.ClientDriver";
+    private final String URL = "jdbc:derby://localhost:1527/Bergrettung";
+    private final String USER = "SPE";
+    private final String PWD = "123";
     
     public static ConnectionPool getSinglePool(int size){
         if(singlePool == null){
@@ -54,8 +54,8 @@ public class ConnectionPool {
     private Connection getNew() {
         Connection conn = null;
         try{
-            Class.forName(driver);
-            conn = DriverManager.getConnection(url,user,pwd);
+            Class.forName(DRIVER);
+            conn = DriverManager.getConnection(URL,USER,PWD);
         } catch (ClassNotFoundException e) {
             System.err.println(e);
         } catch (SQLException e){

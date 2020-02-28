@@ -22,7 +22,8 @@ public class MyActionListenerEinsatzInsert implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (view.getTextId()>0 && einVerw.readEinsatz(view.getTextId())==null && !view.getTextDatum().isEmpty() && !view.getTextOrt().isEmpty() && !view.getTextStichwort().isEmpty() && isDate(view.getTextDatum())) {
+        if (view.getTextId()>0 && einVerw.readEinsatz(view.getTextId())==null && !view.getTextDatum().isEmpty() && !view.getTextOrt().isEmpty() && !view.getTextStichwort().isEmpty() && isDate(view.getTextDatum())
+                && view.getTextStichwort().length()<40 && view.getTextOrt().length()<20) {
             einsatz = new Einsatz(view.getTextId(), view.getTextDatum(), view.getTextOrt(), view.getTextStichwort());
             einsatz.setPersonal(view.getPersonalList());
             einsatz.setEquipment(view.getEquipmentList());
@@ -41,12 +42,12 @@ public class MyActionListenerEinsatzInsert implements ActionListener {
             }else{
                 view.getDatumField().setBackground(Color.WHITE);
             }
-            if(view.getTextOrt().isEmpty()){
+            if(view.getTextOrt().isEmpty() || view.getTextOrt().length()>=20){
                 view.getOrtField().setBackground(Color.red);
             }else{
                 view.getOrtField().setBackground(Color.WHITE);
             }
-            if(view.getTextStichwort().isEmpty()){
+            if(view.getTextStichwort().isEmpty() ||view.getTextStichwort().length()>=40){
                 view.getStichwortField().setBackground(Color.red);
             }else{
                 view.getStichwortField().setBackground(Color.WHITE);

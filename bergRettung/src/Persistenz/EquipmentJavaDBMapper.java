@@ -18,8 +18,8 @@ import bergrettung.Equipment;
 
 public class EquipmentJavaDBMapper implements IEquipmentMapper {
     
-    private final int size = 4;//Konstante final
-    private final ConnectionPool pool = ConnectionPool.getSinglePool(size);
+    private final int SIZE = 4;//Konstante final
+    private ConnectionPool pool = ConnectionPool.getSinglePool(SIZE);
     private Integer anz;
     
     

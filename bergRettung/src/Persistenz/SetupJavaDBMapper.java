@@ -9,8 +9,8 @@ import java.util.logging.Logger;
 
 public class SetupJavaDBMapper implements ISetupMapper {
     private Integer anz;
-    private final int size = 4;
-    private final ConnectionPool pool = ConnectionPool.getSinglePool(size);
+    private final int SIZE = 4;
+    private ConnectionPool pool = ConnectionPool.getSinglePool(SIZE);
 
     @Override
     public void deleteTable() throws SQLSyntaxErrorException{

@@ -19,7 +19,7 @@ public class MyActionListenerEquipmentInsert implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e){
-        if(equView.getIdText()>0 && !equView.getBezeichnungText().isEmpty() && equVerw.readEquipment(equView.getIdText())==null){
+        if(equView.getIdText()>0 && !equView.getBezeichnungText().isEmpty() && equVerw.readEquipment(equView.getIdText())==null && equView.getBezeichnungText().length()<40){
         equipment = new Equipment(equView.getBezeichnungText(), equView.getIdText());
         equVerw.insertEquipment(equipment);
         equView.dispose();
@@ -29,7 +29,7 @@ public class MyActionListenerEquipmentInsert implements ActionListener{
             }else{
                 equView.getIdField().setBackground(Color.WHITE);
             }
-            if(equView.getBezeichnungText().isEmpty()){
+            if(equView.getBezeichnungText().isEmpty() || equView.getBezeichnungText().length()>40){
                 equView.getBezeichnungField().setBackground(Color.red);
             }else{
                 equView.getBezeichnungField().setBackground(Color.WHITE);

@@ -13,8 +13,8 @@ import bergrettung.Patient;
 
 public class PatientJavaDBMapper implements IPatientMapper{
     private Integer anz;
-    private final int size=4; 
-    private final ConnectionPool pool=ConnectionPool.getSinglePool(size);
+    private final int SIZE=4; 
+    private  ConnectionPool pool=ConnectionPool.getSinglePool(SIZE);
     
     @Override
     public void insertPatient(Patient p){

@@ -25,6 +25,9 @@ public class MyActionListenerEinsatzRead implements ActionListener {
             view.getOrtField().setBackground(Color.white);
         }else{
             view.getIdField().setBackground(Color.red);
+            view.getDatumField().setBackground(Color.white);
+            view.getStichwortField().setBackground(Color.white);
+            view.getOrtField().setBackground(Color.white);
         }
     }
 

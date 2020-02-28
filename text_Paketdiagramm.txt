@@ -1,0 +1,4 @@
+Das Projekt hat 3 logische Schichten, die Persistenz, die Application und das graphische User Interface. Jede dieser Schichten hat seine eigene Aufgabe und Kommunikationsschnittstellen zu anderen Schichten.
+Die Persistenz ist die Schnittstelle des Programms, um auf die Datenbank zugreifen zu können. Sie fügt Einträge hinzu, ändert vorhandene Einträge und gibt diese aus.
+Die Application ist der Verwaltungslayer, der die Eingaben aus der graphischen Benutzeroberfläche an die Persistenzschicht weiterleitet. Hierzu wird zusätzlich eine Wrapperklasse verwendet, damit die Verwaltung nicht direkt auf die Persistent zugreifen muss.
+Das graphical User Interface ist die Bedienoberfläche, die dem Benutzer zur Verfügung gestellt wird. Hier gibt es zum einen die Fenster (Views), welche der Benutzer sieht und zum anderen die ActionListener, welche bei betätigen der verschiedensten Button diverse Aktionen ausführen.
