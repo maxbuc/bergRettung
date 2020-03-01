@@ -22,12 +22,12 @@ public class BergRettung {
         set.createTable();
         
         //Fügt Testdaten ein
-        setup();
+        befuellen();
         
         
         new MainView("Programm - Bergrettung");
         
-        test();
+//        test();
         
     }
     
@@ -58,12 +58,12 @@ public class BergRettung {
         Setup setup = new Setup();
         setup.deleteTable();
         setup.createTable();
-        setup();
+        befuellen();
     }
    
     
     //erstellt und fügt alle Objekte in DB
-    public static void setup(){
+    public static void befuellen(){
         PersonalVerwaltung persVerw = new PersonalVerwaltung();
         PatientVerwaltung patVerw = new PatientVerwaltung();
         EinsatzVerwaltung einVerw = new EinsatzVerwaltung();
